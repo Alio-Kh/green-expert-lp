@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     default: "Expert Paysagiste au Maroc - Green Expert",
     template: "%s | Green Expert Maroc",
   },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   description:
     "Green Expert : Votre paysagiste au Maroc, spécialisé dans la création, la réalisation et l'entretien de jardins et d'espaces verts. Offrez-vous un coin de paradis en toute sérénité.",
   keywords: [
