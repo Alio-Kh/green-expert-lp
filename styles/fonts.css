@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Display';
+  src: url('/fonts/Geist-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-display {
+  font-family: 'Display', sans-serif;
+}
+
