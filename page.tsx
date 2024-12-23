@@ -1,45 +1,43 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { useToast } from "@/components/ui/use-toast"
-import { ChevronRight, Menu, X } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { SectionReveal } from "@/components/section-reveal"
-import { cn } from "@/lib/utils"
-import { ProjectsShowcase } from "@/components/projects-showcase"
-import { ServicesGrid } from "@/components/services-grid"
-import { ContactForm } from "@/components/contact-form"
-import { Footer } from "@/components/footer"
-import { TestimonialSlider } from "@/components/testimonial-slider"
-import { ProcessSection } from "@/components/process-section"
-import { GardeningTips } from "@/components/gardening-tips"
-import { PartnersSection } from "@/components/partners-section"
+import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { SectionReveal } from "@/components/section-reveal";
+import { cn } from "@/lib/utils";
+import { ProjectsShowcase } from "@/components/projects-showcase";
+import { ServicesGrid } from "@/components/services-grid";
+import { ContactForm } from "@/components/contact-form";
+import { Footer } from "@/components/footer";
+import { TestimonialSlider } from "@/components/testimonial-slider";
+import { ProcessSection } from "@/components/process-section";
+import { GardeningTips } from "@/components/gardening-tips";
+import { PartnersSection } from "@/components/partners-section";
+import { useToast } from "./components/use-toast";
 
 export default function LandingPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { toast } = useToast()
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toast } = useToast();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.75; // Slow down the video
     }
-  }, [])
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-[#1a2821] text-white">
@@ -62,7 +60,7 @@ export default function LandingPage() {
               className="h-10 w-auto object-contain"
             />
           </Link>
-          
+
           {/* Desktop Menu */}
           <div className="hidden items-center gap-8 md:flex">
             {["accueil", "services", "projets", "contact"].map((item) => (
@@ -70,14 +68,16 @@ export default function LandingPage() {
                 key={item}
                 whileHover={{ y: -2 }}
                 className="text-sm uppercase tracking-wider text-white/70 transition-colors hover:text-white"
-                onClick={() => document.getElementById(item)?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document
+                    .getElementById(item)
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 {item}
               </motion.button>
             ))}
-            <Button
-              className="rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
-            >
+            <Button className="rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
               Demander un devis
             </Button>
           </div>
@@ -106,16 +106,16 @@ export default function LandingPage() {
                     key={item}
                     className="text-left text-sm uppercase tracking-wider text-white/70 transition-colors hover:text-white"
                     onClick={() => {
-                      document.getElementById(item)?.scrollIntoView({ behavior: "smooth" })
-                      setIsMobileMenuOpen(false)
+                      document
+                        .getElementById(item)
+                        ?.scrollIntoView({ behavior: "smooth" });
+                      setIsMobileMenuOpen(false);
                     }}
                   >
                     {item}
                   </button>
                 ))}
-                <Button
-                  className="mt-2 rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
-                >
+                <Button className="mt-2 rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
                   Demander un devis
                 </Button>
               </div>
@@ -138,13 +138,15 @@ export default function LandingPage() {
             playsInline
             className="h-full w-full object-cover"
           >
-            <source src="https://res.cloudinary.com/ddpoq8ufw/video/upload/v1734908183/Green%20Expert/st0mle9ort9me9vgmktj.mp4" type="video/mp4" />
-
+            <source
+              src="https://res.cloudinary.com/ddpoq8ufw/video/upload/v1734908183/Green%20Expert/st0mle9ort9me9vgmktj.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2821]/50 to-[#1a2821]" />
         </div>
-        
+
         <div className="container relative z-10 mx-auto grid min-h-[calc(100vh-5rem)] gap-12 px-4 py-20 md:grid-cols-2 md:items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -161,23 +163,26 @@ export default function LandingPage() {
               Experts en aménagement paysager
             </motion.div>
             <h1 className="font-serif text-5xl font-light leading-tight md:text-7xl">
-              Créons votre{" "}
-              <span className="text-[#9bbb2d]">sanctuaire</span> naturel
+              Créons votre <span className="text-[#9bbb2d]">sanctuaire</span>{" "}
+              naturel
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              Transformez vos espaces extérieurs en havres de paix où la nature s'épanouit en harmonie avec vos rêves.
+              Transformez vos espaces extérieurs en havres de paix où la nature
+              s'épanouit en harmonie avec vos rêves.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button
-                className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
-              >
+              <Button className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
                 Découvrir nos créations
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
                 variant="outline"
                 className="group rounded-full border-2 border-white px-6 text-white hover:bg-white hover:text-[#1a2821] transition-colors"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Nos services
               </Button>
@@ -201,7 +206,8 @@ export default function LandingPage() {
               <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
                 <div className="font-serif text-2xl">Jardin Zen Moderne</div>
                 <p className="mt-2 text-white/70">
-                  Un mélange harmonieux de design contemporain et d'éléments naturels
+                  Un mélange harmonieux de design contemporain et d'éléments
+                  naturels
                 </p>
               </div>
             </div>
@@ -238,7 +244,9 @@ export default function LandingPage() {
                 <span className="text-[#9bbb2d]">Design Paysager</span>
               </h2>
               <p className="mt-6 text-white/70">
-                De la conception initiale à l'entretien régulier, nous créons des espaces verts qui reflètent votre vision tout en respectant l'environnement.
+                De la conception initiale à l'entretien régulier, nous créons
+                des espaces verts qui reflètent votre vision tout en respectant
+                l'environnement.
               </p>
             </div>
             <ServicesGrid />
@@ -259,7 +267,8 @@ export default function LandingPage() {
                 <span className="text-[#9bbb2d]">Exceptionnelles</span>
               </h2>
               <p className="mt-6 text-white/70">
-                Découvrez comment nous transformons les espaces ordinaires en jardins extraordinaires.
+                Découvrez comment nous transformons les espaces ordinaires en
+                jardins extraordinaires.
               </p>
             </div>
             <ProjectsShowcase />
@@ -277,14 +286,15 @@ export default function LandingPage() {
                 <span className="text-[#9bbb2d]">Nos Clients</span>
               </h2>
               <p className="mt-6 text-white/70">
-                Découvrez les témoignages de nos clients satisfaits qui nous font confiance pour leurs projets d'aménagement paysager.
+                Découvrez les témoignages de nos clients satisfaits qui nous
+                font confiance pour leurs projets d'aménagement paysager.
               </p>
             </div>
           </SectionReveal>
           <TestimonialSlider />
         </div>
       </section>
-      
+
       <PartnersSection />
 
       {/* Contact Section */}
@@ -293,11 +303,11 @@ export default function LandingPage() {
           <SectionReveal>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-serif text-4xl font-light md:text-5xl">
-                Commencez Votre{" "}
-                <span className="text-[#9bbb2d]">Projet</span>
+                Commencez Votre <span className="text-[#9bbb2d]">Projet</span>
               </h2>
               <p className="mt-6 text-white/70">
-                Prenez contact avec nous pour donner vie à votre vision d'un espace vert parfait.
+                Prenez contact avec nous pour donner vie à votre vision d'un
+                espace vert parfait.
               </p>
             </div>
             <ContactForm />
@@ -308,6 +318,5 @@ export default function LandingPage() {
       <Footer />
       <ScrollToTop />
     </div>
-  )
+  );
 }
-
