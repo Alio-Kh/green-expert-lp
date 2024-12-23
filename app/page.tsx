@@ -27,9 +27,9 @@ export default function LandingPage() {
                 <span className="text-[#9bbb2d]">Design Paysager</span>
               </h2>
               <p className="mt-6 text-white/70">
-                De la conception initiale à l&apos;entretien régulier, nous créons
-                des espaces verts qui reflètent votre vision tout en respectant
-                l&apos;environnement.
+                De la conception initiale à l&apos;entretien régulier, nous
+                créons des espaces verts qui reflètent votre vision tout en
+                respectant l&apos;environnement.
               </p>
             </div>
             <ServicesGrid />
@@ -89,8 +89,8 @@ export default function LandingPage() {
                 Commencez Votre <span className="text-[#9bbb2d]">Projet</span>
               </h2>
               <p className="mt-6 text-white/70">
-                Prenez contact avec nous pour donner vie à votre vision d&apos;un
-                espace vert parfait.
+                Prenez contact avec nous pour donner vie à votre vision
+                d&apos;un espace vert parfait.
               </p>
             </div>
             <ContactForm />

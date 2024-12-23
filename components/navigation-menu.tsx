@@ -8,6 +8,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+const WHATSAPP_NUMBER = "212661967903";
+const WHATSAPP_MESSAGE =
+  "Bonjour, je souhaite demander un devis pour un projet d'aménagement paysager.";
+
 export function NavigationMenu() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -56,7 +60,17 @@ export function NavigationMenu() {
               {item}
             </motion.button>
           ))}
-          <Button className="rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
+          <Button
+            className="rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
+            onClick={() =>
+              window.open(
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  WHATSAPP_MESSAGE
+                )}`,
+                "_blank"
+              )
+            }
+          >
             Demander un devis
           </Button>
         </div>
@@ -94,7 +108,17 @@ export function NavigationMenu() {
                   {item}
                 </button>
               ))}
-              <Button className="mt-2 rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
+              <Button
+                className="mt-2 rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      WHATSAPP_MESSAGE
+                    )}`,
+                    "_blank"
+                  )
+                }
+              >
                 Demander un devis
               </Button>
             </div>

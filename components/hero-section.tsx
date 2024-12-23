@@ -62,13 +62,20 @@ export function HeroSection() {
             s&apos;épanouit en harmonie avec vos rêves.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
+            <Button 
+              className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
+              onClick={() =>
+                document
+                  .getElementById("projets")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Découvrir nos créations
               <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               variant="outline"
-              className="group rounded-full border-2 border-white px-6 text-white hover:bg-white hover:text-[#1a2821] transition-colors"
+              className="group rounded-full border-2 border-white px-6 bg-transparent text-white hover:bg-white hover:text-[#1a2821] transition-colors"
               onClick={() =>
                 document
                   .getElementById("services")
