@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://green-expert.ma"),
+  metadataBase: new URL("https://green-expert.vercel.app/"),
   title: {
     default: "Expert Paysagiste au Maroc - Green Expert",
     template: "%s | Green Expert Maroc",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Expert Paysagiste au Maroc - Green Expert",
     description:
       "Votre expert en aménagement paysager au Maroc. Création, réalisation et entretien de jardins et d'espaces verts professionnels.",
-    url: "https://green-expert.ma",
+    url: "https://green-expert.vercel.app",
     siteName: "Green Expert",
     locale: "fr_FR",
     type: "website",
@@ -79,13 +79,13 @@ export const metadata: Metadata = {
     title: "Expert Paysagiste au Maroc - Green Expert",
     description:
       "Votre expert en aménagement paysager au Maroc. Services professionnels de création et entretien de jardins.",
-    images: ["https://green-expert.ma/twitter-image.jpg"], // Replace with your actual Twitter image
+    images: ["https://green-expert.vercel.app/cover.png"],
   },
   alternates: {
-    canonical: "https://green-expert.ma",
+    canonical: "https://green-expert.vercel.app/",
     languages: {
-      "fr-MA": "https://green-expert.ma/fr",
-      "ar-MA": "https://green-expert.ma/ar",
+      "fr-MA": "https://green-expert.vercel.app//fr",
+      "ar-MA": "https://green-expert.vercel.app//ar",
     },
   },
   verification: {
