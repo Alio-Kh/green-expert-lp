@@ -84,8 +84,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://green-expert.vercel.app/",
     languages: {
-      "fr-MA": "https://green-expert.vercel.app//fr",
-      "ar-MA": "https://green-expert.vercel.app//ar",
+      "fr-MA": "https://green-expert.vercel.app/fr",
+      "ar-MA": "https://green-expert.vercel.app/ar",
     },
   },
   verification: {
