@@ -1,21 +1,39 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 const partners = [
-  { name: "EcoSolutions", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-  { name: "GreenTech", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-  { name: "BioInnovate", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-  { name: "NaturePro", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-  { name: "EarthCare", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-  { name: "SustainGrow", logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png" },
-]
+  {
+    name: "EcoSolutions",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+  {
+    name: "GreenTech",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+  {
+    name: "BioInnovate",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+  {
+    name: "NaturePro",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+  {
+    name: "EarthCare",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+  {
+    name: "SustainGrow",
+    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+  },
+];
 
 export function PartnersSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section ref={ref} className="bg-white py-32">
@@ -30,7 +48,8 @@ export function PartnersSection() {
             Ils Nous Font Confiance
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg text-[#1a2821]/70">
-            Découvrez les entreprises et institutions qui nous ont choisis pour transformer leurs espaces verts en véritables chefs-d'œuvre.
+            Découvrez les entreprises et institutions qui nous ont choisis pour
+            transformer leurs espaces verts en véritables chefs-d&apos;œuvre.
           </p>
         </motion.div>
         <div className="mt-16 grid grid-cols-2 gap-12 md:grid-cols-4">
@@ -55,6 +74,5 @@ export function PartnersSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

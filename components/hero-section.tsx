@@ -59,7 +59,7 @@ export function HeroSection() {
           </h1>
           <p className="mt-6 text-lg text-white/70">
             Transformez vos espaces extérieurs en havres de paix où la nature
-            s'épanouit en harmonie avec vos rêves.
+            s&apos;épanouit en harmonie avec vos rêves.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Button className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90">
@@ -97,7 +97,7 @@ export function HeroSection() {
             <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
               <div className="font-serif text-2xl">Jardin Zen Moderne</div>
               <p className="mt-2 text-white/70">
-                Un mélange harmonieux de design contemporain et d'éléments
+                Un mélange harmonieux de design contemporain et d&apos;éléments
                 naturels
               </p>
             </div>

@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -14,7 +14,8 @@ export function Footer() {
               className="h-10 w-auto object-contain"
             />
             <p className="mt-4 text-sm text-white/70">
-              Votre partenaire de confiance en aménagement paysager depuis plus de deux décennies.
+              Votre partenaire de confiance en aménagement paysager depuis plus
+              de deux décennies
             </p>
           </div>
           <div>
@@ -31,7 +32,7 @@ export function Footer() {
             <div className="font-medium">Services</div>
             <div className="mt-4 space-y-2 text-sm text-white/70">
               <p>Design Paysager</p>
-              <p>Systèmes d'Irrigation</p>
+              <p>Systèmes d&apos;Irrigation</p>
               <p>Éclairage Extérieur</p>
               <p>Maintenance</p>
             </div>
@@ -50,6 +51,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

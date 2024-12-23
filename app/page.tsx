@@ -1,3 +1,5 @@
+import { NavigationMenu } from "@/components/navigation-menu";
+import { HeroSection } from "@/components/hero-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SectionReveal } from "@/components/section-reveal";
 import { ProjectsShowcase } from "@/components/projects-showcase";
@@ -8,8 +10,6 @@ import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ProcessSection } from "@/components/process-section";
 import { GardeningTips } from "@/components/gardening-tips";
 import { PartnersSection } from "@/components/partners-section";
-import { NavigationMenu } from "@/components/navigation-menu";
-import { HeroSection } from "@/components/hero-section";
 
 export default function LandingPage() {
   return (
@@ -27,9 +27,9 @@ export default function LandingPage() {
                 <span className="text-[#9bbb2d]">Design Paysager</span>
               </h2>
               <p className="mt-6 text-white/70">
-                De la conception initiale à l'entretien régulier, nous créons
+                De la conception initiale à l&apos;entretien régulier, nous créons
                 des espaces verts qui reflètent votre vision tout en respectant
-                l'environnement.
+                l&apos;environnement.
               </p>
             </div>
             <ServicesGrid />
@@ -70,7 +70,7 @@ export default function LandingPage() {
               </h2>
               <p className="mt-6 text-white/70">
                 Découvrez les témoignages de nos clients satisfaits qui nous
-                font confiance pour leurs projets d'aménagement paysager.
+                font confiance pour leurs projets d&apos;aménagement paysager.
               </p>
             </div>
           </SectionReveal>
@@ -89,7 +89,7 @@ export default function LandingPage() {
                 Commencez Votre <span className="text-[#9bbb2d]">Projet</span>
               </h2>
               <p className="mt-6 text-white/70">
-                Prenez contact avec nous pour donner vie à votre vision d'un
+                Prenez contact avec nous pour donner vie à votre vision d&apos;un
                 espace vert parfait.
               </p>
             </div>

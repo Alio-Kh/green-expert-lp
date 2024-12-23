@@ -1,26 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { ArrowUp } from 'lucide-react'
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { scrollToElement } from "@/lib/utils"
+import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
-        setIsVisible(true)
+        setIsVisible(true);
       } else {
-        setIsVisible(false)
+        setIsVisible(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", toggleVisibility)
-    return () => window.removeEventListener("scroll", toggleVisibility)
-  }, [])
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -35,13 +34,12 @@ export function ScrollToTop() {
             variant="secondary"
             size="icon"
             className="h-10 w-10 rounded-full bg-[#9bbb2d] text-white shadow-lg hover:bg-[#8bab1d]"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <ArrowUp className="h-5 w-5" />
           </Button>
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
-
