@@ -1,57 +1,57 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
     title: "Villa Méditerranéenne",
     description: "Un jardin luxuriant inspiré des côtes méditerranéennes",
-    image: "https://fal.media/files/rabbit/VV2ti7c12ADTfKn8zs7p2_68e66fa918864a4facb8510cfc401fa9.jpg",
+    image:
+      "https://fal.media/files/rabbit/VV2ti7c12ADTfKn8zs7p2_68e66fa918864a4facb8510cfc401fa9.jpg",
     stats: ["500m²", "3 mois", "Design exclusif"],
   },
   {
     title: "Oasis Urbaine",
     description: "Un havre de paix au cœur de la ville",
-    image: "https://fal.media/files/penguin/oDferWZMirf76z6a_EYZG_a75d40eee1c84a488813cba28fbe1b77.jpg",
+    image:
+      "https://fal.media/files/penguin/oDferWZMirf76z6a_EYZG_a75d40eee1c84a488813cba28fbe1b77.jpg",
     stats: ["300m²", "2 mois", "Irrigation intelligente"],
   },
   {
     title: "Jardin Zen",
     description: "Un espace de tranquillité et de méditation",
-    image: "https://fal.media/files/kangaroo/ENyEfffIBlh4aZ1RB7w8G_b9a74c7115594336a6d403e5ef9827ce.jpg",
+    image:
+      "https://fal.media/files/kangaroo/ENyEfffIBlh4aZ1RB7w8G_b9a74c7115594336a6d403e5ef9827ce.jpg",
     stats: ["200m²", "1.5 mois", "Éclairage LED"],
   },
-]
+];
 
 export function ProjectsShowcase() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
-    setDirection(1)
     setCurrentIndex((current) =>
       current === projects.length - 1 ? 0 : current + 1
-    )
-  }
+    );
+  };
 
   const previous = () => {
-    setDirection(-1)
     setCurrentIndex((current) =>
       current === 0 ? projects.length - 1 : current - 1
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      next()
-    }, 5000)
+      next();
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="mt-16">
@@ -132,6 +132,5 @@ export function ProjectsShowcase() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
