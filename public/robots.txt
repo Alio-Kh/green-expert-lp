@@ -1,0 +1,20 @@
+# https://greenexpert.ma robots.txt
+User-agent: *
+Allow: /
+Allow: /fr
+Allow: /ar
+
+# Sitemaps
+Sitemap: https://greenexpert.ma/sitemap.xml
+
+# Media files
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Resources
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*? 
