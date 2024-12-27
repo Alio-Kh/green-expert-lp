@@ -1,29 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "./use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
-      title: "Message envoyé!",
-      description: "Nous vous contacterons bientôt.",
+      title: "Formulaire désactivé",
+      description: "Le formulaire de contact n'est pas encore disponible.",
+      variant: "destructive",
     });
-
-    setIsSubmitting(false);
   };
 
   return (
@@ -85,9 +78,8 @@ export function ContactForm() {
         <Button
           type="submit"
           className="w-full rounded-full bg-[#9bbb2d] text-white hover:bg-[#8bab1d]"
-          disabled={isSubmitting}
         >
-          {isSubmitting ? "Envoi en cours..." : "Envoyer votre message"}
+          Envoyer votre message
         </Button>
       </form>
     </motion.div>

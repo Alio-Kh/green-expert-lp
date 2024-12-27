@@ -1,35 +1,39 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const tips = [
   {
     title: "Préparation du Sol et Drainage",
     description: "Guide complet sur la préparation optimale de votre terrain",
-    image: "https://fal.media/files/koala/SNlnGNGCBAN8Niq3MCCiw_e5289361787b470fb5babca9f7a35cde.jpg",
+    image:
+      "https://fal.media/files/koala/SNlnGNGCBAN8Niq3MCCiw_e5289361787b470fb5babca9f7a35cde.jpg",
     link: "/conseils/preparation-sol",
   },
   {
     title: "Choix des Plantes Adaptées",
     description: "Sélection des meilleures plantes pour le climat marocain",
-    image: "https://fal.media/files/kangaroo/3nHhmrCWM-q4vbS7kNpGI_79afd7719ffc414aa61c381b609bdcfa.jpg",
+    image:
+      "https://fal.media/files/kangaroo/3nHhmrCWM-q4vbS7kNpGI_79afd7719ffc414aa61c381b609bdcfa.jpg",
     link: "/conseils/plantes-maroc",
   },
   {
     title: "Systèmes d'Irrigation Efficaces",
     description: "Solutions modernes pour l'arrosage de votre jardin",
-    image: "https://fal.media/files/monkey/FrLq4VY9iD2sm5B_WSUkf_71f231294f42438a879a6846b8503cd5.jpg",
+    image:
+      "https://fal.media/files/monkey/FrLq4VY9iD2sm5B_WSUkf_71f231294f42438a879a6846b8503cd5.jpg",
     link: "/conseils/irrigation",
   },
   {
     title: "Jardinage Écologique",
     description: "Techniques respectueuses de l'environnement",
-    image: "https://fal.media/files/kangaroo/5NaC8_M_TTUkAxvHxQOqZ_12bc320498a24ecfbfcb1ed276d5245d.jpg",
+    image:
+      "https://fal.media/files/kangaroo/5NaC8_M_TTUkAxvHxQOqZ_12bc320498a24ecfbfcb1ed276d5245d.jpg",
     link: "/conseils/eco-jardinage",
   },
-]
+];
 
 export function GardeningTips() {
   return (
@@ -46,8 +50,9 @@ export function GardeningTips() {
               Conseils de Jardinage
             </h2>
             <p className="mt-6 text-[#1a2821]/70">
-              Le jardinage est une activité enrichissante qui vous permet de rester en contact avec la nature. 
-              Découvrez nos conseils pour créer et entretenir votre jardin de rêve.
+              Le jardinage est une activité enrichissante qui vous permet de
+              rester en contact avec la nature. Découvrez nos conseils pour
+              créer et entretenir votre jardin de rêve.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button
@@ -98,6 +103,5 @@ export function GardeningTips() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

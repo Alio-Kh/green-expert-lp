@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -29,18 +29,29 @@ const projects = [
 
 export function ProjectsShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
 
   const next = () => {
+    setDirection(1)
     setCurrentIndex((current) =>
       current === projects.length - 1 ? 0 : current + 1
     )
   }
 
   const previous = () => {
+    setDirection(-1)
     setCurrentIndex((current) =>
       current === 0 ? projects.length - 1 : current - 1
     )
   }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      next()
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <div className="mt-16">

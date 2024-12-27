@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -22,7 +23,8 @@ export function Footer() {
             <div className="font-medium">Contact</div>
             <div className="mt-4 space-y-2 text-sm text-white/70">
               <p>06 61 96 79 03</p>
-              <p>said.greenexpert@gmail.com</p>
+              {/* <p>ste.greenexpert@gmail.com</p> */}
+              <p>contact@greenexpert.ma</p>
               <p className="text-sm">
                 Résidence Assafae 05 Imm 41 Appt 12, Al Quods, Laayayda - Salé
               </p>
@@ -38,11 +40,26 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <div className="font-medium">Horaires</div>
-            <div className="mt-4 space-y-2 text-sm text-white/70">
-              <p>Lundi - Vendredi: 9h - 18h</p>
-              <p>Samedi: 9h - 14h</p>
-              <p>Dimanche: Fermé</p>
+            <div className="font-medium">Suivez-nous</div>
+            <div className="mt-4 space-y-4">
+              <a
+                href="https://www.instagram.com/greenexpertmaroc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-white/70 hover:text-[#9bbb2d] transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+                <span>@greenexpertmaroc</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/green-expert-9ba926200"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-white/70 hover:text-[#9bbb2d] transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span>Green Expert</span>
+              </a>
             </div>
           </div>
         </div>

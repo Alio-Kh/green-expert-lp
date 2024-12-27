@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Leaf, Droplets, Sun, TreePine, Shovel, Shield } from 'lucide-react'
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { Leaf, Droplets, Sun, TreePine, Shovel, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: Leaf,
     title: "Design Paysager",
-    description: "Création de plans personnalisés qui allient esthétique et fonctionnalité",
+    description:
+      "Création de plans personnalisés qui allient esthétique et fonctionnalité",
   },
   {
     icon: Droplets,
@@ -23,7 +24,8 @@ const services = [
   {
     icon: TreePine,
     title: "Plantation",
-    description: "Sélection et installation d'espèces adaptées à votre environnement",
+    description:
+      "Sélection et installation d'espèces adaptées à votre environnement",
   },
   {
     icon: Shovel,
@@ -35,7 +37,7 @@ const services = [
     title: "Maintenance",
     description: "Entretien régulier pour préserver la beauté de votre jardin",
   },
-]
+];
 
 export function ServicesGrid() {
   return (
@@ -48,12 +50,14 @@ export function ServicesGrid() {
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
         >
-          <Card className="group relative overflow-hidden border-white/10 bg-white/5 transition-colors hover:bg-white/10">
+          <Card className="group relative h-full overflow-hidden border-white/10 bg-white/5 transition-colors hover:bg-white/10">
             <CardContent className="p-6">
               <div className="mb-4 inline-flex rounded-full bg-[#9bbb2d]/10 p-3 text-[#9bbb2d]">
                 <service.icon className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-xl">{service.title}</h3>
+              <h3 className="text-2xl font-serif font-semibold text-[#9bbb2d] mb-4">
+                {service.title}
+              </h3>
               <p className="mt-2 text-white/70">{service.description}</p>
             </CardContent>
             <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#9bbb2d]/0 via-[#9bbb2d]/0 to-[#9bbb2d]/5 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -61,6 +65,5 @@ export function ServicesGrid() {
         </motion.div>
       ))}
     </div>
-  )
+  );
 }
-

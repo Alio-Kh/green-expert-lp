@@ -8,7 +8,6 @@ import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ProcessSection } from "@/components/process-section";
-import { GardeningTips } from "@/components/gardening-tips";
 import { PartnersSection } from "@/components/partners-section";
 
 export default function LandingPage() {
@@ -38,7 +37,7 @@ export default function LandingPage() {
       </section>
 
       <ProcessSection />
-      <GardeningTips />
+      {/* <GardeningTips /> */}
 
       {/* Projects Section */}
       <section id="projets" className="bg-[#1a2821] py-32">

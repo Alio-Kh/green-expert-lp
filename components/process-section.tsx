@@ -23,7 +23,7 @@ const processSteps = [
 
 export function ProcessSection() {
   return (
-    <section className="bg-[#1a2821] py-32">
+    <section className="bg-white py-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export function ProcessSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="font-serif text-4xl font-light md:text-5xl">
+          <h2 className="font-serif text-4xl font-light text-[#1a2821] md:text-5xl">
             Comment Nous{" "}
             <span className="text-[#9bbb2d]">Travaillons</span>
           </h2>
@@ -62,8 +62,8 @@ export function ProcessSection() {
                   <div className="absolute left-full top-1/2 hidden h-px w-full -translate-y-1/2 bg-gradient-to-r from-[#9bbb2d] to-transparent md:block" />
                 )}
               </div>
-              <h3 className="font-serif text-2xl">{step.title}</h3>
-              <p className="mt-2 text-white/70">{step.description}</p>
+              <h3 className="font-serif text-2xl font-bold text-[#1a2821]">{step.title}</h3>
+              <p className="mt-2 text-[#1a2821]/70">{step.description}</p>
             </motion.div>
           ))}
         </div>

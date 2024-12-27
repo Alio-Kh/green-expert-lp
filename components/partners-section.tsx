@@ -1,72 +1,68 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const partners = [
   {
-    name: "EcoSolutions",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+    name: "INPT",
+    logo: "/partners/inpt.jpg",
+    alt: "Logo de l'Institut National des Postes et Télécommunications",
   },
   {
-    name: "GreenTech",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+    name: "Morocco Foodex",
+    logo: "/partners/LOGO-MFX.png",
+    alt: "Logo de Morocco Foodex",
   },
   {
-    name: "BioInnovate",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+    name: "MedOMed",
+    logo: "/partners/medomed.jpg",
+    alt: "Logo de MedOMed - École de jardinage bouragrag",
   },
   {
-    name: "NaturePro",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
-  },
-  {
-    name: "EarthCare",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
-  },
-  {
-    name: "SustainGrow",
-    logo: "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908358/Green%20Expert/tfeqeph6cvdce6nbpsaz.png",
+    name: "MENPS",
+    logo: "/partners/menps.png",
+    alt: "Logo du Ministère de l'Éducation Nationale, du Préscolaire et des Sports",
   },
 ];
 
 export function PartnersSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="bg-white py-32">
+    <section className="bg-white py-16">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="font-serif text-4xl font-bold text-[#1a2821] md:text-5xl">
-            Ils Nous Font Confiance
+          <h2 className="font-serif text-4xl font-light text-[#1a2821] md:text-5xl">
+            Ils Nous Font <span className="text-[#9bbb2d]">Confiance</span>
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg text-[#1a2821]/70">
             Découvrez les entreprises et institutions qui nous ont choisis pour
             transformer leurs espaces verts en véritables chefs-d&apos;œuvre.
           </p>
         </motion.div>
-        <div className="mt-16 grid grid-cols-2 gap-12 md:grid-cols-4">
-          {partners.map((partner, index) => (
+
+        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-4">
+          {partners.map((partner) => (
             <motion.div
               key={partner.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center p-6"
             >
-              <div className="relative aspect-square w-full max-w-[100px] transition-transform duration-300 hover:scale-110">
+              <div className="relative h-40 w-full max-w-[280px]">
                 <Image
                   src={partner.logo}
-                  alt={`${partner.name} logo`}
+                  alt={partner.alt}
                   fill
                   className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                 />
               </div>
             </motion.div>
