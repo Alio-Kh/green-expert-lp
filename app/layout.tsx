@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
   category: "Paysagisme",
 };
 
-export const jsonLd = {
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
   name: "Green Expert",
@@ -193,11 +193,11 @@ export const jsonLd = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr">
       <head>
