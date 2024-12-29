@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Instagram, Linkedin } from "lucide-react";
+import { Headset, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -22,9 +22,24 @@ export function Footer() {
           <div>
             <div className="font-medium">Contact</div>
             <div className="mt-4 space-y-2 text-sm text-white/70">
-              <p>06 61 96 79 03</p>
-              {/* <p>ste.greenexpert@gmail.com</p> */}
-              <p>contact@greenexpert.ma</p>
+              <a
+                href="tel:+212661967903"
+                className="hover:text-[#9bbb2d] transition-colors"
+              >
+                <Phone className="h-5 w-5" /> +212 661-967903
+              </a>
+              <a
+                href="tel:+212661967903"
+                className="hover:text-[#9bbb2d] transition-colors"
+              >
+                <Headset className="h-5 w-5" /> +212 530-312466
+              </a>
+              <a
+                href="mailto:contact@greenexpert.ma"
+                className="hover:text-[#9bbb2d] transition-colors"
+              >
+                <Mail className="h-5 w-5" /> contact@greenexpert.ma
+              </a>
               <p className="text-sm">
                 Résidence Assafae 05 Imm 41 Appt 12, Al Quods, Laayayda - Salé
               </p>
