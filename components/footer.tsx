@@ -24,19 +24,19 @@ export function Footer() {
             <div className="mt-4 space-y-2 text-sm text-white/70">
               <a
                 href="tel:+212661967903"
-                className="hover:text-[#9bbb2d] transition-colors"
+                className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
                 <Phone className="h-5 w-5" /> +212 661-967903
               </a>
               <a
                 href="tel:+212661967903"
-                className="hover:text-[#9bbb2d] transition-colors"
+                className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
                 <Headset className="h-5 w-5" /> +212 530-312466
               </a>
               <a
                 href="mailto:contact@greenexpert.ma"
-                className="hover:text-[#9bbb2d] transition-colors"
+                className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
                 <Mail className="h-5 w-5" /> contact@greenexpert.ma
               </a>
@@ -67,7 +67,7 @@ export function Footer() {
                 <span>@greenexpertmaroc</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/green-expert-9ba926200"
+                href="https://www.linkedin.com/company/greenexpert"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-[#9bbb2d] transition-colors"
