@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { Headset, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import {
+  Headset,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 export function Footer() {
   return (
@@ -40,8 +47,9 @@ export function Footer() {
               >
                 <Mail className="h-5 w-5" /> contact@greenexpert.ma
               </a>
-              <p className="text-sm">
-                Résidence Assafae 05 Imm 41 Appt 12, Al Quods, Laayayda - Salé
+              <p className="flex items-center gap-2 text-sm">
+                <MapPin className="h-5 w-5" /> Résidence Assafae 05 Imm 41 Appt
+                12, Al Quods, Laayayda - Salé
               </p>
             </div>
           </div>
