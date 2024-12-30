@@ -33,23 +33,23 @@ export function Footer() {
                 href="tel:+212661967903"
                 className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
-                <Phone className="h-5 w-5" /> +212 661-967903
+                <Phone className="h-5 w-5 min-w-5" /> +212 661-967903
               </a>
               <a
                 href="tel:+212661967903"
                 className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
-                <Headset className="h-5 w-5" /> +212 530-312466
+                <Headset className="h-5 w-5 min-w-5" /> +212 530-312466
               </a>
               <a
                 href="mailto:contact@greenexpert.ma"
                 className="flex items-center gap-2 hover:text-[#9bbb2d] transition-colors"
               >
-                <Mail className="h-5 w-5" /> contact@greenexpert.ma
+                <Mail className="h-5 w-5 min-w-5" /> contact@greenexpert.ma
               </a>
               <p className="flex items-center gap-2 text-sm">
-                <MapPin className="h-5 w-5" /> Résidence Assafae 05 Imm 41 Appt
-                12, Al Quods, Laayayda - Salé
+                <MapPin className="h-5 w-5 min-w-5" /> Résidence Assafae 05 Imm
+                41 Appt 12, Al Quods, Laayayda - Salé
               </p>
             </div>
           </div>
