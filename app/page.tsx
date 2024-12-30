@@ -6,7 +6,6 @@ import { ProjectsShowcase } from "@/components/projects-showcase";
 import { ServicesGrid } from "@/components/services-grid";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
-import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ProcessSection } from "@/components/process-section";
 import { PartnersSection } from "@/components/partners-section";
 
