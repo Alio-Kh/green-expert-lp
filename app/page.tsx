@@ -59,7 +59,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-[#1a2821] py-32">
+      {/* <section className="bg-[#1a2821] py-32">
         <div className="container mx-auto px-4">
           <SectionReveal>
             <div className="mx-auto max-w-3xl text-center">
@@ -75,7 +75,7 @@ export default function LandingPage() {
           </SectionReveal>
           <TestimonialSlider />
         </div>
-      </section>
+      </section> */}
 
       <PartnersSection />
 
