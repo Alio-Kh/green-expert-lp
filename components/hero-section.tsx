@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -86,7 +87,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -108,7 +109,7 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-        </motion.div> */}
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}

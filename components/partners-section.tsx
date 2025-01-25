@@ -94,11 +94,11 @@ const partners = [
     logo: "/partners/ANEP.png",
     alt: "Logo de l'Agence Nationale des Equipements Publics",
   },
-  {
-    name: "FAR",
-    logo: "/partners/FAR.png",
-    alt: "Logo des Forces Armées Royales",
-  },
+  // {
+  //   name: "FAR",
+  //   logo: "/partners/FAR.png",
+  //   alt: "Logo des Forces Armées Royales",
+  // },
   {
     name: "GIZ",
     logo: "/partners/giz.png",
