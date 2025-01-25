@@ -24,6 +24,91 @@ const partners = [
     logo: "/partners/menps.png",
     alt: "Logo du Ministère de l'Éducation Nationale, du Préscolaire et des Sports",
   },
+  {
+    name: "CCM",
+    logo: "/partners/Centre_Cinematographique_Marocain.png",
+    alt: "Logo du Centre Cinématographique Marocain",
+  },
+  {
+    name: "FM6 Education",
+    logo: "/partners/fm6education.png",
+    alt: "Logo de la Fondation Mohammed VI de promotion des œuvres sociales de l'education-formation",
+  },
+  {
+    name: "Al Masaood",
+    logo: "/partners/al_masaood.jpg",
+    alt: "Logo de Al Masaood",
+  },
+  {
+    name: "Fondation Mohammed V",
+    logo: "/partners/Fondation_mohammed_v_pour_la_solidarite_logo.png",
+    alt: "Logo de la Fondation Mohammed V pour la solidarité",
+  },
+  {
+    name: "Arrondissement Bettana",
+    logo: "/partners/ARRONDISSEMENT_BETTANA.jpg",
+    alt: "Logo de l'Arrondissement Bettana",
+  },
+  {
+    name: "Protection Civile",
+    logo: "/partners/Logo_de_la_Protection_Civile_Marocaine.png",
+    alt: "Logo de la Protection Civile Marocaine",
+  },
+  {
+    name: "ENS Martil",
+    logo: "/partners/LOGO_ENS_MARTIL.png",
+    alt: "Logo de l'École Normale Supérieure Martil",
+  },
+  {
+    name: "Ville d'Agadir",
+    logo: "/partners/Logo_de_la_Ville_d'Agadir.png",
+    alt: "Logo de la Ville d'Agadir",
+  },
+  {
+    name: "ONDA",
+    logo: "/partners/logo-onda.jpg",
+    alt: "Logo de l'Office National des Aéroports",
+  },
+  {
+    name: "SABIC",
+    logo: "/partners/Saudi-Basic-Industries-Logo.png",
+    alt: "Logo de Saudi Basic Industries (SABIC)",
+  },
+  {
+    name: "HCP",
+    logo: "/partners/HCP.png",
+    alt: "Logo du Haut Commissariat au Plan",
+  },
+  {
+    name: "Ministère de l'Education",
+    logo: "/partners/Men_2021.png",
+    alt: "Logo du Ministère de l'Education Nationale du Préscolaire et du Sport",
+  },
+  {
+    name: "Chef du Gouvernement",
+    logo: "/partners/Chef-du-Gouvernement.png",
+    alt: "Logo du Chef du Gouvernement du Royaume du Maroc",
+  },
+  {
+    name: "ANEP",
+    logo: "/partners/ANEP.png",
+    alt: "Logo de l'Agence Nationale des Equipements Publics",
+  },
+  {
+    name: "FAR",
+    logo: "/partners/FAR.png",
+    alt: "Logo des Forces Armées Royales",
+  },
+  {
+    name: "GIZ",
+    logo: "/partners/giz.png",
+    alt: "Logo de la Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+  },
+  {
+    name: "FNM",
+    logo: "/partners/FNM.png",
+    alt: "Logo de La Fondation Nationale des Musées",
+  },
 ];
 
 export function PartnersSection() {
@@ -46,7 +131,7 @@ export function PartnersSection() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {partners.map((partner) => (
             <motion.div
               key={partner.name}

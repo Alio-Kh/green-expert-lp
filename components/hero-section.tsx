@@ -62,7 +62,7 @@ export function HeroSection() {
             s&apos;épanouit en harmonie avec vos rêves.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button 
+            <Button
               className="group rounded-full bg-white px-6 text-[#1a2821] hover:bg-white/90"
               onClick={() =>
                 document
@@ -87,7 +87,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -109,7 +109,7 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Scroll Indicator */}
