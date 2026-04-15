@@ -124,7 +124,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                               textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                             }}
                           >
-                            <img
+                            <Img
                               src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/Leaf_vqmsr6.png"
                               alt="Leaf"
                               style={{
@@ -175,7 +175,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                             <tr>
                               <td style={{ padding: 24 }}>
                                 <Text style={{ color: "#1a2821", fontSize: 18, fontWeight: 700, margin: "0 0 16px 0" }}>
-                                  <img
+                                  <Img
                                     src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786877/user_ocq5ir.png"
                                     alt="User"
                                     style={{
@@ -307,7 +307,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                     marginBottom: 12,
                                   }}
                                 >
-                                  <img
+                                  <Img
                                     src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/message-square_ovn3r4.png"
                                     alt="Message"
                                     style={{
@@ -367,7 +367,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                             boxShadow: "0 4px 12px rgba(155, 187, 45, 0.3)",
                                           }}
                                         >
-                                          <img
+                                          <Img
                                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/mail_y1jgtu.png"
                                             alt="Mail"
                                             style={{
@@ -396,7 +396,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                             border: "2px solid #9bbb2d",
                                           }}
                                         >
-                                          <img
+                                          <Img
                                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Lucide_Phone_Icon_d15gt2.png"
                                             alt="Phone"
                                             style={{
@@ -463,7 +463,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                         <Text
                                           style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}
                                         >
-                                          <img
+                                          <Img
                                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Lucide_Phone_Icon_d15gt2.png"
                                             alt="Phone"
                                             style={{
@@ -479,7 +479,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                         <Text
                                           style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}
                                         >
-                                          <img
+                                          <Img
                                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Lucide_Phone_Icon_d15gt2.png"
                                             alt="Phone"
                                             style={{
@@ -495,7 +495,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                         <Text
                                           style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}
                                         >
-                                          <img
+                                          <Img
                                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/mail_y1jgtu.png"
                                             alt="Mail"
                                             style={{
@@ -527,7 +527,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                             href="https://www.instagram.com/greenexpertmaroc"
                                             style={{ color: "#ffffff", textDecoration: "none" }}
                                           >
-                                            <img
+                                            <Img
                                               src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Instagram_favnvh.png"
                                               alt="Instagram"
                                               style={{
@@ -548,7 +548,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                             href="https://www.linkedin.com/company/greenexpert"
                                             style={{ color: "#ffffff", textDecoration: "none" }}
                                           >
-                                            <img
+                                            <Img
                                               src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/linkedin_whs3uj.png"
                                               alt="LinkedIn"
                                               style={{
@@ -690,7 +690,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                         textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                       }}
                     >
-                      <img
+                      <Img
                         src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/circle-check_enmzdj.png"
                         alt="Check"
                         style={{ display: "inline", marginRight: 8, width: 16, height: 16, verticalAlign: "middle" }}
@@ -734,7 +734,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                     >
                       <tr>
                         <td style={{ padding: 32, textAlign: "center" }}>
-                          <img
+                          <Img
                             src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/Leaf_vqmsr6.png"
                             alt="Leaf"
                             style={{ width: 56, height: 56, marginBottom: 16 }}
@@ -784,7 +784,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                               marginBottom: 16,
                             }}
                           >
-                            <img
+                            <Img
                               src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/message-square_ovn3r4.png"
                               alt="Message"
                               style={{
@@ -879,7 +879,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                               letterSpacing: 0.5,
                             }}
                           >
-                            <img
+                            <Img
                               src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/Leaf_vqmsr6.png"
                               alt="Leaf"
                               style={{
@@ -898,7 +898,6 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                   </td>
                 </tr>
 
-                {/* Footer */}
                 <tr>
                   <td
                     style={{
@@ -938,7 +937,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                                   Contact
                                 </Text>
                                 <Text style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}>
-                                  <img
+                                  <Img
                                     src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Lucide_Phone_Icon_d15gt2.png"
                                     alt="Phone"
                                     style={{
@@ -952,7 +951,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                                   +212 661-967903
                                 </Text>
                                 <Text style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}>
-                                  <img
+                                  <Img
                                     src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Lucide_Phone_Icon_d15gt2.png"
                                     alt="Phone"
                                     style={{
@@ -966,7 +965,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                                   +212 530-312466
                                 </Text>
                                 <Text style={{ color: "#ffffff", fontSize: 12, margin: "4px 0", lineHeight: 1.4 }}>
-                                  <img
+                                  <Img
                                     src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/mail_y1jgtu.png"
                                     alt="Mail"
                                     style={{
@@ -996,7 +995,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                                     href="https://www.instagram.com/greenexpertmaroc"
                                     style={{ color: "#ffffff", textDecoration: "none" }}
                                   >
-                                    <img
+                                    <Img
                                       src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786879/Instagram_favnvh.png"
                                       alt="Instagram"
                                       style={{
@@ -1015,7 +1014,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                                     href="https://www.linkedin.com/company/greenexpert"
                                     style={{ color: "#ffffff", textDecoration: "none" }}
                                   >
-                                    <img
+                                    <Img
                                       src="https://res.cloudinary.com/dux6wfype/image/upload/v1757786878/linkedin_whs3uj.png"
                                       alt="LinkedIn"
                                       style={{
