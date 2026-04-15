@@ -9,7 +9,16 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			serif: ['var(--font-serif)', 'Georgia', 'serif'],
+  		},
   		colors: {
+  			brand: {
+  				dark: 'var(--brand-dark)',
+  				accent: 'var(--brand-accent)',
+  				'accent-hover': 'var(--brand-accent-hover)',
+  				cream: 'var(--brand-cream)',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

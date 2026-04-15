@@ -17,7 +17,7 @@ const partners = [
   {
     name: "MedOMed",
     logo: "/partners/medomed.jpg",
-    alt: "Logo de MedOMed - École de jardinage bouragrag",
+    alt: "Logo de MedOMed",
   },
   {
     name: "MENPS",
@@ -94,11 +94,6 @@ const partners = [
     logo: "/partners/ANEP.png",
     alt: "Logo de l'Agence Nationale des Equipements Publics",
   },
-  // {
-  //   name: "FAR",
-  //   logo: "/partners/FAR.png",
-  //   alt: "Logo des Forces Armées Royales",
-  // },
   {
     name: "GIZ",
     logo: "/partners/giz.png",
@@ -111,9 +106,47 @@ const partners = [
   },
 ];
 
+const row1 = partners.slice(0, 10);
+const row2 = partners.slice(10);
+
+function MarqueeRow({
+  items,
+  reverse = false,
+}: {
+  items: typeof partners;
+  reverse?: boolean;
+}) {
+  const doubled = [...items, ...items];
+
+  return (
+    <div className="hover-pause flex overflow-hidden">
+      <div
+        className={`flex shrink-0 items-center gap-12 ${
+          reverse ? "animate-marquee-reverse" : "animate-marquee"
+        }`}
+      >
+        {doubled.map((partner, i) => (
+          <div
+            key={`${partner.name}-${i}`}
+            className="flex h-16 w-[120px] shrink-0 items-center justify-center grayscale transition-all duration-300 hover:grayscale-0"
+          >
+            <Image
+              src={partner.logo}
+              alt={partner.alt}
+              width={120}
+              height={64}
+              className="h-12 w-auto max-w-[120px] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function PartnersSection() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-[#fafaf5] py-16">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -127,31 +160,13 @@ export function PartnersSection() {
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg text-[#1a2821]/70">
             Découvrez les entreprises et institutions qui nous ont choisis pour
-            transformer leurs espaces verts en véritables chefs-d&apos;œuvre.
+            transformer leurs espaces verts en véritables chefs-d&apos;oeuvre.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {partners.map((partner) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center p-6"
-            >
-              <div className="relative h-40 w-full max-w-[280px]">
-                <Image
-                  src={partner.logo}
-                  alt={partner.alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                />
-              </div>
-            </motion.div>
-          ))}
+        <div className="mt-12 space-y-8 overflow-hidden">
+          <MarqueeRow items={row1} />
+          <MarqueeRow items={row2} reverse />
         </div>
       </div>
     </section>
