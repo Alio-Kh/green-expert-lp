@@ -1,9 +1,8 @@
+import { createElement } from "react"
 import { type NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 // Using Resend's react renderer via @react-email/render (installed) – no need for react-dom/server
 import { TeamEmailTemplate, ClientEmailTemplate } from "./email-templates"
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 // Simple in-memory rate limiting (per process). Suitable for low-traffic and
 // development without external services. For production at scale, use a
@@ -16,6 +15,15 @@ const emailMaxRequests = 3
 type Counter = { count: number; resetAt: number }
 const ipCounters = new Map<string, Counter>()
 const emailCounters = new Map<string, Counter>()
+
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    return null
+  }
+
+  return new Resend(apiKey)
+}
 
 function isLimited(map: Map<string, Counter>, key: string, max: number, windowMs: number) {
   const now = Date.now()
@@ -68,22 +76,26 @@ export async function POST(request: NextRequest) {
 
     // Generate HTML from TSX templates
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://greenexpert.ma"
+    const resend = getResendClient()
+
+    if (!resend) {
+      console.error("Missing RESEND_API_KEY")
+      return NextResponse.json({ error: "Service email non configuré" }, { status: 503 })
+    }
 
     // Send email to Green Expert team
     const { error } = await resend.emails.send({
       from: "Green Expert <contact@greenexpert.ma>",
       to: ["said@greenexpert.ma"],
       subject: `Nouvelle demande de contact - ${projectType || "Projet général"}`,
-      react: (
-        <TeamEmailTemplate
-          name={name}
-          email={email}
-          phone={phone}
-          projectType={projectType}
-          message={message}
-          baseUrl={baseUrl}
-        />
-      ),
+      react: createElement(TeamEmailTemplate, {
+        name,
+        email,
+        phone,
+        projectType,
+        message,
+        baseUrl,
+      }),
     })
 
     if (error) {
@@ -96,7 +108,7 @@ export async function POST(request: NextRequest) {
       from: "Green Expert <contact@greenexpert.ma>",
       to: [email],
       subject: "Confirmation de votre demande - Green Expert",
-      react: <ClientEmailTemplate name={name} projectType={projectType} message={message} baseUrl={baseUrl} />,
+      react: createElement(ClientEmailTemplate, { name, projectType, message, baseUrl }),
     })
 
     return NextResponse.json({ success: true, message: "Email envoyé avec succès" })
