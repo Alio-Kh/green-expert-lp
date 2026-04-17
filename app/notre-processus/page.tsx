@@ -18,6 +18,23 @@ export const metadata: Metadata = {
       "Méthode éprouvée en 3 étapes pour concevoir, réaliser et entretenir votre jardin au Maroc.",
     url: "https://greenexpert.ma/notre-processus",
     type: "article",
+    siteName: "Green Expert",
+    locale: "fr_FR",
+    images: [
+      {
+        url: "https://greenexpert.ma/cover.png",
+        width: 1200,
+        height: 630,
+        alt: "Processus Green Expert — 3 étapes pour votre jardin",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Notre Processus — Green Expert",
+    description:
+      "Concevoir, réaliser, entretenir : la méthode Green Expert pour votre jardin au Maroc.",
+    images: ["https://greenexpert.ma/cover.png"],
   },
 };
 
@@ -36,6 +53,20 @@ const jsonLd = {
   })),
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Notre Processus",
+      item: "https://greenexpert.ma/notre-processus",
+    },
+  ],
+};
+
 export default function ProcessPage() {
   return (
     <div className="relative min-h-screen bg-[#1a2821] text-white">
@@ -43,8 +74,13 @@ export default function ProcessPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <NavigationMenu />
 
+      <main id="main-content">
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Background with subtle grid */}
@@ -324,6 +360,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <ScrollToTop />
     </div>

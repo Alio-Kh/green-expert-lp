@@ -78,11 +78,11 @@ export function ServicesGrid() {
                 {service.shortDescription}
               </p>
 
-              {/* Arrow reveal on hover — pinned to bottom so all cards align */}
-              <div className="mt-auto flex items-center gap-2 pt-6 text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d] opacity-0 transition-all duration-300 group-hover:opacity-100">
+              {/* Arrow — visible at rest, emphasized on hover/focus */}
+              <div className="mt-auto flex items-center gap-2 pt-6 text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d]/70 transition-all duration-300 group-hover:text-[#9bbb2d] group-focus-visible:text-[#9bbb2d]">
                 <span>En savoir plus</span>
                 <ArrowUpRight
-                  className="h-4 w-4 -translate-x-2 transition-transform duration-300 group-hover:translate-x-0"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1"
                   strokeWidth={2}
                 />
               </div>

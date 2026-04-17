@@ -45,8 +45,24 @@ export function NavigationMenu() {
     };
   }, [isMobileMenuOpen]);
 
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.getElementById(id);
+    if (target) {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -61,7 +77,7 @@ export function NavigationMenu() {
     <>
       {/* Skip to content link */}
       <a
-        href="#services"
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-[#9bbb2d] focus:px-4 focus:py-2 focus:text-white"
       >
         Aller au contenu
@@ -72,7 +88,7 @@ export function NavigationMenu() {
         animate={{ y: 0 }}
         aria-label="Menu principal"
         className={cn(
-          "fixed top-0 z-50 w-full border-b border-white/10 bg-[#121d17]/90 backdrop-blur-xl transition-all duration-300",
+          "fixed top-0 z-50 w-full border-b border-white/10 bg-[#1e3419]/90 backdrop-blur-xl transition-all duration-300",
           isScrolled && "shadow-lg shadow-black/20"
         )}
       >
@@ -130,59 +146,62 @@ export function NavigationMenu() {
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
-
-        {/* Mobile Menu - Full screen overlay */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <>
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 top-20 z-40 bg-black/60 md:hidden"
-                onClick={() => setIsMobileMenuOpen(false)}
-              />
-
-              {/* Menu panel */}
-              <motion.div
-                id="mobile-menu"
-                initial={{ opacity: 0, x: "100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed inset-y-0 right-0 top-20 z-50 flex w-full max-w-sm flex-col bg-[#121d17] px-6 py-8 shadow-2xl md:hidden"
-              >
-                <div className="flex flex-col gap-2">
-                  {NAV_ITEMS.map((item) => (
-                    <button
-                      key={item.id}
-                      className={cn(
-                        "flex min-h-[48px] items-center rounded-xl px-4 text-left text-lg uppercase tracking-wider transition-colors",
-                        activeSection === item.id
-                          ? "bg-[#9bbb2d]/10 text-[#9bbb2d]"
-                          : "text-white/70 hover:bg-white/5 hover:text-white"
-                      )}
-                      onClick={() => scrollToSection(item.id)}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="mt-8">
-                  <Button
-                    className="w-full rounded-full bg-[#9bbb2d] px-6 py-3 text-white hover:bg-[#8bab1d]"
-                    onClick={openWhatsApp}
-                    aria-label="Demander un devis via WhatsApp"
-                  >
-                    Demander un devis
-                  </Button>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
       </motion.nav>
+
+      {/* Mobile Menu - rendered outside motion.nav so transform doesn't create a containing block for fixed children */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              role="button"
+              tabIndex={-1}
+              aria-label="Fermer le menu"
+              className="fixed inset-0 top-20 z-40 bg-black/60 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Menu panel */}
+            <motion.div
+              id="mobile-menu"
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed bottom-0 right-0 top-20 z-50 flex w-full max-w-sm flex-col border-l border-white/10 bg-[#1e3419] px-6 py-8 shadow-2xl md:hidden"
+            >
+              <div className="flex flex-col gap-2">
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    className={cn(
+                      "flex min-h-[48px] items-center rounded-xl px-4 text-left text-lg uppercase tracking-wider transition-colors",
+                      activeSection === item.id
+                        ? "bg-[#9bbb2d]/10 text-[#9bbb2d]"
+                        : "text-white/70 hover:bg-white/5 hover:text-white"
+                    )}
+                    onClick={() => scrollToSection(item.id)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Button
+                  className="w-full rounded-full bg-[#9bbb2d] px-6 py-3 text-white hover:bg-[#8bab1d]"
+                  onClick={openWhatsApp}
+                  aria-label="Demander un devis via WhatsApp"
+                >
+                  Demander un devis
+                </Button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

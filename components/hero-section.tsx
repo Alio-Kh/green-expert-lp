@@ -105,7 +105,7 @@ export function HeroSection() {
       className="relative min-h-screen overflow-hidden bg-[#1a2821] pt-20"
     >
       {/* Video background with parallax */}
-      <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
+      <motion.div className="absolute inset-0 z-0" aria-hidden="true" style={{ y, opacity }}>
         <video
           ref={videoRef}
           autoPlay
@@ -113,13 +113,14 @@ export function HeroSection() {
           muted
           playsInline
           preload="auto"
+          aria-hidden="true"
+          tabIndex={-1}
           className="h-full w-full object-cover"
         >
           <source
             src="https://res.cloudinary.com/dfxjfturz/video/upload/v1757712280/Veo_3_Video_Generator_1_vxk5ga.mp4"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
         {/* Strong cinematic gradient overlay — masks any branding in the first frame */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a2821]/85 via-[#1a2821]/75 to-[#1a2821]/95" />

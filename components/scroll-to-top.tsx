@@ -33,7 +33,8 @@ export function ScrollToTop() {
           <Button
             variant="secondary"
             size="icon"
-            className="h-10 w-10 rounded-full bg-[#9bbb2d] text-white shadow-lg hover:bg-[#8bab1d]"
+            aria-label="Retour en haut"
+            className="h-11 w-11 rounded-full bg-[#9bbb2d] text-white shadow-lg hover:bg-[#8bab1d]"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <ArrowUp className="h-5 w-5" />

@@ -19,17 +19,31 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://greenexpert.ma"),
   title: {
     default:
-      "Expert Paysagiste Maroc | Création & Entretien Jardins - Green Expert",
-    template: "%s | Green Expert Maroc",
+      "Green Expert — Paysagiste au Maroc | Création, Aménagement & Entretien de Jardins",
+    template: "%s | Green Expert — Paysagiste au Maroc",
   },
+  applicationName: "Green Expert",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
+    shortcut: "/logo.png",
   },
   description:
-    "Expert paysagiste au Maroc spécialisé en création et aménagement de jardins. Design paysager, système d'irrigation et entretien d'espaces verts par des professionnels.",
+    "Paysagiste professionnel au Maroc (Casablanca, Rabat, Marrakech) : conception de jardins sur-mesure, irrigation intelligente, plantation et entretien d'espaces verts. Devis gratuit sous 24h.",
   keywords: [
+    // Brand
+    "Green Expert",
+    "Green Expert Maroc",
+    "greenexpert.ma",
+    "paysagiste Green Expert",
+    // Core service × country
     "paysagiste Maroc",
+    "paysagiste professionnel Maroc",
+    "entreprise paysagiste Maroc",
+    "société de paysagisme Maroc",
+    "architecte paysagiste Maroc",
+    "jardinier professionnel Maroc",
+    // Geo — primary metros
     "paysagiste Casablanca",
     "paysagiste Rabat",
     "paysagiste Marrakech",
@@ -40,28 +54,68 @@ export const metadata: Metadata = {
     "paysagiste Oujda",
     "paysagiste Salé",
     "paysagiste Tétouan",
-    "aménagement paysager Maroc",
-    "entretien jardin Maroc",
+    "paysagiste Bouskoura",
+    "paysagiste Souissi",
+    // Intent — buy / hire
+    "devis paysagiste Maroc",
+    "prix aménagement jardin Maroc",
+    "tarif création jardin Maroc",
+    "meilleur paysagiste Maroc",
+    // Design & creation
     "création jardin Maroc",
-    "conception jardins Maroc",
-    "entretien espaces verts",
-    "installation système irrigation",
+    "conception de jardin Maroc",
+    "design paysager Maroc",
+    "aménagement paysager Maroc",
+    "aménagement extérieur villa",
+    "aménagement jardin villa Maroc",
+    "plan 3D jardin",
+    "jardin sur mesure Maroc",
+    "jardin moderne Maroc",
+    "jardin méditerranéen Maroc",
+    "jardin zen Maroc",
+    "jardin contemporain",
+    // Irrigation
+    "système d'irrigation Maroc",
+    "installation irrigation automatique",
+    "arrosage automatique jardin Maroc",
+    "goutte à goutte Maroc",
+    "irrigation connectée",
+    // Lighting
     "éclairage jardin Maroc",
-    "jardinier professionnel",
+    "éclairage paysager LED",
+    "éclairage extérieur villa",
+    // Plantation & végétaux
+    "plantation arbres Maroc",
+    "plantation palmier Maroc",
     "entretien palmier Maroc",
     "gazon naturel Maroc",
-    "plantation arbres Maroc",
-    "terrasse jardin Maroc",
-    "jardin moderne Maroc",
+    "pelouse Maroc",
+    "pose gazon Maroc",
+    "plantes méditerranéennes Maroc",
+    // Terrassement
+    "terrassement jardin Maroc",
+    "nivellement terrain",
+    "drainage jardin",
+    // Maintenance / upkeep
+    "entretien jardin Maroc",
+    "entretien espaces verts Maroc",
+    "contrat entretien jardin",
+    "maintenance espaces verts",
+    "taille arbres et arbustes",
+    "élagage Maroc",
+    // B2B
     "aménagement espaces verts entreprise",
-    "paysagiste professionnel",
     "entretien jardins entreprise",
-    "aménagement extérieur villa",
-    "Green Expert",
-    "Green Expert Maroc",
-    "paysagiste Green Expert",
+    "paysagiste hôtel Maroc",
+    "paysagiste résidence Maroc",
+    "paysagiste copropriété Maroc",
+    // Outdoor features
+    "terrasse jardin Maroc",
+    "toit terrasse végétalisé",
+    "pergola végétalisée",
+    "aménagement piscine jardin",
   ],
-  authors: [{ name: "Green Expert" }],
+  authors: [{ name: "Green Expert", url: "https://greenexpert.ma" }],
   creator: "Green Expert",
   publisher: "Green Expert",
   formatDetection: {
@@ -72,9 +126,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -82,9 +138,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Expert Paysagiste Maroc | Création & Entretien Jardins - Green Expert",
+      "Green Expert — Paysagiste au Maroc | Création, Aménagement & Entretien de Jardins",
     description:
-      "Votre expert en aménagement paysager au Maroc. Création, réalisation et entretien de jardins et d'espaces verts professionnels.",
+      "Conception, réalisation et entretien de jardins et espaces verts au Maroc. Plus de 20 ans d'expertise à Casablanca, Rabat et Marrakech. Devis gratuit sous 24h.",
     url: "https://greenexpert.ma",
     siteName: "Green Expert",
     locale: "fr_FR",
@@ -94,27 +150,35 @@ export const metadata: Metadata = {
         url: "https://greenexpert.ma/cover.png",
         width: 1200,
         height: 630,
-        alt: "Green Expert - Paysagiste au Maroc",
+        alt: "Green Expert — Paysagiste professionnel au Maroc",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Expert Paysagiste Maroc | Création & Entretien Jardins - Green Expert",
+    title: "Green Expert — Paysagiste au Maroc",
     description:
-      "Green Expert : Premier paysagiste au Maroc spécialisé en création, aménagement et entretien de jardins. Solutions professionnelles d'espaces verts.",
+      "Création, aménagement et entretien de jardins au Maroc. Design paysager sur-mesure, irrigation intelligente et maintenance durable. Devis gratuit sous 24h.",
     images: ["https://greenexpert.ma/cover.png"],
   },
   alternates: {
     canonical: "https://greenexpert.ma",
-    languages: {
-      "fr-MA": "https://greenexpert.ma/fr",
-      "ar-MA": "https://greenexpert.ma/ar",
-    },
   },
   category: "Paysagisme",
+  classification: "Paysagisme, Aménagement paysager, Entretien d'espaces verts",
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Green Expert",
+    statusBarStyle: "black-translucent",
+  },
+  other: {
+    "geo.region": "MA",
+    "geo.placename": "Salé, Maroc",
+    "geo.position": "34.0479;-6.7937",
+    ICBM: "34.0479, -6.7937",
+  },
 };
 
 export const viewport: Viewport = {
@@ -211,29 +275,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr">
       <head>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="apple-touch-icon" href="/logo.png" />
-        <link rel="icon" href="/logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "url": "https://greenexpert.ma",
-              "name": "Green Expert",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://greenexpert.ma/?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
         />
       </head>
       <body

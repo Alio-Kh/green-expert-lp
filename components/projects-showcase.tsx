@@ -103,6 +103,7 @@ export function ProjectsShowcase() {
       role="region"
       aria-roledescription="carousel"
       aria-label="Nos réalisations"
+      aria-describedby="carousel-instructions"
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -110,7 +111,10 @@ export function ProjectsShowcase() {
       onBlur={() => setIsPaused(false)}
       tabIndex={0}
     >
-      <div className="relative overflow-hidden">
+      <p id="carousel-instructions" className="sr-only">
+        Utilisez les flèches gauche et droite du clavier pour naviguer entre les projets, ou glissez l&apos;image sur mobile.
+      </p>
+      <div className="group/carousel relative overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
@@ -172,38 +176,42 @@ export function ProjectsShowcase() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute bottom-4 left-4 z-10 h-8 w-8 rounded-full border-white/10 bg-black/30 text-white backdrop-blur-sm hover:bg-black/50 md:left-4 md:top-1/2 md:-translate-y-1/2 md:h-12 md:w-12"
+          className="absolute left-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-white/10 bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 hover:bg-black/50 focus-visible:opacity-100 group-hover/carousel:opacity-100 group-focus-within/carousel:opacity-100 md:h-12 md:w-12"
           onClick={previous}
           aria-label="Projet précédent"
         >
-          <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
+          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
         </Button>
 
         <Button
           variant="outline"
           size="icon"
-          className="absolute bottom-4 right-4 z-10 h-8 w-8 rounded-full border-white/10 bg-black/30 text-white backdrop-blur-sm hover:bg-black/50 md:right-4 md:top-1/2 md:-translate-y-1/2 md:h-12 md:w-12"
+          className="absolute right-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-white/10 bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 hover:bg-black/50 focus-visible:opacity-100 group-hover/carousel:opacity-100 group-focus-within/carousel:opacity-100 md:h-12 md:w-12"
           onClick={next}
           aria-label="Projet suivant"
         >
-          <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
+          <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
         </Button>
       </div>
 
-      <div className="mt-4 flex justify-center gap-2 md:mt-6" role="tablist">
+      <div className="mt-4 flex justify-center gap-1 md:mt-6" role="tablist">
         {projects.map((project, index) => (
           <button
             key={project.slug}
             role="tab"
             aria-selected={index === currentIndex}
             aria-label={`Aller au projet ${project.title}`}
-            className={`h-2 w-2 rounded-full transition-all ${
-              index === currentIndex
-                ? "w-8 bg-[#9bbb2d]"
-                : "bg-white/20 hover:bg-white/40"
-            }`}
+            className="group flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60"
             onClick={() => goTo(index)}
-          />
+          >
+            <span
+              className={`h-2 rounded-full transition-all ${
+                index === currentIndex
+                  ? "w-8 bg-[#9bbb2d]"
+                  : "w-2 bg-white/25 group-hover:bg-white/50"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

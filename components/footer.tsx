@@ -12,7 +12,7 @@ import { services } from "@/lib/services-data";
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a2821]">
+    <footer className="bg-[#1e3419]">
       {/* Accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#9bbb2d] to-transparent" />
 
@@ -38,19 +38,19 @@ export function Footer() {
               <div className="mt-4 space-y-2 text-sm text-white/70">
                 <a
                   href="tel:+212661967903"
-                  className="flex items-center gap-2 transition-colors hover:text-[#9bbb2d]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                 >
                   <Phone className="h-5 w-5 min-w-5" /> +212 661-967903
                 </a>
                 <a
                   href="tel:+212530312466"
-                  className="flex items-center gap-2 transition-colors hover:text-[#9bbb2d]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                 >
                   <Headset className="h-5 w-5 min-w-5" /> +212 530-312466
                 </a>
                 <a
                   href="mailto:contact@greenexpert.ma"
-                  className="flex items-center gap-2 transition-colors hover:text-[#9bbb2d]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                 >
                   <Mail className="h-5 w-5 min-w-5" /> contact@greenexpert.ma
                 </a>
@@ -68,7 +68,7 @@ export function Footer() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="block transition-colors hover:text-[#9bbb2d]"
+                    className="block rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                   >
                     {service.title}
                   </Link>
@@ -83,7 +83,7 @@ export function Footer() {
                   href="https://www.instagram.com/greenexpertmaroc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d]"
+                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                 >
                   <Instagram className="h-6 w-6" />
                   <span>@greenexpertmaroc</span>
@@ -92,7 +92,7 @@ export function Footer() {
                   href="https://www.linkedin.com/company/greenexpert"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d]"
+                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
                 >
                   <Linkedin className="h-6 w-6" />
                   <span>Green Expert</span>

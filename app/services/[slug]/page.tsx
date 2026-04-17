@@ -33,6 +33,22 @@ export async function generateMetadata({
       description: service.metaDescription,
       url: canonical,
       type: "article",
+      siteName: "Green Expert",
+      locale: "fr_FR",
+      images: [
+        {
+          url: service.heroImage,
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: service.metaTitle,
+      description: service.metaDescription,
+      images: [service.heroImage],
     },
   };
 }
@@ -59,21 +75,41 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     url: `https://greenexpert.ma/services/${service.slug}`,
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://greenexpert.ma/#services" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.title,
+        item: `https://greenexpert.ma/services/${service.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <NavigationMenu />
 
+      <main id="main-content">
       {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
+      <section aria-labelledby="service-heading" className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           <Image
             src={service.heroImage}
-            alt={service.title}
+            alt=""
             fill
             priority
             sizes="100vw"
@@ -90,20 +126,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Accueil
             </Link>
-            <span className="text-white/30">/</span>
+            <span aria-hidden="true" className="text-white/30">/</span>
             <Link
               href="/#services"
-              className="transition-colors hover:text-white"
+              className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
             >
               Services
             </Link>
-            <span className="text-white/30">/</span>
-            <span className="text-white/90">{service.title}</span>
+            <span aria-hidden="true" className="text-white/30">/</span>
+            <span aria-current="page" className="text-white/90">{service.title}</span>
           </nav>
 
           <div className="max-w-3xl">
@@ -112,7 +148,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <span>Nos Services</span>
             </div>
 
-            <h1 className="font-serif text-4xl font-light leading-tight md:text-6xl lg:text-7xl">
+            <h1 id="service-heading" className="font-serif text-4xl font-light leading-tight md:text-6xl lg:text-7xl">
               {service.title}
             </h1>
 
@@ -215,16 +251,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d]"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
               >
                 <span>Demander un devis</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-white/5"
+                href="/#services"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
               >
-                Retour à l&apos;accueil
+                Voir tous les services
               </Link>
             </div>
           </div>
@@ -249,7 +285,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
             <Link
               href="/#services"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#1a2821]/70 transition-colors hover:text-[#9bbb2d]"
+              className="inline-flex items-center gap-2 rounded text-sm font-medium text-[#1a2821]/70 transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf5]"
             >
               Voir tous les services
               <ArrowRight className="h-4 w-4" />
@@ -263,7 +299,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <Link
                   key={other.slug}
                   href={`/services/${other.slug}`}
-                  className="group flex items-start gap-4 rounded-2xl border border-[#1a2821]/5 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#9bbb2d]/40 hover:shadow-lg"
+                  className="group flex items-start gap-4 rounded-2xl border border-[#1a2821]/5 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#9bbb2d]/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf5]"
                 >
                   <div className="shrink-0 rounded-xl bg-[#9bbb2d]/15 p-3 text-[#9bbb2d]">
                     <OtherIcon className="h-5 w-5" strokeWidth={1.5} />
@@ -284,6 +320,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      </main>
       <Footer />
       <ScrollToTop />
     </div>

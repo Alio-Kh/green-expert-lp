@@ -34,7 +34,22 @@ export async function generateMetadata({
       description: project.metaDescription,
       url: canonical,
       type: "article",
-      images: [{ url: project.heroImage, alt: project.title }],
+      siteName: "Green Expert",
+      locale: "fr_FR",
+      images: [
+        {
+          url: project.heroImage,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.metaTitle,
+      description: project.metaDescription,
+      images: [project.heroImage],
     },
   };
 }
@@ -62,14 +77,34 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     url: `https://greenexpert.ma/projets/${project.slug}`,
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
+      { "@type": "ListItem", position: 2, name: "Projets", item: "https://greenexpert.ma/#projets" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `https://greenexpert.ma/projets/${project.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <NavigationMenu />
 
+      <main id="main-content">
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 pt-28 md:pt-32">
         <nav
@@ -107,6 +142,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       {/* Other projects (shared) */}
       <OtherProjects current={project.slug} all={otherProjects} />
+      </main>
 
       <Footer />
       <ScrollToTop />

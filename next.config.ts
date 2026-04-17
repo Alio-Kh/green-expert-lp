@@ -2,7 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["res.cloudinary.com", "fal.media"], // Added both Cloudinary and fal.media domains
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "fal.media",
+        pathname: "/**",
+      },
+    ],
+    formats: ["image/avif", "image/webp"],
   },
 };
 

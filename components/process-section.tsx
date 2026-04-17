@@ -10,18 +10,21 @@ const processSteps = [
   {
     title: "Nous Concevons",
     description: "Création de plans personnalisés pour votre espace",
+    alt: "Concepteur paysagiste dessinant un plan d'aménagement de jardin",
     image:
       "https://fal.media/files/elephant/n01RzRRMoP4XMul-Z2F45_dfadc490f38e4afc805c05e7b4c31722.jpg",
   },
   {
     title: "Nous Réalisons",
     description: "Réalisation experte de votre projet",
+    alt: "Équipe Green Expert réalisant l'aménagement d'un jardin sur le terrain",
     image:
       "https://fal.media/files/monkey/FOqVfEbr1qRTNDx9riBoZ_144ade400e9345fba693354af8d34da9.jpg",
   },
   {
     title: "Nous Entretenons",
     description: "Entretien régulier pour une beauté durable",
+    alt: "Jardinier entretenant un jardin luxuriant pour préserver sa beauté",
     image:
       "https://fal.media/files/monkey/kihJVAdwxDsrh5Lb0d8GY_a0a835e0cb9f44688e4ed005201fdc63.jpg",
   },
@@ -102,7 +105,7 @@ export function ProcessSection() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg shadow-black/5">
                   <Image
                     src={step.image}
-                    alt={step.title}
+                    alt={step.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

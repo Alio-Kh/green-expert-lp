@@ -31,6 +31,7 @@ export default function LandingPage() {
   return (
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <NavigationMenu />
+      <main id="main-content">
       <HeroSection />
 
       {/* Services Section */}
@@ -128,6 +129,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <ScrollToTop />
     </div>

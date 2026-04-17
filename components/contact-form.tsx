@@ -171,7 +171,7 @@ export function ContactForm() {
               htmlFor="contact-name"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Nom & Prénom
+              Nom & Prénom <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
             </label>
             <Input
               id="contact-name"
@@ -181,11 +181,16 @@ export function ContactForm() {
               onBlur={handleBlur}
               required
               aria-required="true"
+              aria-invalid={Boolean(errors.name && touched.name)}
+              aria-describedby={errors.name && touched.name ? "contact-name-error" : undefined}
+              autoComplete="name"
               placeholder="Votre nom complet"
               className={inputClasses}
             />
             {errors.name && touched.name && (
-              <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+              <p id="contact-name-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.name}
+              </p>
             )}
           </div>
           <div>
@@ -193,7 +198,7 @@ export function ContactForm() {
               htmlFor="contact-email"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Email
+              Email <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
             </label>
             <Input
               id="contact-email"
@@ -204,11 +209,16 @@ export function ContactForm() {
               onBlur={handleBlur}
               required
               aria-required="true"
+              aria-invalid={Boolean(errors.email && touched.email)}
+              aria-describedby={errors.email && touched.email ? "contact-email-error" : undefined}
+              autoComplete="email"
               placeholder="votre@email.com"
               className={inputClasses}
             />
             {errors.email && touched.email && (
-              <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+              <p id="contact-email-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.email}
+              </p>
             )}
           </div>
           <div>
@@ -216,7 +226,7 @@ export function ContactForm() {
               htmlFor="contact-phone"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Téléphone
+              Téléphone <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
             </label>
             <Input
               id="contact-phone"
@@ -227,11 +237,16 @@ export function ContactForm() {
               onBlur={handleBlur}
               required
               aria-required="true"
+              aria-invalid={Boolean(errors.phone && touched.phone)}
+              aria-describedby={errors.phone && touched.phone ? "contact-phone-error" : undefined}
+              autoComplete="tel"
               placeholder="06 00 00 00 00"
               className={inputClasses}
             />
             {errors.phone && touched.phone && (
-              <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+              <p id="contact-phone-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.phone}
+              </p>
             )}
           </div>
           <div>
@@ -279,7 +294,7 @@ export function ContactForm() {
             htmlFor="contact-message"
             className="mb-2 block text-sm font-medium text-white/70"
           >
-            Message
+            Message <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
           </label>
           <Textarea
             id="contact-message"
@@ -290,11 +305,15 @@ export function ContactForm() {
             onBlur={handleBlur}
             required
             aria-required="true"
+            aria-invalid={Boolean(errors.message && touched.message)}
+            aria-describedby={errors.message && touched.message ? "contact-message-error" : undefined}
             placeholder="Décrivez votre projet..."
             className={inputClasses}
           />
           {errors.message && touched.message && (
-            <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+            <p id="contact-message-error" role="alert" className="mt-1 text-sm text-red-400">
+              {errors.message}
+            </p>
           )}
         </div>
 
