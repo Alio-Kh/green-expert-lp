@@ -16,20 +16,25 @@ type FieldErrors = {
 };
 
 function validateField(name: string, value: string): string | undefined {
+  const trimmed = value.trim();
   switch (name) {
     case "name":
-      if (value.length > 0 && value.length < 2) return "Le nom doit contenir au moins 2 caractères";
+      if (trimmed.length === 0) return "Le nom est requis";
+      if (trimmed.length < 2) return "Le nom doit contenir au moins 2 caractères";
       break;
     case "email":
-      if (value.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+      if (trimmed.length === 0) return "L'email est requis";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed))
         return "Veuillez entrer un email valide";
       break;
     case "phone":
-      if (value.length > 0 && value.replace(/\D/g, "").length < 8)
+      if (trimmed.length === 0) return "Le téléphone est requis";
+      if (trimmed.replace(/\D/g, "").length < 8)
         return "Le numéro doit contenir au moins 8 chiffres";
       break;
     case "message":
-      if (value.length > 0 && value.length < 10)
+      if (trimmed.length === 0) return "Le message est requis";
+      if (trimmed.length < 10)
         return "Le message doit contenir au moins 10 caractères";
       break;
   }

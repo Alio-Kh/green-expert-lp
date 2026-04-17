@@ -39,13 +39,21 @@ function isLimited(map: Map<string, Counter>, key: string, max: number, windowMs
   return { limited: false, resetAt: entry.resetAt }
 }
 
+const FROM_ADDRESS = process.env.CONTACT_FROM_EMAIL || "Green Expert <contact@greenexpert.ma>"
+const TO_ADDRESS = process.env.CONTACT_TO_EMAIL || "said@greenexpert.ma"
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, projectType, message, website } = body
+    const rawName = typeof body.name === "string" ? body.name.trim() : ""
+    const rawEmail = typeof body.email === "string" ? body.email.trim() : ""
+    const rawPhone = typeof body.phone === "string" ? body.phone.trim() : ""
+    const rawProjectType = typeof body.projectType === "string" ? body.projectType.trim() : ""
+    const rawMessage = typeof body.message === "string" ? body.message.trim() : ""
+    const website = typeof body.website === "string" ? body.website : ""
 
     // Honeypot (hidden field). If it has a value, silently pretend success.
-    if (typeof website === "string" && website.trim() !== "") {
+    if (website.trim() !== "") {
       return NextResponse.json({ success: true, message: "Ok" })
     }
 
@@ -60,7 +68,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const emailKey = (email || "").toLowerCase()
+    const emailKey = rawEmail.toLowerCase()
     const emailResult = isLimited(emailCounters, emailKey, emailMaxRequests, emailWindowMs)
     if (emailResult.limited) {
       return NextResponse.json(
@@ -70,11 +78,19 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "Nom, email et message sont requis" }, { status: 400 })
+    if (!rawName || rawName.length < 2) {
+      return NextResponse.json({ error: "Nom invalide" }, { status: 400 })
+    }
+    if (!rawEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
+      return NextResponse.json({ error: "Email invalide" }, { status: 400 })
+    }
+    if (!rawPhone || rawPhone.replace(/\D/g, "").length < 8) {
+      return NextResponse.json({ error: "Téléphone invalide" }, { status: 400 })
+    }
+    if (!rawMessage || rawMessage.length < 10) {
+      return NextResponse.json({ error: "Message trop court" }, { status: 400 })
     }
 
-    // Generate HTML from TSX templates
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://greenexpert.ma"
     const resend = getResendClient()
 
@@ -84,32 +100,46 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email to Green Expert team
-    const { error } = await resend.emails.send({
-      from: "Green Expert <contact@greenexpert.ma>",
-      to: ["said@greenexpert.ma"],
-      subject: `Nouvelle demande de contact - ${projectType || "Projet général"}`,
+    const teamResult = await resend.emails.send({
+      from: FROM_ADDRESS,
+      to: [TO_ADDRESS],
+      replyTo: rawEmail,
+      subject: `Nouvelle demande de contact - ${rawProjectType || "Projet général"}`,
       react: createElement(TeamEmailTemplate, {
-        name,
-        email,
-        phone,
-        projectType,
-        message,
+        name: rawName,
+        email: rawEmail,
+        phone: rawPhone,
+        projectType: rawProjectType,
+        message: rawMessage,
         baseUrl,
       }),
     })
 
-    if (error) {
-      console.error("Resend error:", error)
-      return NextResponse.json({ error: "Erreur lors de l'envoi de l'email" }, { status: 500 })
+    if (teamResult.error) {
+      console.error("Resend team email error:", teamResult.error)
+      return NextResponse.json({ error: "Erreur lors de l'envoi de l'email" }, { status: 502 })
     }
 
-    // Send confirmation email to client
-    await resend.emails.send({
-      from: "Green Expert <contact@greenexpert.ma>",
-      to: [email],
+    console.info("Team email sent:", teamResult.data?.id)
+
+    // Send confirmation email to client. Do not fail the request if this fails.
+    const clientResult = await resend.emails.send({
+      from: FROM_ADDRESS,
+      to: [rawEmail],
       subject: "Confirmation de votre demande - Green Expert",
-      react: createElement(ClientEmailTemplate, { name, projectType, message, baseUrl }),
+      react: createElement(ClientEmailTemplate, {
+        name: rawName,
+        projectType: rawProjectType,
+        message: rawMessage,
+        baseUrl,
+      }),
     })
+
+    if (clientResult.error) {
+      console.error("Resend client email error:", clientResult.error)
+    } else {
+      console.info("Client email sent:", clientResult.data?.id)
+    }
 
     return NextResponse.json({ success: true, message: "Email envoyé avec succès" })
   } catch (error) {
