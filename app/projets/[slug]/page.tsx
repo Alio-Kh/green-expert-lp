@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, MapPin, Calendar, Tag } from "lucide-react";
 import { NavigationMenu } from "@/components/navigation-menu";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { ProjectGallery } from "@/components/project-gallery";
 import { projects, getProjectBySlug, type Project } from "@/lib/projects-data";
 import { services } from "@/lib/services-data";
 
@@ -106,27 +107,27 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       <main id="main-content">
       {/* Breadcrumb */}
-      <div className="container mx-auto px-4 pt-28 md:pt-32">
+      <div className="container mx-auto px-4 pt-28 pb-4 md:pt-32 md:pb-6">
         <nav
           aria-label="Fil d'Ariane"
           className="flex items-center gap-2 text-sm text-white/60"
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Accueil
           </Link>
-          <span className="text-white/30">/</span>
+          <span aria-hidden="true" className="text-white/30">/</span>
           <Link
             href="/#projets"
-            className="transition-colors hover:text-white"
+            className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
           >
             Projets
           </Link>
-          <span className="text-white/30">/</span>
-          <span className="text-white/90">{project.title}</span>
+          <span aria-hidden="true" className="text-white/30">/</span>
+          <span aria-current="page" className="text-white/90">{project.title}</span>
         </nav>
       </div>
 
@@ -137,11 +138,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         <GalleryFirstLayout project={project} />
       )}
 
-      {/* Featured services (shared across all layouts) */}
+      {/* CTA (shared) */}
+      <ProjectCta />
+
+      {/* Featured services (shared) */}
       <FeaturedServices project={project} />
 
       {/* Other projects (shared) */}
-      <OtherProjects current={project.slug} all={otherProjects} />
+      <OtherProjects all={otherProjects} />
       </main>
 
       <Footer />
@@ -158,7 +162,7 @@ function MagazineLayout({ project }: { project: Project }) {
   return (
     <>
       {/* Full-bleed hero */}
-      <section className="relative mt-8 h-[70vh] min-h-[480px] w-full overflow-hidden">
+      <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
         <Image
           src={project.heroImage}
           alt={project.title}
@@ -215,10 +219,7 @@ function MagazineLayout({ project }: { project: Project }) {
                   <div className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
                     Le défi
                   </div>
-                  <h3 className="mt-4 font-serif text-2xl font-light md:text-3xl">
-                    Un terrain singulier
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-[#1a2821]/70">
+                  <p className="mt-6 font-serif text-xl font-light leading-relaxed text-[#1a2821] md:text-2xl">
                     {project.challenge}
                   </p>
                 </div>
@@ -228,10 +229,7 @@ function MagazineLayout({ project }: { project: Project }) {
                   <div className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
                     Notre réponse
                   </div>
-                  <h3 className="mt-4 font-serif text-2xl font-light md:text-3xl">
-                    Une approche sur-mesure
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-[#1a2821]/70">
+                  <p className="mt-6 font-serif text-xl font-light leading-relaxed text-[#1a2821] md:text-2xl">
                     {project.solution}
                   </p>
                 </div>
@@ -248,25 +246,8 @@ function MagazineLayout({ project }: { project: Project }) {
       <section className="bg-[#1a2821] py-20 md:py-28">
         <div className="container mx-auto px-4">
           <SectionLabel variant="dark">Galerie</SectionLabel>
-          <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {project.gallery.map((img, i) => (
-              <div
-                key={img.src}
-                className={`relative overflow-hidden rounded-2xl ${
-                  i === 0
-                    ? "md:col-span-2 md:row-span-2 aspect-[16/10]"
-                    : "aspect-square"
-                }`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-            ))}
+          <div className="mt-12">
+            <ProjectGallery images={project.gallery} variant="mosaic" />
           </div>
         </div>
       </section>
@@ -371,35 +352,13 @@ function FeatureLayout({ project }: { project: Project }) {
       <section className="bg-[#1a2821] py-20 md:py-28">
         <div className="container mx-auto px-4">
           <SectionLabel variant="dark">Galerie</SectionLabel>
-          <div className="mt-12 grid gap-4 lg:grid-cols-[2fr_1fr]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image
-                src={project.gallery[0].src}
-                alt={project.gallery[0].alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            <div className="grid gap-4">
-              {project.gallery.slice(1, 3).map((img) => (
-                <div
-                  key={img.src}
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl"
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="mt-12">
+            <ProjectGallery images={project.gallery} variant="asymmetric" />
           </div>
         </div>
       </section>
+
+      {project.testimonial && <TestimonialBlock t={project.testimonial} />}
     </>
   );
 }
@@ -427,35 +386,7 @@ function GalleryFirstLayout({ project }: { project: Project }) {
       {/* Gallery strip — full bleed first row */}
       <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
-          {/* Big hero image */}
-          <div className="relative aspect-[21/9] overflow-hidden rounded-3xl">
-            <Image
-              src={project.heroImage}
-              alt={project.title}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-
-          {/* Smaller gallery grid below */}
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {project.gallery.slice(1).map((img) => (
-              <div
-                key={img.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+          <ProjectGallery images={project.gallery} variant="hero-grid" />
         </div>
       </section>
 
@@ -716,17 +647,45 @@ function FeaturedServices({ project }: { project: Project }) {
   );
 }
 
-function OtherProjects({
-  current,
-  all,
-}: {
-  current: string;
-  all: Project[];
-}) {
+function ProjectCta() {
+  return (
+    <section className="bg-[#1a2821] pt-4 pb-20 md:pt-8 md:pb-28">
+      <div className="container mx-auto px-4">
+        <div className="relative overflow-hidden rounded-3xl border border-[#9bbb2d]/20 bg-gradient-to-br from-[#9bbb2d]/10 via-[#1a2821] to-[#1a2821] p-10 text-center md:p-16">
+          <h2 className="font-serif text-3xl font-light md:text-5xl">
+            Un projet similaire en{" "}
+            <span className="italic text-[#9bbb2d]">tête</span> ?
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-white/70">
+            Parlons de votre terrain, de vos envies et de votre budget. Nous
+            vous répondons avec une proposition personnalisée sous 24 heures.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/#contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
+            >
+              <span>Démarrer un projet</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/notre-processus"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
+            >
+              Voir notre processus
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OtherProjects({ all }: { all: Project[] }) {
   if (all.length === 0) return null;
 
   return (
-    <section className="bg-[#1a2821] py-20 md:py-28">
+    <section className="bg-[#1a2821] pb-20 md:pb-28">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -737,7 +696,7 @@ function OtherProjects({
           </div>
           <Link
             href="/#projets"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-[#9bbb2d]"
+            className="inline-flex items-center gap-2 rounded text-sm font-medium text-white/70 transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
           >
             Tous les projets
             <ArrowRight className="h-4 w-4" />
@@ -745,32 +704,30 @@ function OtherProjects({
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {all
-            .filter((p) => p.slug !== current)
-            .map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projets/${p.slug}`}
-                className="group relative block aspect-[16/10] overflow-hidden rounded-2xl"
-              >
-                <Image
-                  src={p.thumbnail}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a2821] via-[#1a2821]/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d]">
-                    {p.category} • {p.location}
-                  </div>
-                  <h3 className="mt-2 font-serif text-2xl font-light md:text-3xl">
-                    {p.title}
-                  </h3>
+          {all.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/projets/${p.slug}`}
+              className="group relative block aspect-[16/10] overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d] focus-visible:ring-offset-4 focus-visible:ring-offset-[#1a2821]"
+            >
+              <Image
+                src={p.thumbnail}
+                alt={p.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a2821] via-[#1a2821]/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d]">
+                  {p.category} • {p.location}
                 </div>
-              </Link>
-            ))}
+                <h3 className="mt-2 font-serif text-2xl font-light md:text-3xl">
+                  {p.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

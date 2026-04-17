@@ -88,7 +88,7 @@ export function NavigationMenu() {
         animate={{ y: 0 }}
         aria-label="Menu principal"
         className={cn(
-          "fixed top-0 z-50 w-full border-b border-white/10 bg-[#1e3419]/90 backdrop-blur-xl transition-all duration-300",
+          "fixed top-0 z-50 w-full border-b border-white/10 bg-[#1a2821]/90 backdrop-blur-xl transition-all duration-300",
           isScrolled && "shadow-lg shadow-black/20"
         )}
       >
@@ -99,7 +99,7 @@ export function NavigationMenu() {
               alt="Green Expert Logo"
               width={150}
               height={40}
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain brightness-125 saturate-125"
               priority
             />
           </Link>
@@ -171,7 +171,7 @@ export function NavigationMenu() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 right-0 top-20 z-50 flex w-full max-w-sm flex-col border-l border-white/10 bg-[#1e3419] px-6 py-8 shadow-2xl md:hidden"
+              className="fixed bottom-0 right-0 top-20 z-50 flex w-full max-w-sm flex-col border-l border-white/10 bg-[#1a2821] px-6 py-8 shadow-2xl md:hidden"
             >
               <div className="flex flex-col gap-2">
                 {NAV_ITEMS.map((item) => (

@@ -12,7 +12,7 @@ import { services } from "@/lib/services-data";
 
 export function Footer() {
   return (
-    <footer className="bg-[#1e3419]">
+    <footer className="bg-[#1a2821]">
       {/* Accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#9bbb2d] to-transparent" />
 
@@ -25,7 +25,7 @@ export function Footer() {
                 alt="Green Expert Logo"
                 width={150}
                 height={40}
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain brightness-125 saturate-125"
               />
               <p className="mt-4 max-w-xs text-sm text-white/70">
                 Votre partenaire de confiance en aménagement paysager depuis
@@ -38,19 +38,19 @@ export function Footer() {
               <div className="mt-4 space-y-2 text-sm text-white/70">
                 <a
                   href="tel:+212661967903"
-                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
                   <Phone className="h-5 w-5 min-w-5" /> +212 661-967903
                 </a>
                 <a
                   href="tel:+212530312466"
-                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
                   <Headset className="h-5 w-5 min-w-5" /> +212 530-312466
                 </a>
                 <a
                   href="mailto:contact@greenexpert.ma"
-                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                  className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
                   <Mail className="h-5 w-5 min-w-5" /> contact@greenexpert.ma
                 </a>
@@ -68,7 +68,7 @@ export function Footer() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="block rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                    className="block rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                   >
                     {service.title}
                   </Link>
@@ -83,7 +83,7 @@ export function Footer() {
                   href="https://www.instagram.com/greenexpertmaroc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
                   <Instagram className="h-6 w-6" />
                   <span>@greenexpertmaroc</span>
@@ -92,7 +92,7 @@ export function Footer() {
                   href="https://www.linkedin.com/company/greenexpert"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e3419]"
+                  className="flex items-center gap-2 rounded text-sm text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
                   <Linkedin className="h-6 w-6" />
                   <span>Green Expert</span>
