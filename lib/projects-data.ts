@@ -14,6 +14,7 @@ export type ProjectSpec = {
 
 export type Project = {
   slug: string;
+  published: boolean;
   title: string;
   category: string;
   location: string;
@@ -42,6 +43,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "villa-mediterraneenne",
+    published: false,
     title: "Villa Méditerranéenne",
     category: "Jardin résidentiel",
     location: "Bouskoura, Casablanca",
@@ -100,12 +102,13 @@ export const projects: Project[] = [
       role: "Propriétaires, Bouskoura",
     },
     featuredServices: ["design-paysager", "plantation", "systemes-irrigation"],
-    metaTitle: "Villa Méditerranéenne à Bouskoura | Projet Green Expert",
+    metaTitle: "Villa Méditerranéenne à Bouskoura",
     metaDescription:
       "Découvrez ce jardin méditerranéen de 500 m² réalisé à Bouskoura : oliviers centenaires, terrasses en pierre, irrigation économe.",
   },
   {
     slug: "oasis-urbaine",
+    published: false,
     title: "Oasis Urbaine",
     category: "Toit-terrasse",
     location: "Maârif, Casablanca",
@@ -152,12 +155,13 @@ export const projects: Project[] = [
       },
     ],
     featuredServices: ["design-paysager", "systemes-irrigation", "eclairage-exterieur"],
-    metaTitle: "Toit-terrasse végétalisé à Casablanca | Oasis Urbaine",
+    metaTitle: "Toit-terrasse végétalisé à Casablanca",
     metaDescription:
       "Aménagement d'un toit-terrasse de 300 m² à Casablanca : jardinières surélevées, irrigation connectée, pergola végétalisée.",
   },
   {
     slug: "jardin-zen",
+    published: false,
     title: "Jardin Zen",
     category: "Espace de méditation",
     location: "Souissi, Rabat",
@@ -213,7 +217,7 @@ export const projects: Project[] = [
       role: "Propriétaire, Souissi",
     },
     featuredServices: ["design-paysager", "plantation", "eclairage-exterieur"],
-    metaTitle: "Jardin Zen à Souissi, Rabat | Projet Green Expert",
+    metaTitle: "Jardin Zen à Souissi, Rabat",
     metaDescription:
       "Création d'un jardin zen japonais de 200 m² à Souissi, Rabat : pierres, bambous noirs, éclairage LED tamisé.",
   },

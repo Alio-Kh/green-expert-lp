@@ -3,16 +3,27 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ArrowRight, MapPin } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  MapPin,
+  Pause,
+  Play,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/lib/projects-data";
 
 export function ProjectsShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
+  const [isUserPaused, setIsUserPaused] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isPaused =
+    isInteractionPaused || isUserPaused || Boolean(prefersReducedMotion);
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -105,10 +116,10 @@ export function ProjectsShowcase() {
       aria-label="Nos réalisations"
       aria-describedby="carousel-instructions"
       onKeyDown={handleKeyDown}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
+      onMouseEnter={() => setIsInteractionPaused(true)}
+      onMouseLeave={() => setIsInteractionPaused(false)}
+      onFocus={() => setIsInteractionPaused(true)}
+      onBlur={() => setIsInteractionPaused(false)}
       tabIndex={0}
     >
       <p id="carousel-instructions" className="sr-only">
@@ -128,7 +139,8 @@ export function ProjectsShowcase() {
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.1}
             onDragEnd={handleDragEnd}
-            className="relative mx-auto aspect-video w-full max-w-screen-xl cursor-grab overflow-hidden rounded-3xl active:cursor-grabbing md:aspect-[16/9] lg:aspect-[2/1] xl:aspect-[21/9]"
+            aria-live="polite"
+            className="relative mx-auto aspect-[4/3] w-full max-w-screen-xl cursor-grab overflow-hidden rounded-3xl border border-white/10 active:cursor-grabbing sm:aspect-video lg:aspect-[2/1] xl:aspect-[21/9]"
           >
             <Image
               src={current.heroImage}
@@ -163,7 +175,7 @@ export function ProjectsShowcase() {
                 {/* CTA button */}
                 <Link
                   href={`/projets/${current.slug}`}
-                  className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-[#9bbb2d] px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] md:self-end"
+                  className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-[#a8c83f] px-5 py-2.5 text-sm font-semibold text-[#17251e] shadow-lg shadow-[#9bbb2d]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#b6d74a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d2e884] md:self-end"
                 >
                   <span>Voir le projet</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -194,7 +206,7 @@ export function ProjectsShowcase() {
         </Button>
       </div>
 
-      <div className="mt-4 flex justify-center gap-1 md:mt-6" role="tablist">
+      <div className="mt-4 flex items-center justify-center gap-1 md:mt-6" role="tablist">
         {projects.map((project, index) => (
           <button
             key={project.slug}
@@ -213,6 +225,18 @@ export function ProjectsShowcase() {
             />
           </button>
         ))}
+        <button
+          type="button"
+          className="ml-2 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/65 transition hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b4cf54]/60"
+          onClick={() => setIsUserPaused((current) => !current)}
+          aria-label={isUserPaused ? "Relancer le diaporama" : "Mettre le diaporama en pause"}
+        >
+          {isUserPaused ? (
+            <Play className="h-4 w-4" aria-hidden="true" />
+          ) : (
+            <Pause className="h-4 w-4" aria-hidden="true" />
+          )}
+        </button>
       </div>
     </div>
   );

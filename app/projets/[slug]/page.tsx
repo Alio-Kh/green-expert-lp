@@ -1,3 +1,4 @@
+import { siteUrl, pageMetadata, BUSINESS_ID, jsonLd as serializeJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -23,44 +24,41 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return {};
+  if (!project) notFound();
 
-  const canonical = `https://greenexpert.ma/projets/${project.slug}`;
-  return {
-    title: project.metaTitle,
-    description: project.metaDescription,
-    alternates: { canonical },
-    openGraph: {
-      title: project.metaTitle,
-      description: project.metaDescription,
-      url: canonical,
-      type: "article",
-      siteName: "Green Expert",
-      locale: "fr_FR",
-      images: [
-        {
-          url: project.heroImage,
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: project.metaTitle,
-      description: project.metaDescription,
-      images: [project.heroImage],
-    },
-  };
+  if (!project.published) {
+    return {
+      ...pageMetadata("Réalisation indisponible", "Découvrez les services de Green Expert pour votre projet de jardin ou d’espace vert.", `/projets/${project.slug}`),
+      robots: { index: false, follow: true },
+    };
+  }
+  return pageMetadata(project.metaTitle, project.metaDescription, `/projets/${project.slug}`);
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
+  if (!project.published) {
+    return (
+      <div className="min-h-screen bg-[#17251e] text-white">
+        <NavigationMenu />
+        <main id="main-content" className="mx-auto max-w-3xl px-6 pb-24 pt-40">
+          <p className="text-sm uppercase tracking-widest text-[#c6df6b]">Nos réalisations</p>
+          <h1 className="mt-6 font-serif text-4xl md:text-5xl">Cette réalisation n’est pas disponible.</h1>
+          <p className="mt-6 leading-8 text-white/75">Vous pouvez découvrir nos prestations ou nous parler de votre terrain pour préparer votre propre projet.</p>
+          <div className="mt-8 flex flex-wrap gap-6">
+            <Link className="rounded-full bg-[#a8c83f] px-6 py-3 font-semibold text-[#17251e]" href="/#services">Découvrir nos services</Link>
+            <Link className="rounded-full border border-white/30 px-6 py-3" href="/#contact">Parlons de votre projet</Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
-  const otherProjects = projects.filter((p) => p.slug !== project.slug);
+
+  const otherProjects = projects.filter((p) => p.published && p.slug !== project.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,25 +68,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     image: project.heroImage,
     locationCreated: { "@type": "Place", name: project.location },
     dateCreated: project.year,
-    creator: {
-      "@type": "LandscapingBusiness",
-      name: "Green Expert",
-      url: "https://greenexpert.ma",
-    },
-    url: `https://greenexpert.ma/projets/${project.slug}`,
+    creator: { "@id": BUSINESS_ID },
+    url: siteUrl(`/projets/${project.slug}`),
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
-      { "@type": "ListItem", position: 2, name: "Projets", item: "https://greenexpert.ma/#projets" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl("/") },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 2,
         name: project.title,
-        item: `https://greenexpert.ma/projets/${project.slug}`,
+        item: siteUrl(`/projets/${project.slug}`),
       },
     ],
   };
@@ -97,11 +90,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
       <NavigationMenu />
 
@@ -121,10 +114,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </Link>
           <span aria-hidden="true" className="text-white/30">/</span>
           <Link
-            href="/#projets"
+            href="/#services"
             className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
           >
-            Projets
+            Services
           </Link>
           <span aria-hidden="true" className="text-white/30">/</span>
           <span aria-current="page" className="text-white/90">{project.title}</span>
@@ -658,7 +651,7 @@ function ProjectCta() {
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-white/70">
             Parlons de votre terrain, de vos envies et de votre budget. Nous
-            vous répondons avec une proposition personnalisée sous 24 heures.
+            reprenons contact pour préciser votre besoin et préparer un devis.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -695,10 +688,10 @@ function OtherProjects({ all }: { all: Project[] }) {
             </h2>
           </div>
           <Link
-            href="/#projets"
+            href="/#services"
             className="inline-flex items-center gap-2 rounded text-sm font-medium text-white/70 transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
           >
-            Tous les projets
+            Découvrir nos services
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

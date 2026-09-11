@@ -31,9 +31,10 @@
     --radius: 0.5rem;
 
     /* Brand colors */
-    --brand-dark: #1a2821;
-    --brand-accent: #9bbb2d;
-    --brand-accent-hover: #8bab1d;
+    --brand-dark: #17251e;
+    --brand-accent: #a8c83f;
+    --brand-accent-hover: #b6d74a;
+    --brand-accent-ink: #62791b;
     --brand-cream: #fafaf5;
   }
   .dark {
@@ -70,6 +71,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: var(--font-geist-sans), Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 }
 
@@ -111,8 +121,25 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   .animate-marquee,
   .animate-marquee-reverse {
     animation: none;
   }
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }

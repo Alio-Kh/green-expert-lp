@@ -1,43 +1,13 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/services-data";
 import { projects } from "@/lib/projects-data";
-
-const baseUrl = "https://greenexpert.ma";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-      images: [`${baseUrl}/cover.png`],
-    },
-    {
-      url: `${baseUrl}/notre-processus`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+  const pages = ["/", "/notre-processus", "/paysagiste-rabat", "/amenagement-espaces-verts", "/conseils/amenagement-espaces-verts"];
+  return [
+    ...pages.map((path) => ({ url: siteUrl(path), lastModified: new Date("2026-09-04"), images: [siteUrl("/cover.png")] })),
+    ...services.map((service) => ({ url: siteUrl(`/services/${service.slug}`), lastModified: new Date("2026-09-04"), images: [siteUrl(service.heroImage)] })),
+    ...projects.filter((project) => project.published).map((project) => ({ url: siteUrl(`/projets/${project.slug}`), images: [...new Set([project.heroImage, ...project.gallery.map((image) => image.src)])].map((image) => siteUrl(image)) })),
   ];
-
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${baseUrl}/services/${s.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-    images: [s.heroImage],
-  }));
-
-  const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
-    url: `${baseUrl}/projets/${p.slug}`,
-    lastModified: now,
-    changeFrequency: "yearly",
-    priority: 0.7,
-    images: [p.heroImage, ...p.gallery.map((g) => g.src)],
-  }));
-
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }

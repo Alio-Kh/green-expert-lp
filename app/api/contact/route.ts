@@ -1,3 +1,4 @@
+import { siteUrl } from "@/lib/site";
 import { createElement } from "react"
 import { type NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
@@ -84,14 +85,14 @@ export async function POST(request: NextRequest) {
     if (!rawEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 })
     }
-    if (!rawPhone || rawPhone.replace(/\D/g, "").length < 8) {
+    if (rawPhone && rawPhone.replace(/\D/g, "").length < 8) {
       return NextResponse.json({ error: "Téléphone invalide" }, { status: 400 })
     }
     if (!rawMessage || rawMessage.length < 10) {
       return NextResponse.json({ error: "Message trop court" }, { status: 400 })
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://greenexpert.ma"
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || siteUrl("/")
     const resend = getResendClient()
 
     if (!resend) {

@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const partners = [
   {
@@ -128,11 +125,12 @@ function MarqueeRow({
         {doubled.map((partner, i) => (
           <div
             key={`${partner.name}-${i}`}
+            aria-hidden={i >= items.length ? "true" : undefined}
             className="flex h-16 w-[120px] shrink-0 items-center justify-center grayscale transition-all duration-300 hover:grayscale-0"
           >
             <Image
               src={partner.logo}
-              alt={partner.alt}
+              alt={i >= items.length ? "" : partner.alt}
               width={120}
               height={64}
               className="h-12 w-auto max-w-[120px] object-contain"
@@ -146,23 +144,28 @@ function MarqueeRow({
 
 export function PartnersSection() {
   return (
-    <section className="bg-[#fafaf5] py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+    <section
+      aria-labelledby="partners-heading"
+      className="bg-[#fafaf5] py-16 md:py-20"
+    >
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+        <div
           className="text-center"
         >
-          <h2 className="font-serif text-4xl font-light text-[#1a2821] md:text-5xl">
-            Ils Nous Font <span className="text-[#9bbb2d]">Confiance</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-[#1a2821]/70">
-            Découvrez les entreprises et institutions qui nous ont choisis pour
-            transformer leurs espaces verts en véritables chefs-d&apos;oeuvre.
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#62791b]">
+            Références
           </p>
-        </motion.div>
+          <h2
+            id="partners-heading"
+            className="mt-5 font-serif text-4xl font-light text-[#17251e] md:text-5xl"
+          >
+            Des organisations qui nous font confiance.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-7 text-[#17251e]/65">
+            Entreprises, établissements publics et institutions nous confient
+            la création et l’entretien de leurs espaces extérieurs.
+          </p>
+        </div>
 
         <div className="mt-12 space-y-8 overflow-hidden">
           <MarqueeRow items={row1} />

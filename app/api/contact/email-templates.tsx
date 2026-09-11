@@ -381,6 +381,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                           Répondre
                                         </a>
                                       </td>
+                                      {phone && (
                                       <td>
                                         <a
                                           href={`tel:${phone}`}
@@ -410,6 +411,7 @@ export function TeamEmailTemplate({ name, email, phone, projectType, message }: 
                                           Appeler
                                         </a>
                                       </td>
+                                      )}
                                     </tr>
                                   </tbody>
                                 </table>
@@ -615,7 +617,7 @@ interface ClientEmailProps {
 }
 
 export function ClientEmailTemplate({ name, projectType, message, baseUrl }: ClientEmailProps) {
-  const ctaUrl = `${baseUrl}/#projets`
+  const ctaUrl = `${baseUrl}/#services`
   return (
     <Html>
       <Head />
@@ -861,7 +863,7 @@ export function ClientEmailTemplate({ name, projectType, message, baseUrl }: Cli
                       <tr>
                         <td>
                           <Text style={{ margin: "0 0 24px 0", fontSize: 18, color: "#6b7280", fontWeight: 500 }}>
-                            En attendant, découvrez nos réalisations
+                            En attendant, découvrez nos services
                           </Text>
                           <a
                             href={ctaUrl}

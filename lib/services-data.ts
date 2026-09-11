@@ -12,9 +12,11 @@ export type Service = {
   slug: string;
   icon: LucideIcon;
   title: string;
+  heading: string;
   shortDescription: string;
   longDescription: string;
   heroImage: string;
+  heroImagePosition?: string;
   benefits: string[];
   approach: { title: string; description: string }[];
   metaTitle: string;
@@ -25,13 +27,13 @@ export const services: Service[] = [
   {
     slug: "design-paysager",
     icon: Leaf,
-    title: "Design Paysager",
+    title: "Design paysager",
+    heading: "Conception de jardins sur mesure",
     shortDescription:
       "Création de plans personnalisés qui allient esthétique et fonctionnalité",
     longDescription:
       "Chaque jardin est unique. Nos paysagistes conçoivent des plans sur-mesure qui reflètent votre style de vie, s'adaptent à votre terrain et subliment votre architecture. De l'esquisse initiale au rendu 3D, nous donnons vie à votre vision.",
-    heroImage:
-      "https://fal.media/files/elephant/n01RzRRMoP4XMul-Z2F45_dfadc490f38e4afc805c05e7b4c31722.jpg",
+    heroImage: "/images/services/design-paysager.jpg",
     benefits: [
       "Étude approfondie du terrain et de l'exposition",
       "Plans 2D et rendus 3D photoréalistes",
@@ -56,22 +58,22 @@ export const services: Service[] = [
           "Nous affinons le design avec vous jusqu'à obtenir un projet qui vous ressemble parfaitement.",
       },
     ],
-    metaTitle: "Design Paysager au Maroc | Conception de Jardins Sur-Mesure",
+    metaTitle: "Conception de jardins au Maroc",
     metaDescription:
-      "Paysagistes experts au Maroc : conception de jardins personnalisés, plans 2D/3D, sélection végétale adaptée au climat local. Devis gratuit.",
+      "Paysagistes experts au Maroc : conception de jardins personnalisés, plans 2D/3D, sélection végétale adaptée au climat local. Devis personnalisé.",
   },
   {
     slug: "systemes-irrigation",
     icon: Droplets,
-    title: "Systèmes d'Irrigation",
+    title: "Systèmes d'irrigation",
+    heading: "Installation d’arrosage automatique",
     shortDescription:
       "Solutions d'arrosage intelligentes et économes en eau",
     longDescription:
-      "L'eau est précieuse, surtout au Maroc. Nos systèmes d'irrigation automatisés et pilotés par capteurs garantissent un arrosage précis, réduisent votre consommation jusqu'à 50% et préservent la santé de votre jardin, même en votre absence.",
-    heroImage:
-      "https://fal.media/files/monkey/FOqVfEbr1qRTNDx9riBoZ_144ade400e9345fba693354af8d34da9.jpg",
+      "L'eau est précieuse, surtout au Maroc. Nos systèmes d'irrigation automatisés et pilotés par capteurs garantissent un arrosage précis, adaptent l’apport d’eau aux besoins de chaque zone et préservent la santé de votre jardin, même en votre absence.",
+    heroImage: "/images/services/irrigation.jpg",
     benefits: [
-      "Économie d'eau jusqu'à 50% avec la micro-irrigation",
+      "Arrosage ciblé grâce à la micro-irrigation",
       "Programmation intelligente selon la météo",
       "Pilotage à distance via smartphone",
       "Capteurs d'humidité du sol en option",
@@ -94,19 +96,19 @@ export const services: Service[] = [
           "Nous vous formons à l'utilisation du système et assurons le suivi saisonnier.",
       },
     ],
-    metaTitle: "Installation Système d'Irrigation au Maroc | Arrosage Automatique",
+    metaTitle: "Arrosage automatique au Maroc",
     metaDescription:
-      "Installation de systèmes d'irrigation automatiques et connectés au Maroc. Économies d'eau, pilotage smartphone, maintenance incluse.",
+      "Installation de systèmes d'irrigation automatiques et connectés au Maroc. Économies d'eau, pilotage smartphone, suivi selon votre contrat.",
   },
   {
     slug: "eclairage-exterieur",
     icon: Sun,
-    title: "Éclairage Extérieur",
+    title: "Éclairage extérieur",
+    heading: "Éclairage de jardins et d’extérieurs",
     shortDescription: "Mise en valeur nocturne de votre espace vert",
     longDescription:
       "Prolongez la vie de votre jardin après le coucher du soleil. Notre éclairage paysager met en scène vos végétaux, sécurise les circulations et crée des ambiances intimes, tout en respectant l'environnement grâce à la technologie LED basse consommation.",
-    heroImage:
-      "https://fal.media/files/penguin/oDferWZMirf76z6a_EYZG_a75d40eee1c84a488813cba28fbe1b77.jpg",
+    heroImage: "/images/services/eclairage-exterieur.jpg",
     benefits: [
       "Technologie LED basse consommation",
       "Mise en valeur des arbres, massifs et façades",
@@ -131,7 +133,7 @@ export const services: Service[] = [
           "Ajustement des intensités, angles et scénarios pour une mise en scène parfaite.",
       },
     ],
-    metaTitle: "Éclairage Jardin & Extérieur au Maroc | LED Paysager",
+    metaTitle: "Éclairage de jardin au Maroc",
     metaDescription:
       "Installation d'éclairage extérieur paysager au Maroc : LED basse consommation, mise en valeur de vos végétaux, ambiances nocturnes sur-mesure.",
   },
@@ -139,16 +141,17 @@ export const services: Service[] = [
     slug: "plantation",
     icon: TreePine,
     title: "Plantation",
+    heading: "Plantation d’arbres et de végétaux",
     shortDescription:
       "Sélection et installation d'espèces adaptées à votre environnement",
     longDescription:
-      "De l'arbre centenaire aux massifs fleuris, la réussite d'un jardin dépend du bon végétal à la bonne place. Nous sélectionnons avec soin des espèces résistantes au climat marocain et garantissons leur reprise grâce à un savoir-faire horticole éprouvé.",
-    heroImage:
-      "https://fal.media/files/kangaroo/ENyEfffIBlh4aZ1RB7w8G_b9a74c7115594336a6d403e5ef9827ce.jpg",
+      "De l'arbre centenaire aux massifs fleuris, la réussite d'un jardin dépend du bon végétal à la bonne place. Nous sélectionnons avec soin des espèces résistantes au climat marocain et préparons leur installation ainsi que les soins nécessaires à leur reprise.",
+    heroImage: "/images/field-work/planting-team.jpg",
+    heroImagePosition: "center 52%",
     benefits: [
       "Palette végétale adaptée au climat local",
       "Plantes méditerranéennes et endémiques privilégiées",
-      "Garantie de reprise sur les sujets installés",
+      "Conditions de suivi précisées au devis",
       "Plantation d'arbres de grande taille",
       "Conseils d'entretien personnalisés",
     ],
@@ -166,23 +169,24 @@ export const services: Service[] = [
       {
         title: "Suivi de reprise",
         description:
-          "Visites de contrôle dans les premières semaines pour garantir le succès de la plantation.",
+          "Visites de contrôle dans les premières semaines pour suivre l’évolution des plantations.",
       },
     ],
-    metaTitle: "Plantation d'Arbres & Végétaux au Maroc | Paysagiste Green Expert",
+    metaTitle: "Plantation d’arbres et végétaux au Maroc",
     metaDescription:
-      "Plantation professionnelle au Maroc : arbres, arbustes, massifs. Garantie de reprise, espèces adaptées au climat, savoir-faire horticole.",
+      "Plantation professionnelle au Maroc : arbres, arbustes, massifs. Suivi de plantation, espèces adaptées au climat, savoir-faire horticole.",
   },
   {
     slug: "terrassement",
     icon: Shovel,
     title: "Terrassement",
+    heading: "Terrassement et préparation de jardins",
     shortDescription:
       "Préparation et modelage du terrain pour vos aménagements",
     longDescription:
       "Avant tout jardin, il y a un terrain à préparer. Nos équipes maîtrisent le nivellement, le drainage, la création de talus et de terrasses pour transformer un sol ingrat en support idéal pour votre futur espace vert.",
-    heroImage:
-      "https://fal.media/files/rabbit/VV2ti7c12ADTfKn8zs7p2_68e66fa918864a4facb8510cfc401fa9.jpg",
+    heroImage: "/images/services/terrassement-real.jpg",
+    heroImagePosition: "center 62%",
     benefits: [
       "Nivellement et modelage précis",
       "Création de talus et restanques",
@@ -207,20 +211,21 @@ export const services: Service[] = [
           "Régalage de la terre végétale pour accueillir plantations, gazon ou aménagements durs.",
       },
     ],
-    metaTitle: "Terrassement Jardin au Maroc | Préparation Terrain Paysager",
+    metaTitle: "Terrassement de jardins au Maroc",
     metaDescription:
-      "Terrassement professionnel pour jardins et espaces verts au Maroc : nivellement, drainage, talus, restanques. Devis gratuit.",
+      "Terrassement professionnel pour jardins et espaces verts au Maroc : nivellement, drainage, talus, restanques. Devis personnalisé.",
   },
   {
     slug: "maintenance",
     icon: Shield,
-    title: "Maintenance",
+    title: "Entretien paysager",
+    heading: "Entretien de jardins et d’espaces verts",
     shortDescription:
       "Entretien régulier pour préserver la beauté de votre jardin",
     longDescription:
       "Un beau jardin se mérite tout au long de l'année. Nos contrats d'entretien s'adaptent à la taille et aux besoins de votre espace vert. Taille, fertilisation, traitements, arrosage : nous prenons soin de votre jardin pour qu'il reste impeccable en toute saison.",
-    heroImage:
-      "https://fal.media/files/monkey/kihJVAdwxDsrh5Lb0d8GY_a0a835e0cb9f44688e4ed005201fdc63.jpg",
+    heroImage: "/images/field-work/palm-pruning.jpg",
+    heroImagePosition: "center 42%",
     benefits: [
       "Contrats sur-mesure mensuels ou saisonniers",
       "Taille raisonnée des arbres et arbustes",
@@ -245,7 +250,7 @@ export const services: Service[] = [
           "Équipes formées, matériel professionnel et comptes rendus après chaque passage.",
       },
     ],
-    metaTitle: "Entretien Jardin au Maroc | Contrats Maintenance Paysagère",
+    metaTitle: "Entretien de jardins au Maroc",
     metaDescription:
       "Contrats d'entretien de jardins au Maroc : taille, fertilisation, tonte, traitements. Équipes professionnelles, devis personnalisé.",
   },

@@ -19,6 +19,7 @@ export type ProcessPhase = {
   longDescription: string;
   duration: string;
   image: string;
+  imageAlt: string;
   phases: { icon: LucideIcon; title: string; description: string }[];
   deliverables: string[];
 };
@@ -31,9 +32,9 @@ export const processPhases: ProcessPhase[] = [
     shortDescription: "Création de plans personnalisés pour votre espace",
     longDescription:
       "Tout grand jardin commence par une écoute attentive et une analyse rigoureuse. Avant le moindre coup de pioche, nos paysagistes prennent le temps de comprendre votre terrain, vos envies et votre mode de vie pour concevoir un projet qui vous ressemble.",
-    duration: "2 à 4 semaines",
-    image:
-      "https://fal.media/files/elephant/n01RzRRMoP4XMul-Z2F45_dfadc490f38e4afc805c05e7b4c31722.jpg",
+    duration: "Calendrier défini après étude",
+    image: "/images/services/design-paysager.jpg",
+    imageAlt: "Illustration d’un aménagement paysager autour d’une maison",
     phases: [
       {
         icon: ClipboardList,
@@ -55,10 +56,10 @@ export const processPhases: ProcessPhase[] = [
       },
     ],
     deliverables: [
-      "Plan masse coté au 1/100",
-      "Rendus 3D photoréalistes",
+      "Plans et niveau de détail définis au devis",
+      "Visualisations 3D selon la mission retenue",
       "Palette végétale détaillée",
-      "Devis ferme et définitif",
+      "Devis détaillant le périmètre retenu",
       "Planning prévisionnel des travaux",
     ],
   },
@@ -69,9 +70,9 @@ export const processPhases: ProcessPhase[] = [
     shortDescription: "Exécution experte avec des artisans qualifiés",
     longDescription:
       "Nos équipes prennent le relais sur le terrain pour donner vie au projet validé. Terrassement, maçonnerie, plantations, irrigation, éclairage : chaque étape est menée avec rigueur, dans le respect des délais et de votre propriété.",
-    duration: "4 à 12 semaines selon l'ampleur",
-    image:
-      "https://fal.media/files/monkey/FOqVfEbr1qRTNDx9riBoZ_144ade400e9345fba693354af8d34da9.jpg",
+    duration: "Selon les travaux et l’accès au terrain",
+    image: "/images/field-work/planting-team.jpg",
+    imageAlt: "Plantation d’un massif fleuri sur le terrain",
     phases: [
       {
         icon: Hammer,
@@ -106,10 +107,10 @@ export const processPhases: ProcessPhase[] = [
     title: "Nous Entretenons",
     shortDescription: "Suivi régulier pour préserver et faire évoluer votre jardin",
     longDescription:
-      "Un jardin est un être vivant qui évolue au fil des saisons. Nos contrats d'entretien sur-mesure garantissent sa beauté et sa santé tout au long de l'année, avec des équipes formées et du matériel professionnel.",
-    duration: "Contrat annuel renouvelable",
-    image:
-      "https://fal.media/files/monkey/kihJVAdwxDsrh5Lb0d8GY_a0a835e0cb9f44688e4ed005201fdc63.jpg",
+      "Un jardin est un être vivant qui évolue au fil des saisons. Nos contrats d'entretien sur-mesure accompagnent son évolution tout au long de l'année, avec des équipes formées et du matériel professionnel.",
+    duration: "Fréquence définie au contrat",
+    image: "/images/field-work/lawn-care.jpg",
+    imageAlt: "Tonte et entretien d’une pelouse",
     phases: [
       {
         icon: CalendarCheck,
@@ -154,11 +155,11 @@ export const processGuarantees = [
   {
     title: "Délais respectés",
     description:
-      "Planning ferme avec points d'étape. Si un imprévu survient, nous vous prévenons immédiatement.",
+      "Le calendrier tient compte de l’accès au terrain, des approvisionnements et des conditions de chantier.",
   },
   {
-    title: "Garantie de reprise",
+    title: "Suivi des plantations",
     description:
-      "Les végétaux plantés sont garantis un an. Nous remplaçons gratuitement tout sujet qui ne reprendrait pas.",
+      "Les conseils d’arrosage, les visites de suivi et les éventuelles conditions de garantie sont précisés dans votre devis.",
   },
 ];
