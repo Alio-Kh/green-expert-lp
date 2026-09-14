@@ -10,7 +10,7 @@ export default function RabatPage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({ "@context": "https://schema.org", "@type": "Service", name: title, description, url: siteUrl("/paysagiste-rabat"), provider: { "@id": BUSINESS_ID }, areaServed: [{ "@type": "City", name: "Rabat" }, { "@type": "City", name: "Salé" }] }) }} />
     <EditorialPage title={title} eyebrow="Rabat · Salé" path="/paysagiste-rabat"
       intro="Vous souhaitez créer un jardin, réaménager un extérieur ou organiser son entretien ? Basée à Salé, Green Expert vous accompagne à Rabat et Salé, de l’étude du terrain au suivi des plantations."
-      image="/images/field-work/planting-team.jpg" imageAlt="Travaux de plantation d’un massif fleuri"
+      image="/images/field-work/planting-team-enhanced.webp" imageAlt="Travaux de plantation d’un massif fleuri"
       sections={[
         { id: "votre-jardin", title: "Un aménagement adapté à votre lieu de vie", paragraphs: [
           "Un jardin de villa, une cour de résidence et les abords d’un établissement ne répondent pas aux mêmes besoins. Nous partons des usages du lieu : circuler, se reposer, préserver l’intimité, accueillir des visiteurs ou faciliter l’entretien. Les végétaux et les équipements sont choisis en fonction du terrain et de ces priorités.",

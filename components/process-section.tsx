@@ -8,7 +8,7 @@ const processSteps = [
     description:
       "Préparation du sol, implantation précise et gestes adaptés à chaque végétal.",
     alt: "Équipe Green Expert réalisant la plantation d’un massif fleuri",
-    image: "/images/field-work/planting-team.jpg",
+    image: "/images/field-work/planting-team-enhanced.webp",
     objectPosition: "center 48%",
   },
   {
@@ -16,7 +16,7 @@ const processSteps = [
     description:
       "Une intervention régulière pour conserver des pelouses nettes et vigoureuses.",
     alt: "Jardinier Green Expert assurant la tonte d’une pelouse",
-    image: "/images/field-work/lawn-care.jpg",
+    image: "/images/field-work/lawn-care-enhanced.webp",
     objectPosition: "center 48%",
   },
   {
@@ -24,7 +24,7 @@ const processSteps = [
     description:
       "Des interventions expertes pour préserver la santé, la forme et la sécurité des arbres.",
     alt: "Jardinier Green Expert réalisant la taille d’un palmier",
-    image: "/images/field-work/palm-pruning.jpg",
+    image: "/images/field-work/palm-pruning-enhanced.webp",
     objectPosition: "center 46%",
   },
 ];

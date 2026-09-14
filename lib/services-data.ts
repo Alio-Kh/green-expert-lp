@@ -146,7 +146,7 @@ export const services: Service[] = [
       "Sélection et installation d'espèces adaptées à votre environnement",
     longDescription:
       "De l'arbre centenaire aux massifs fleuris, la réussite d'un jardin dépend du bon végétal à la bonne place. Nous sélectionnons avec soin des espèces résistantes au climat marocain et préparons leur installation ainsi que les soins nécessaires à leur reprise.",
-    heroImage: "/images/field-work/planting-team.jpg",
+    heroImage: "/images/field-work/planting-team-enhanced.webp",
     heroImagePosition: "center 52%",
     benefits: [
       "Palette végétale adaptée au climat local",
@@ -224,7 +224,7 @@ export const services: Service[] = [
       "Entretien régulier pour préserver la beauté de votre jardin",
     longDescription:
       "Un beau jardin se mérite tout au long de l'année. Nos contrats d'entretien s'adaptent à la taille et aux besoins de votre espace vert. Taille, fertilisation, traitements, arrosage : nous prenons soin de votre jardin pour qu'il reste impeccable en toute saison.",
-    heroImage: "/images/field-work/palm-pruning.jpg",
+    heroImage: "/images/field-work/palm-pruning-enhanced.webp",
     heroImagePosition: "center 42%",
     benefits: [
       "Contrats sur-mesure mensuels ou saisonniers",
