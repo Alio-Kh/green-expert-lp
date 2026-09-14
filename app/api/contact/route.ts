@@ -41,7 +41,9 @@ function isLimited(map: Map<string, Counter>, key: string, max: number, windowMs
 }
 
 const FROM_ADDRESS = process.env.CONTACT_FROM_EMAIL || "Green Expert <contact@greenexpert.ma>"
-const TO_ADDRESS = process.env.CONTACT_TO_EMAIL || "said@greenexpert.ma"
+// Keep enquiries on the business inbox; legacy deployment overrides pointed
+// at a developer inbox and must not redirect customer messages.
+const TO_ADDRESS = "said@greenexpert.ma"
 
 export async function POST(request: NextRequest) {
   try {

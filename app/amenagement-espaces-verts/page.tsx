@@ -10,7 +10,7 @@ export default function LandscapingPage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({ "@context": "https://schema.org", "@type": "Service", name: title, description, url: siteUrl("/amenagement-espaces-verts"), provider: { "@id": BUSINESS_ID }, areaServed: { "@type": "Country", name: "Maroc" } }) }} />
     <EditorialPage title={title} eyebrow="Un projet d’ensemble" path="/amenagement-espaces-verts"
       intro="Aménager un espace vert, c’est organiser un lieu pour ses usages, préparer son sol et choisir les végétaux et équipements qui pourront y durer. Green Expert réunit les prestations nécessaires à la création ou à la rénovation de votre extérieur."
-      image="/images/services/terrassement-real.jpg" imageAlt="Préparation d’un terrain pour un aménagement extérieur"
+      image="/images/services/design-paysager.jpg" imageAlt="Jardin aménagé avec palmiers, plantes méditerranéennes et allée en pas japonais"
       sections={[
         { id: "besoins", title: "Définir les usages et le périmètre", paragraphs: [
           "Jardin résidentiel, espaces communs, abords de bureaux ou d’un établissement : le point de départ est l’usage du lieu. Les circulations, les zones à préserver, les besoins d’ombre et le temps consacré à l’entretien orientent le projet. Nous identifions avec vous ce qui doit être créé, conservé ou rénové.",
