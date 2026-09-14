@@ -71,7 +71,7 @@ export const processPhases: ProcessPhase[] = [
     longDescription:
       "Nos équipes prennent le relais sur le terrain pour donner vie au projet validé. Terrassement, maçonnerie, plantations, irrigation, éclairage : chaque étape est menée avec rigueur, dans le respect des délais et de votre propriété.",
     duration: "Selon les travaux et l’accès au terrain",
-    image: "/images/field-work/planting-team-enhanced.webp",
+    image: "/images/field-work/planting-team-clean-uniform.webp",
     imageAlt: "Plantation d’un massif fleuri sur le terrain",
     phases: [
       {
@@ -109,7 +109,7 @@ export const processPhases: ProcessPhase[] = [
     longDescription:
       "Un jardin est un être vivant qui évolue au fil des saisons. Nos contrats d'entretien sur-mesure accompagnent son évolution tout au long de l'année, avec des équipes formées et du matériel professionnel.",
     duration: "Fréquence définie au contrat",
-    image: "/images/field-work/lawn-care-enhanced.webp",
+    image: "/images/field-work/lawn-care-clean-uniform.webp",
     imageAlt: "Tonte et entretien d’une pelouse",
     phases: [
       {
