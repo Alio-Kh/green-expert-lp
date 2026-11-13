@@ -33,7 +33,7 @@ export const services: Service[] = [
       "Création de plans personnalisés qui allient esthétique et fonctionnalité",
     longDescription:
       "Chaque jardin est unique. Nos paysagistes conçoivent des plans sur-mesure qui reflètent votre style de vie, s'adaptent à votre terrain et subliment votre architecture. De l'esquisse initiale au rendu 3D, nous donnons vie à votre vision.",
-    heroImage: "/images/services/design-paysager.jpg",
+    heroImage: "/images/projects/quatre-palmiers/vue-ensemble.webp",
     benefits: [
       "Étude approfondie du terrain et de l'exposition",
       "Plans 2D et rendus 3D photoréalistes",
@@ -71,7 +71,7 @@ export const services: Service[] = [
       "Solutions d'arrosage intelligentes et économes en eau",
     longDescription:
       "L'eau est précieuse, surtout au Maroc. Nos systèmes d'irrigation automatisés et pilotés par capteurs garantissent un arrosage précis, adaptent l’apport d’eau aux besoins de chaque zone et préservent la santé de votre jardin, même en votre absence.",
-    heroImage: "/images/services/irrigation.jpg",
+    heroImage: "/images/services/irrigation/arroseurs-pelouse.webp",
     benefits: [
       "Arrosage ciblé grâce à la micro-irrigation",
       "Programmation intelligente selon la météo",
@@ -108,7 +108,7 @@ export const services: Service[] = [
     shortDescription: "Mise en valeur nocturne de votre espace vert",
     longDescription:
       "Prolongez la vie de votre jardin après le coucher du soleil. Notre éclairage paysager met en scène vos végétaux, sécurise les circulations et crée des ambiances intimes, tout en respectant l'environnement grâce à la technologie LED basse consommation.",
-    heroImage: "/images/services/eclairage-exterieur.jpg",
+    heroImage: "/images/services/allees-nocturne-uniformes-v2.webp",
     benefits: [
       "Technologie LED basse consommation",
       "Mise en valeur des arbres, massifs et façades",
@@ -146,7 +146,7 @@ export const services: Service[] = [
       "Sélection et installation d'espèces adaptées à votre environnement",
     longDescription:
       "De l'arbre centenaire aux massifs fleuris, la réussite d'un jardin dépend du bon végétal à la bonne place. Nous sélectionnons avec soin des espèces résistantes au climat marocain et préparons leur installation ainsi que les soins nécessaires à leur reprise.",
-    heroImage: "/images/field-work/planting-team-clean-uniform.webp",
+    heroImage: "/images/projects/jardins-ocre/gestes-de-plantation-uniformes-v2.webp",
     heroImagePosition: "center 52%",
     benefits: [
       "Palette végétale adaptée au climat local",
@@ -185,7 +185,7 @@ export const services: Service[] = [
       "Préparation et modelage du terrain pour vos aménagements",
     longDescription:
       "Avant tout jardin, il y a un terrain à préparer. Nos équipes maîtrisent le nivellement, le drainage, la création de talus et de terrasses pour transformer un sol ingrat en support idéal pour votre futur espace vert.",
-    heroImage: "/images/services/terrassement-real.jpg",
+    heroImage: "/images/projects/jardins-ocre/preparation-plantations.webp",
     heroImagePosition: "center 62%",
     benefits: [
       "Nivellement et modelage précis",
@@ -224,7 +224,7 @@ export const services: Service[] = [
       "Entretien régulier pour préserver la beauté de votre jardin",
     longDescription:
       "Un beau jardin se mérite tout au long de l'année. Nos contrats d'entretien s'adaptent à la taille et aux besoins de votre espace vert. Taille, fertilisation, traitements, arrosage : nous prenons soin de votre jardin pour qu'il reste impeccable en toute saison.",
-    heroImage: "/images/field-work/palm-pruning-clean-uniform.webp",
+    heroImage: "/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
     heroImagePosition: "center 42%",
     benefits: [
       "Contrats sur-mesure mensuels ou saisonniers",

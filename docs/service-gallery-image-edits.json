@@ -1,0 +1,74 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-11-13",
+  "jobs": [
+    {
+      "name": "planting-team-greenexpert-v2",
+      "source": "public/images/field-work/planting-team-clean-uniform.webp",
+      "specific": "There are exactly TWO gardeners bending over a flower bed. Match both uniforms, retain their planting actions and the left gardener's visible back logo position. Retain the exact hands, tool contacts and planting bed.",
+      "prompt": "Use case: precise-object-edit / identity-preserve. This is a localized uniform-only edit of image 1, the edit target photograph. Image 2 is the approved blue Green Expert uniform reference only. Image 3 is the exact company logo reference only. Match image 2: navy/slate BLUE work jacket and matching blue work trousers, no green shoulder/chest panels; white-silver horizontal reflective stripe across the back and upper arms. Add the supplied GREEN EXPERT emblem and exact GREEN EXPERT wordmark in green to the upper back above the stripe wherever that back surface is visible, sized naturally like image 2, embroidered with realistic cloth folds and perspective. Never put a back logo on the front or change poses to expose it. Retain existing blue caps and closed work footwear. Keep natural fabric texture. Preserve original portrait framing, identities, faces, skin tones, body proportions, exact poses, hands and number of workers, scene, plants, buildings, signs, tools, lighting, shadows and all non-clothing content. Do not redesign or beautify the garden, add objects or make a collage. Return one edited photo matching image 1's portrait framing. There are exactly TWO gardeners bending over a flower bed. Match both uniforms, retain their planting actions and the left gardener's visible back logo position. Retain the exact hands, tool contacts and planting bed.",
+      "references": [
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/field-work/planting-team-clean-uniform.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/field-work/planting-team-greenexpert-v2.webp",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-d25bcc6c-94a1-4499-939e-293869aa0b88.png",
+      "review": "Visually reviewed: matching blue clothing, branding on visible backs at natural scale, poses and scene retained; distant lettering is not legible at thumbnail scale."
+    },
+    {
+      "name": "lawn-care-greenexpert-v2",
+      "source": "public/images/field-work/lawn-care-clean-uniform.webp",
+      "specific": "There is exactly ONE gardener pushing an orange lawn mower. Match his uniform, replace the green shoulder panel with blue, put the logo above the back stripe as in reference. Keep his walking pose and the mower handle and machine exactly as shown.",
+      "prompt": "Use case: precise-object-edit / identity-preserve. This is a localized uniform-only edit of image 1, the edit target photograph. Image 2 is the approved blue Green Expert uniform reference only. Image 3 is the exact company logo reference only. Match image 2: navy/slate BLUE work jacket and matching blue work trousers, no green shoulder/chest panels; white-silver horizontal reflective stripe across the back and upper arms. Add the supplied GREEN EXPERT emblem and exact GREEN EXPERT wordmark in green to the upper back above the stripe wherever that back surface is visible, sized naturally like image 2, embroidered with realistic cloth folds and perspective. Never put a back logo on the front or change poses to expose it. Retain existing blue caps and closed work footwear. Keep natural fabric texture. Preserve original portrait framing, identities, faces, skin tones, body proportions, exact poses, hands and number of workers, scene, plants, buildings, signs, tools, lighting, shadows and all non-clothing content. Do not redesign or beautify the garden, add objects or make a collage. Return one edited photo matching image 1's portrait framing. There is exactly ONE gardener pushing an orange lawn mower. Match his uniform, replace the green shoulder panel with blue, put the logo above the back stripe as in reference. Keep his walking pose and the mower handle and machine exactly as shown.",
+      "references": [
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/field-work/lawn-care-clean-uniform.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/field-work/lawn-care-greenexpert-v2.webp",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-2e706f82-162e-4d81-b33d-5dfbcbd33290.png",
+      "review": "Visually reviewed: matching blue clothing, branding on visible backs at natural scale, poses and scene retained; distant lettering is not legible at thumbnail scale."
+    },
+    {
+      "name": "palm-pruning-greenexpert-v2",
+      "source": "public/images/field-work/palm-pruning-clean-uniform.webp",
+      "specific": "There is exactly ONE gardener on a ladder working on a fan palm. Match his uniform including blue sleeves; preserve his face and exact raised hands, ladder, rope, feet and palm fronds. His back is only partially visible from this side angle: the logo should be partly obscured naturally, never move him or place text on the front.",
+      "prompt": "Use case: precise-object-edit / identity-preserve. This is a localized uniform-only edit of image 1, the edit target photograph. Image 2 is the approved blue Green Expert uniform reference only. Image 3 is the exact company logo reference only. Match image 2: navy/slate BLUE work jacket and matching blue work trousers, no green shoulder/chest panels; white-silver horizontal reflective stripe across the back and upper arms. Add the supplied GREEN EXPERT emblem and exact GREEN EXPERT wordmark in green to the upper back above the stripe wherever that back surface is visible, sized naturally like image 2, embroidered with realistic cloth folds and perspective. Never put a back logo on the front or change poses to expose it. Retain existing blue caps and closed work footwear. Keep natural fabric texture. Preserve original portrait framing, identities, faces, skin tones, body proportions, exact poses, hands and number of workers, scene, plants, buildings, signs, tools, lighting, shadows and all non-clothing content. Do not redesign or beautify the garden, add objects or make a collage. Return one edited photo matching image 1's portrait framing. There is exactly ONE gardener on a ladder working on a fan palm. Match his uniform including blue sleeves; preserve his face and exact raised hands, ladder, rope, feet and palm fronds. His back is only partially visible from this side angle: the logo should be partly obscured naturally, never move him or place text on the front.",
+      "references": [
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/field-work/palm-pruning-clean-uniform.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/field-work/palm-pruning-greenexpert-v2.webp",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-d8118f84-b021-40e7-8e62-74361352f2c7.png",
+      "review": "Visually reviewed: matching blue clothing, branding on visible backs at natural scale, poses and scene retained; distant lettering is not legible at thumbnail scale."
+    },
+    {
+      "name": "allees-nocturne-uniformes-v2",
+      "source": "public/images/projects/allees-de-palmiers/ambiance-nocturne.webp",
+      "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET, an existing architectural landscape visualization at night. Image 2 is only the approved blue work uniform reference. Image 3 is only the exact GREEN EXPERT logo. Change ONLY the clothing on all existing human figures to consistent navy/slate BLUE jacket and trousers matching image 2, with a thin white-silver horizontal reflective stripe across the upper arms and back. On visible backs above the stripe put a naturally scaled green emblem and exact GREEN EXPERT wordmark from image 3. Preserve perspective and scale: figures are distant, lettering must not be enlarged to force legibility. Never put the back logo on fronts, never turn or move anyone. Keep all existing people count, poses, skin tones, locations, buildings, lights, vegetation, framing, composition, illumination and architectural visualization style exactly. Do not add people, do not change the landscaping. Return a single landscape image in original aspect ratio.",
+      "references": [
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/allees-de-palmiers/ambiance-nocturne.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/services/allees-nocturne-uniformes-v2.webp",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-b897db58-529a-4b34-aeb5-57d324d63f8e.png",
+      "review": "Visually reviewed: matching blue clothing, branding on visible backs at natural scale, poses and scene retained; distant lettering is not legible at thumbnail scale."
+    },
+    {
+      "name": "promenade-nocturne-uniformes-v2",
+      "source": "public/images/projects/promenade-fleurie/vue-ensemble-nocturne.webp",
+      "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET, an existing architectural landscape visualization at night. Image 2 is only the approved blue work uniform reference. Image 3 is only the exact GREEN EXPERT logo. Change ONLY the clothing on all existing human figures to consistent navy/slate BLUE jacket and trousers matching image 2, with a thin white-silver horizontal reflective stripe across the upper arms and back. On visible backs above the stripe put a naturally scaled green emblem and exact GREEN EXPERT wordmark from image 3. Preserve perspective and scale: figures are distant, lettering must not be enlarged to force legibility. Never put the back logo on fronts, never turn or move anyone. Keep all existing people count, poses, skin tones, locations, buildings, lights, vegetation, framing, composition, illumination and architectural visualization style exactly. Do not add people, do not change the landscaping. Return a single landscape image in original aspect ratio.",
+      "references": [
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/promenade-fleurie/vue-ensemble-nocturne.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/services/promenade-nocturne-uniformes-v2.webp",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-cb2b47ef-09e5-425b-94c1-019fbba982a5.png",
+      "review": "Visually reviewed: matching blue clothing, branding on visible backs at natural scale, poses and scene retained; distant lettering is not legible at thumbnail scale."
+    }
+  ]
+}

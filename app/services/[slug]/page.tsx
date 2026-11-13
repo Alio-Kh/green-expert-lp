@@ -9,6 +9,8 @@ import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { serviceDetails } from "@/lib/service-details";
 import { services, getServiceBySlug } from "@/lib/services-data";
+import { serviceGalleries } from "@/lib/service-galleries";
+import { ServiceGallery } from "@/components/service-gallery";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -34,6 +36,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
 
   const detail = serviceDetails[service.slug];
+  const gallery = serviceGalleries[service.slug];
   const Icon = service.icon;
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
@@ -128,9 +131,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
               {service.longDescription}
             </p>
+            <p className="mt-6 text-xs leading-5 text-white/60">{gallery.images[0].imageNote}</p>
           </div>
         </div>
       </section>
+
+      <ServiceGallery gallery={gallery} />
 
       {/* Benefits section */}
       <section className="bg-[#fafaf5] py-20 text-[#1a2821] md:py-28">
