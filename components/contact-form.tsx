@@ -2,10 +2,10 @@
 
 import type React from "react";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { trackContactEvent } from "@/lib/analytics";
 import { useToast } from "@/hooks/use-toast";
 
 type FieldErrors = {
@@ -19,23 +19,23 @@ function validateField(name: string, value: string): string | undefined {
   const trimmed = value.trim();
   switch (name) {
     case "name":
-      if (trimmed.length === 0) return "Le nom est requis";
-      if (trimmed.length < 2) return "Le nom doit contenir au moins 2 caractères";
+      if (trimmed.length === 0) return "Saisissez votre nom.";
+      if (trimmed.length < 2) return "Saisissez au moins 2 caractères.";
       break;
     case "email":
-      if (trimmed.length === 0) return "L'email est requis";
+      if (trimmed.length === 0) return "Saisissez votre adresse email.";
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed))
-        return "Veuillez entrer un email valide";
+        return "Utilisez une adresse email valide.";
       break;
     case "phone":
-      if (trimmed.length === 0) return "Le téléphone est requis";
+      if (trimmed.length === 0) return undefined;
       if (trimmed.replace(/\D/g, "").length < 8)
-        return "Le numéro doit contenir au moins 8 chiffres";
+        return "Saisissez au moins 8 chiffres.";
       break;
     case "message":
-      if (trimmed.length === 0) return "Le message est requis";
+      if (trimmed.length === 0) return "Décrivez brièvement votre projet.";
       if (trimmed.length < 10)
-        return "Le message doit contenir au moins 10 caractères";
+        return "Ajoutez quelques précisions sur votre projet.";
       break;
   }
   return undefined;
@@ -89,6 +89,12 @@ export function ContactForm() {
     if (hasErrors) {
       setErrors(newErrors);
       setTouched({ name: true, email: true, phone: true, message: true });
+      const firstInvalidField = Object.keys(newErrors).find(
+        (field) => newErrors[field as keyof FieldErrors]
+      );
+      requestAnimationFrame(() => {
+        document.getElementById(`contact-${firstInvalidField}`)?.focus();
+      });
       return;
     }
 
@@ -104,9 +110,10 @@ export function ContactForm() {
       const result = await response.json();
 
       if (response.ok) {
+        trackContactEvent("generate_lead");
         toast({
-          title: "Message envoyé !",
-          description: "Nous vous contacterons dans les plus brefs délais.",
+          title: "Demande envoyée",
+          description: "Notre équipe vous recontactera pour préciser votre projet.",
           variant: "default",
           duration: 5000,
         });
@@ -122,17 +129,17 @@ export function ContactForm() {
         setTouched({});
       } else {
         toast({
-          title: "Erreur",
+          title: "Envoi impossible",
           description:
-            result.error || "Une erreur est survenue lors de l'envoi.",
+            result.error || "Réessayez dans un instant ou contactez-nous par téléphone.",
           variant: "destructive",
           duration: 5000,
         });
       }
     } catch {
       toast({
-        title: "Erreur",
-        description: "Impossible d'envoyer le message. Veuillez réessayer.",
+        title: "Envoi impossible",
+        description: "Vérifiez votre connexion, puis réessayez.",
         variant: "destructive",
         duration: 5000,
       });
@@ -142,17 +149,27 @@ export function ContactForm() {
   };
 
   const inputClasses =
-    "border-white/10 bg-white/5 text-white placeholder:text-white/30 focus:border-[#9bbb2d] focus:ring-1 focus:ring-[#9bbb2d]/50";
+    "min-h-12 border-white/15 bg-white/[0.06] text-white placeholder:text-white/35 focus:border-[#b4cf54] focus:ring-1 focus:ring-[#b4cf54]/50";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className="mx-auto mt-16 max-w-2xl rounded-3xl border border-white/[0.12] bg-white/[0.08] p-8 backdrop-blur-sm"
+    <div
+      className="rounded-[1.75rem] border border-white/[0.12] bg-white/[0.07] p-6 shadow-2xl shadow-black/10 backdrop-blur-sm sm:p-8 lg:p-10"
     >
-      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6"
+        aria-label="Demande de devis paysager"
+        noValidate
+      >
+        <div className="flex flex-col gap-2 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="font-serif text-2xl text-white">Votre demande</p>
+            <p className="mt-1 text-sm text-white/55">
+              Décrivez votre projet. Nous vous recontacterons pour préciser vos besoins et préparer un devis.
+            </p>
+          </div>
+          <p className="text-xs text-white/45">* Champs obligatoires</p>
+        </div>
         {/* Honeypot field */}
         <div
           style={{ position: "absolute", left: -9999, opacity: 0 }}
@@ -176,7 +193,7 @@ export function ContactForm() {
               htmlFor="contact-name"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Nom & Prénom <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
+              Nom et prénom <span aria-hidden="true" className="text-[#c6df6b]">*</span>
             </label>
             <Input
               id="contact-name"
@@ -189,7 +206,7 @@ export function ContactForm() {
               aria-invalid={Boolean(errors.name && touched.name)}
               aria-describedby={errors.name && touched.name ? "contact-name-error" : undefined}
               autoComplete="name"
-              placeholder="Votre nom complet"
+              placeholder="Ex. Nadia El Amrani"
               className={inputClasses}
             />
             {errors.name && touched.name && (
@@ -203,7 +220,7 @@ export function ContactForm() {
               htmlFor="contact-email"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Email <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
+              Adresse email <span aria-hidden="true" className="text-[#c6df6b]">*</span>
             </label>
             <Input
               id="contact-email"
@@ -231,7 +248,7 @@ export function ContactForm() {
               htmlFor="contact-phone"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Téléphone <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
+              Téléphone (facultatif)
             </label>
             <Input
               id="contact-phone"
@@ -240,8 +257,6 @@ export function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               onBlur={handleBlur}
-              required
-              aria-required="true"
               aria-invalid={Boolean(errors.phone && touched.phone)}
               aria-describedby={errors.phone && touched.phone ? "contact-phone-error" : undefined}
               autoComplete="tel"
@@ -259,7 +274,7 @@ export function ContactForm() {
               htmlFor="contact-project-type"
               className="mb-2 block text-sm font-medium text-white/70"
             >
-              Type de projet
+              Service recherché
             </label>
             <select
               id="contact-project-type"
@@ -270,22 +285,22 @@ export function ContactForm() {
               className={`flex h-10 w-full rounded-md border bg-transparent px-3 py-2 text-sm ${inputClasses}`}
             >
               <option value="" className="bg-[#1a2821]">
-                Sélectionnez un type
+                Choisissez un service
               </option>
               <option value="jardin-privatif" className="bg-[#1a2821]">
-                Jardin privatif
+                Conception de jardin
               </option>
               <option value="espace-commercial" className="bg-[#1a2821]">
-                Espace commercial
+                Espace professionnel
               </option>
               <option value="terrassement" className="bg-[#1a2821]">
-                Terrassement
+                Terrassement et drainage
               </option>
               <option value="irrigation" className="bg-[#1a2821]">
-                Irrigation
+                Irrigation automatique
               </option>
               <option value="entretien" className="bg-[#1a2821]">
-                Entretien
+                Contrat d’entretien
               </option>
               <option value="autre" className="bg-[#1a2821]">
                 Autre
@@ -299,7 +314,7 @@ export function ContactForm() {
             htmlFor="contact-message"
             className="mb-2 block text-sm font-medium text-white/70"
           >
-            Message <span aria-hidden="true" className="text-[#9bbb2d]">*</span>
+            Votre projet <span aria-hidden="true" className="text-[#c6df6b]">*</span>
           </label>
           <Textarea
             id="contact-message"
@@ -312,7 +327,7 @@ export function ContactForm() {
             aria-required="true"
             aria-invalid={Boolean(errors.message && touched.message)}
             aria-describedby={errors.message && touched.message ? "contact-message-error" : undefined}
-            placeholder="Décrivez votre projet..."
+            placeholder="Localisation, surface, usage et résultat recherché…"
             className={inputClasses}
           />
           {errors.message && touched.message && (
@@ -325,18 +340,21 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-full bg-[#9bbb2d] text-white transition-all duration-200 hover:bg-[#8bab1d] disabled:cursor-not-allowed disabled:opacity-50"
+          className="min-h-12 w-full rounded-full bg-[#a8c83f] font-semibold text-[#17251e] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b6d74a] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-              Envoi en cours...
+              Envoi en cours…
             </span>
           ) : (
-            "Envoyer votre message"
+            "Demander un devis"
           )}
         </Button>
+        <p className="text-center text-xs leading-5 text-white/40">
+          Vos coordonnées sont utilisées uniquement pour répondre à votre demande.
+        </p>
       </form>
-    </motion.div>
+    </div>
   );
 }

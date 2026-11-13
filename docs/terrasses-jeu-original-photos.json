@@ -1,0 +1,33 @@
+{
+  "method": "Original user-supplied photographs, lossless WebP encoding only. No generative editing, scene changes, retouching or resizing.",
+  "images": [
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-8e8a7d37-7616-44fc-a77f-3e1d744bcf45.png",
+      "destination": "public/images/projects/terrasses-du-jeu/detail-bateau-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-9ee718a9-f293-4e7f-92e5-cc66f7fb2d53.png",
+      "destination": "public/images/projects/terrasses-du-jeu/parcours-rouge-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-322eeb45-4fb6-4f39-b91b-f02bd34dd023.png",
+      "destination": "public/images/projects/terrasses-du-jeu/bateau-et-toboggans-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-16024462-6640-4887-8328-749b91b20955.png",
+      "destination": "public/images/projects/terrasses-du-jeu/installation-toboggan-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-67d9983d-81bc-4373-91f6-b6ba2bce98f6.png",
+      "destination": "public/images/projects/terrasses-du-jeu/jeux-face-mer-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-d2ff7a4c-7a90-4ad1-8525-d3944b75edd8.png",
+      "destination": "public/images/projects/terrasses-du-jeu/vue-ensemble-original.webp"
+    },
+    {
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-d24628f0-1116-4d46-b0f6-4bc62042880c.png",
+      "destination": "public/images/projects/terrasses-du-jeu/terrasses-et-balancoires-original.webp"
+    }
+  ]
+}

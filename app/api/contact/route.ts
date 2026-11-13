@@ -1,3 +1,4 @@
+import { siteUrl } from "@/lib/site";
 import { createElement } from "react"
 import { type NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
@@ -40,7 +41,9 @@ function isLimited(map: Map<string, Counter>, key: string, max: number, windowMs
 }
 
 const FROM_ADDRESS = process.env.CONTACT_FROM_EMAIL || "Green Expert <contact@greenexpert.ma>"
-const TO_ADDRESS = process.env.CONTACT_TO_EMAIL || "said@greenexpert.ma"
+// Keep enquiries on the business inbox; legacy deployment overrides pointed
+// at a developer inbox and must not redirect customer messages.
+const TO_ADDRESS = "said@greenexpert.ma"
 
 export async function POST(request: NextRequest) {
   try {
@@ -84,14 +87,14 @@ export async function POST(request: NextRequest) {
     if (!rawEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 })
     }
-    if (!rawPhone || rawPhone.replace(/\D/g, "").length < 8) {
+    if (rawPhone && rawPhone.replace(/\D/g, "").length < 8) {
       return NextResponse.json({ error: "Téléphone invalide" }, { status: 400 })
     }
     if (!rawMessage || rawMessage.length < 10) {
       return NextResponse.json({ error: "Message trop court" }, { status: 400 })
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://greenexpert.ma"
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || siteUrl("/")
     const resend = getResendClient()
 
     if (!resend) {

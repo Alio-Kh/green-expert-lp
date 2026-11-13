@@ -1,219 +1,94 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ArrowRight, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useReducedMotion } from "framer-motion";
+import { ArrowUpRight, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { projects } from "@/lib/projects-data";
 
+const visibleProjects = projects.filter((p) => p.published);
+const slides = visibleProjects.map((project) => ({
+  project,
+  image: project.gallery[0],
+  label: project.category,
+}));
+
 export function ProjectsShowcase() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const track = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const reduced = useReducedMotion();
+  const stopped = paused || hovered || focused || !!reduced;
 
-  const resetTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    if (!isPaused) {
-      timerRef.current = setInterval(() => {
-        setDirection(1);
-        setCurrentIndex((current) =>
-          current === projects.length - 1 ? 0 : current + 1
-        );
-      }, 5000);
-    }
-  }, [isPaused]);
-
-  const next = useCallback(() => {
-    setDirection(1);
-    setCurrentIndex((current) =>
-      current === projects.length - 1 ? 0 : current + 1
-    );
-    resetTimer();
-  }, [resetTimer]);
-
-  const previous = useCallback(() => {
-    setDirection(-1);
-    setCurrentIndex((current) =>
-      current === 0 ? projects.length - 1 : current - 1
-    );
-    resetTimer();
-  }, [resetTimer]);
-
-  const goTo = useCallback(
-    (index: number) => {
-      setDirection(index > currentIndex ? 1 : -1);
-      setCurrentIndex(index);
-      resetTimer();
-    },
-    [currentIndex, resetTimer]
-  );
+  function go(index: number) {
+    const el = track.current;
+    if (!el) return;
+    const next = (index + slides.length) % slides.length;
+    const card = el.children[next] as HTMLElement;
+    el.scrollTo({ left: card.offsetLeft, behavior: reduced ? "instant" : "smooth" });
+  }
 
   useEffect(() => {
-    resetTimer();
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [resetTimer]);
+    if (stopped || slides.length < 2) return;
+    const timer = setInterval(() => {
+      if (document.hidden) return;
+      const el = track.current;
+      if (!el) return;
+      const card = el.children[(active + 1) % slides.length] as HTMLElement;
+      el.scrollTo({ left: card.offsetLeft, behavior: "smooth" });
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [active, stopped]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      previous();
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      next();
-    }
-  };
-
-  const handleDragEnd = (
-    _: unknown,
-    info: { offset: { x: number }; velocity: { x: number } }
-  ) => {
-    const swipeThreshold = 50;
-    if (info.offset.x < -swipeThreshold || info.velocity.x < -500) {
-      next();
-    } else if (info.offset.x > swipeThreshold || info.velocity.x > 500) {
-      previous();
-    }
-  };
-
-  const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 300 : -300,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -300 : 300,
-      opacity: 0,
-    }),
-  };
-
-  const current = projects[currentIndex];
-
+  if (!slides.length) return null;
   return (
-    <div
-      className="mt-16"
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Nos réalisations"
-      aria-describedby="carousel-instructions"
-      onKeyDown={handleKeyDown}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
-      tabIndex={0}
-    >
-      <p id="carousel-instructions" className="sr-only">
-        Utilisez les flèches gauche et droite du clavier pour naviguer entre les projets, ou glissez l&apos;image sur mobile.
-      </p>
-      <div className="group/carousel relative overflow-hidden">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={currentIndex}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.1}
-            onDragEnd={handleDragEnd}
-            className="relative mx-auto aspect-video w-full max-w-screen-xl cursor-grab overflow-hidden rounded-3xl active:cursor-grabbing md:aspect-[16/9] lg:aspect-[2/1] xl:aspect-[21/9]"
-          >
-            <Image
-              src={current.heroImage}
-              alt={`Projet ${current.title} - ${current.shortDescription}`}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-              className="pointer-events-none object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 md:p-6 lg:p-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-6"
-              >
-                <div className="max-w-prose">
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.2em] text-[#9bbb2d]">
-                    <span>{current.category}</span>
-                    <span className="inline-flex items-center gap-1.5 text-white/60">
-                      <MapPin className="h-3 w-3" />
-                      {current.location}
-                    </span>
-                  </div>
-                  <h3 className="mt-2 font-serif text-2xl md:text-3xl lg:text-4xl">
-                    {current.title}
-                  </h3>
-                  <p className="mt-2 max-w-xl text-sm text-white/70 md:text-base">
-                    {current.shortDescription}
-                  </p>
+    <section id="projets" aria-labelledby="projects-heading" className="overflow-hidden bg-[#17251e] py-20 text-white md:py-28">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-[1.3fr_0.7fr] md:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#c6df6b]">Carnet de projets / {String(visibleProjects.length).padStart(2, "0")}</p>
+            <h2 id="projects-heading" className="mt-5 font-serif text-4xl font-light leading-tight md:text-6xl">Des idées qui prennent <span className="italic text-[#c6df6b]">racine.</span></h2>
+          </div>
+          <p className="max-w-sm leading-7 text-white/65 md:justify-self-end">Du premier dessin à l’intention paysagère, explorez les détails qui donnent son caractère à un jardin.</p>
+        </div>
+        <div role="region" aria-roledescription="carrousel" aria-label="Les vues de nos projets" className="mt-12"
+          onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+          onFocusCapture={() => setFocused(true)} onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false); }}>
+          <div ref={track} className="relative flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            onScroll={() => {
+              const el = track.current;
+              if (!el) return;
+              const width = (el.children[0] as HTMLElement).offsetWidth + 20;
+              setActive(Math.min(slides.length - 1, Math.round(el.scrollLeft / width)));
+            }}>
+            {slides.map(({project, image, label}) => (
+              <Link key={image.src} href={`/projets/${project.slug}`} aria-label={`${project.title} — ${label}. Voir le projet.`}
+                className="group block w-[88%] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/15 bg-[#203129] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c6df6b] md:w-[72%]">
+                <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
+                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 88vw, 900px" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.025]" />
+                  <span className="absolute left-4 top-4 rounded-full bg-[#17251e]/85 px-3 py-1.5 text-[10px] uppercase tracking-widest text-white backdrop-blur-sm">{image.alt.includes("Dessin original") ? "Dessin original" : "Visualisation"}</span>
                 </div>
-
-                {/* CTA button */}
-                <Link
-                  href={`/projets/${current.slug}`}
-                  className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-[#9bbb2d] px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] md:self-end"
-                >
-                  <span>Voir le projet</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </motion.div>
+                <div className="flex items-center justify-between gap-4 p-5 sm:p-7">
+                  <div><p className="text-[10px] uppercase tracking-[0.2em] text-[#c6df6b]">{label}</p><h3 className="mt-2 font-serif text-2xl sm:text-3xl">{project.title}</h3></div>
+                  <ArrowUpRight aria-hidden="true" className="h-10 w-10 shrink-0 rounded-full border border-white/25 p-2 transition-colors group-hover:bg-[#c6df6b] group-hover:text-[#17251e]" />
+                </div>
+              </Link>
+            ))}
+            <div aria-hidden="true" className="w-[12%] shrink-0 md:w-[28%]" />
+          </div>
+          <div className="mt-4 flex items-center justify-between gap-4 border-t border-white/15 pt-5">
+            <p className="text-xs text-white/60"><span className="text-[#c6df6b]">{String(active + 1).padStart(2, "0")}</span> / {String(slides.length).padStart(2, "0")} <span className="ml-3 hidden sm:inline">Des lieux, des intentions</span></p>
+            <div className="flex gap-2">
+              <button type="button" aria-label={paused ? "Activer le défilement automatique" : "Mettre le défilement en pause"} aria-pressed={paused} onClick={() => setPaused(!paused)} className="rounded-full border border-white/25 p-3 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#c6df6b]">{paused || reduced ? <Play size={16}/> : <Pause size={16}/>}</button>
+              <button type="button" aria-label="Vue précédente" onClick={() => go(active - 1)} className="rounded-full border border-white/25 p-3 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#c6df6b]"><ArrowLeft size={16}/></button>
+              <button type="button" aria-label="Vue suivante" onClick={() => go(active + 1)} className="rounded-full border border-white/25 p-3 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#c6df6b]"><ArrowRight size={16}/></button>
             </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute left-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-white/10 bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 hover:bg-black/50 focus-visible:opacity-100 group-hover/carousel:opacity-100 group-focus-within/carousel:opacity-100 md:h-12 md:w-12"
-          onClick={previous}
-          aria-label="Projet précédent"
-        >
-          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
-        </Button>
-
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute right-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-white/10 bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 hover:bg-black/50 focus-visible:opacity-100 group-hover/carousel:opacity-100 group-focus-within/carousel:opacity-100 md:h-12 md:w-12"
-          onClick={next}
-          aria-label="Projet suivant"
-        >
-          <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
-        </Button>
+          </div>
+        </div>
       </div>
-
-      <div className="mt-4 flex justify-center gap-1 md:mt-6" role="tablist">
-        {projects.map((project, index) => (
-          <button
-            key={project.slug}
-            role="tab"
-            aria-selected={index === currentIndex}
-            aria-label={`Aller au projet ${project.title}`}
-            className="group flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60"
-            onClick={() => goTo(index)}
-          >
-            <span
-              className={`h-2 rounded-full transition-all ${
-                index === currentIndex
-                  ? "w-8 bg-[#9bbb2d]"
-                  : "w-2 bg-white/25 group-hover:bg-white/50"
-              }`}
-            />
-          </button>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

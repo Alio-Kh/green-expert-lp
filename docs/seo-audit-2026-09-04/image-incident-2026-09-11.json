@@ -1,0 +1,201 @@
+{
+  "date": "2026-09-11",
+  "productionBefore": "27dced48757a0154fa093431a65dccd39ac2d308",
+  "releaseCommit": "ba1d67148bc0c62777f13e2efc013b90dfb0405d",
+  "cause": "Four fal.media photos return HTTP 502; sampled body reports DNS_HOSTNAME_EMPTY. Local and Cloudinary logos work. Prepared SEO/image version was not deployed.",
+  "beforeImageChecks": [
+    {
+      "alt": "Green Expert Logo",
+      "url": "https://www.greenexpert.ma/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fddpoq8ufw%2Fimage%2Fupload%2Fv1734908167%2FGreen%2520Expert%2Fu137zv9bapnk6uaeulhq.png&w=384&q=75",
+      "source": "https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908167/Green%20Expert/u137zv9bapnk6uaeulhq.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Concepteur paysagiste dessinant un plan d'aménagement de jardin",
+      "url": "https://www.greenexpert.ma/_next/image?url=https%3A%2F%2Ffal.media%2Ffiles%2Felephant%2Fn01RzRRMoP4XMul-Z2F45_dfadc490f38e4afc805c05e7b4c31722.jpg&w=750&q=75",
+      "source": "https://fal.media/files/elephant/n01RzRRMoP4XMul-Z2F45_dfadc490f38e4afc805c05e7b4c31722.jpg",
+      "result": "502 text/plain; charset=utf-8",
+      "error": ""
+    },
+    {
+      "alt": "Équipe Green Expert réalisant l'aménagement d'un jardin sur le terrain",
+      "url": "https://www.greenexpert.ma/_next/image?url=https%3A%2F%2Ffal.media%2Ffiles%2Fmonkey%2FFOqVfEbr1qRTNDx9riBoZ_144ade400e9345fba693354af8d34da9.jpg&w=750&q=75",
+      "source": "https://fal.media/files/monkey/FOqVfEbr1qRTNDx9riBoZ_144ade400e9345fba693354af8d34da9.jpg",
+      "result": "502 text/plain; charset=utf-8",
+      "error": ""
+    },
+    {
+      "alt": "Jardinier entretenant un jardin luxuriant pour préserver sa beauté",
+      "url": "https://www.greenexpert.ma/_next/image?url=https%3A%2F%2Ffal.media%2Ffiles%2Fmonkey%2FkihJVAdwxDsrh5Lb0d8GY_a0a835e0cb9f44688e4ed005201fdc63.jpg&w=750&q=75",
+      "source": "https://fal.media/files/monkey/kihJVAdwxDsrh5Lb0d8GY_a0a835e0cb9f44688e4ed005201fdc63.jpg",
+      "result": "502 text/plain; charset=utf-8",
+      "error": ""
+    },
+    {
+      "alt": "Projet Villa Méditerranéenne - Un jardin luxuriant inspiré des côtes méditerranéennes",
+      "url": "https://www.greenexpert.ma/_next/image?url=https%3A%2F%2Ffal.media%2Ffiles%2Frabbit%2FVV2ti7c12ADTfKn8zs7p2_68e66fa918864a4facb8510cfc401fa9.jpg&w=750&q=75",
+      "source": "https://fal.media/files/rabbit/VV2ti7c12ADTfKn8zs7p2_68e66fa918864a4facb8510cfc401fa9.jpg",
+      "result": "502 text/plain; charset=utf-8",
+      "error": ""
+    },
+    {
+      "alt": "Logo de l'Institut National des Postes et Télécommunications",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Finpt.jpg&w=256&q=75",
+      "source": "/partners/inpt.jpg",
+      "result": "200 image/jpeg",
+      "error": ""
+    },
+    {
+      "alt": "Logo de Morocco Foodex",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FLOGO-MFX.png&w=256&q=75",
+      "source": "/partners/LOGO-MFX.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de MedOMed",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Fmedomed.jpg&w=256&q=75",
+      "source": "/partners/medomed.jpg",
+      "result": "200 image/jpeg",
+      "error": ""
+    },
+    {
+      "alt": "Logo du Ministère de l'Éducation Nationale, du Préscolaire et des Sports",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Fmenps.png&w=256&q=75",
+      "source": "/partners/menps.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo du Centre Cinématographique Marocain",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FCentre_Cinematographique_Marocain.png&w=256&q=75",
+      "source": "/partners/Centre_Cinematographique_Marocain.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de la Fondation Mohammed VI de promotion des œuvres sociales de l'education-formation",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Ffm6education.png&w=256&q=75",
+      "source": "/partners/fm6education.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de Al Masaood",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Fal_masaood.jpg&w=256&q=75",
+      "source": "/partners/al_masaood.jpg",
+      "result": "200 image/jpeg",
+      "error": ""
+    },
+    {
+      "alt": "Logo de la Fondation Mohammed V pour la solidarité",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FFondation_mohammed_v_pour_la_solidarite_logo.png&w=256&q=75",
+      "source": "/partners/Fondation_mohammed_v_pour_la_solidarite_logo.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de l'Arrondissement Bettana",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FARRONDISSEMENT_BETTANA.jpg&w=256&q=75",
+      "source": "/partners/ARRONDISSEMENT_BETTANA.jpg",
+      "result": "200 image/jpeg",
+      "error": ""
+    },
+    {
+      "alt": "Logo de la Protection Civile Marocaine",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FLogo_de_la_Protection_Civile_Marocaine.png&w=256&q=75",
+      "source": "/partners/Logo_de_la_Protection_Civile_Marocaine.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de l'École Normale Supérieure Martil",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FLOGO_ENS_MARTIL.png&w=256&q=75",
+      "source": "/partners/LOGO_ENS_MARTIL.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de la Ville d'Agadir",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FLogo_de_la_Ville_d%27Agadir.png&w=256&q=75",
+      "source": "/partners/Logo_de_la_Ville_d'Agadir.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de l'Office National des Aéroports",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Flogo-onda.jpg&w=256&q=75",
+      "source": "/partners/logo-onda.jpg",
+      "result": "200 image/jpeg",
+      "error": ""
+    },
+    {
+      "alt": "Logo de Saudi Basic Industries (SABIC)",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FSaudi-Basic-Industries-Logo.png&w=256&q=75",
+      "source": "/partners/Saudi-Basic-Industries-Logo.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo du Haut Commissariat au Plan",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FHCP.png&w=256&q=75",
+      "source": "/partners/HCP.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo du Ministère de l'Education Nationale du Préscolaire et du Sport",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FMen_2021.png&w=256&q=75",
+      "source": "/partners/Men_2021.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo du Chef du Gouvernement du Royaume du Maroc",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FChef-du-Gouvernement.png&w=256&q=75",
+      "source": "/partners/Chef-du-Gouvernement.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de l'Agence Nationale des Equipements Publics",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FANEP.png&w=256&q=75",
+      "source": "/partners/ANEP.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de la Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2Fgiz.png&w=256&q=75",
+      "source": "/partners/giz.png",
+      "result": "200 image/png",
+      "error": ""
+    },
+    {
+      "alt": "Logo de La Fondation Nationale des Musées",
+      "url": "https://www.greenexpert.ma/_next/image?url=%2Fpartners%2FFNM.png&w=256&q=75",
+      "source": "/partners/FNM.png",
+      "result": "200 image/png",
+      "error": ""
+    }
+  ],
+  "releaseValidation": {
+    "productionBuild": "passed",
+    "contentPages": 14,
+    "indexablePages": 11,
+    "imageResponsesPassed": 37
+  },
+  "deploymentStatus": "live and verified",
+  "previewBuild": "passed",
+  "productionDeployment": "https://vercel.com/alithinkablecos-projects/green-expert-lp/DXTB47AnA51a4u4nfWEbApAKYQSq",
+  "productionValidation": {
+    "command": "npm run check:seo -- https://www.greenexpert.ma --images",
+    "contentPagesPassed": 14,
+    "imageResponsesPassed": 37,
+    "indexablePages": 11,
+    "unverifiedProjectsExcluded": 3,
+    "browserHeroImage": "loaded successfully",
+    "renderedFalMediaImages": 0
+  }
+}

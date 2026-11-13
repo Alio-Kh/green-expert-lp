@@ -12,25 +12,31 @@ import { services } from "@/lib/services-data";
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a2821]">
+    <footer className="bg-[#101a15]">
       {/* Accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#9bbb2d] to-transparent" />
 
       <div className="border-t border-white/10 py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid gap-8 md:grid-cols-[2fr_1fr_1fr_1fr]">
             <div>
               <Image
-                src="https://res.cloudinary.com/ddpoq8ufw/image/upload/v1734908167/Green%20Expert/u137zv9bapnk6uaeulhq.png"
-                alt="Green Expert Logo"
-                width={150}
+                src="/logo-wide.png"
+                alt="Green Expert"
+                width={206}
                 height={40}
-                className="h-10 w-auto object-contain brightness-125 saturate-125"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
               <p className="mt-4 max-w-xs text-sm text-white/70">
-                Votre partenaire de confiance en aménagement paysager depuis
-                plus de deux décennies
+                Conception, réalisation et entretien d’espaces paysagers adaptés
+                au climat marocain.
               </p>
+              <nav aria-label="Découvrir Green Expert" className="mt-5 space-y-3 text-sm text-white/80">
+                <Link className="block underline underline-offset-4 hover:text-[#c6df6b]" href="/paysagiste-rabat">Paysagiste à Rabat et Salé</Link>
+                <Link className="block underline underline-offset-4 hover:text-[#c6df6b]" href="/amenagement-espaces-verts">Aménagement des espaces verts</Link>
+                <Link className="block underline underline-offset-4 hover:text-[#c6df6b]" href="/conseils/amenagement-espaces-verts">Conseils pour votre jardin</Link>
+                <Link className="block underline underline-offset-4 hover:text-[#c6df6b]" href="/notre-processus">Notre méthode</Link>
+              </nav>
             </div>
 
             <div>
@@ -40,13 +46,13 @@ export function Footer() {
                   href="tel:+212661967903"
                   className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
-                  <Phone className="h-5 w-5 min-w-5" /> +212 661-967903
+                  <Phone className="h-5 w-5 min-w-5" /> +212 661 967 903
                 </a>
                 <a
                   href="tel:+212530312466"
                   className="flex items-center gap-2 rounded transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
                 >
-                  <Headset className="h-5 w-5 min-w-5" /> +212 530-312466
+                  <Headset className="h-5 w-5 min-w-5" /> +212 530 312 466
                 </a>
                 <a
                   href="mailto:contact@greenexpert.ma"

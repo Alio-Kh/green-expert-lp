@@ -1,0 +1,93 @@
+{
+  "outputs": [
+    {
+      "name": "facade-jardin",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-420ae23b-f29d-4858-b8fa-addc8fd02099.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-2d6dcc0e-19c7-4801-9988-6bee13391f3c.png",
+      "destination": "public/images/projects/jardins-ocre/facade-jardin.webp"
+    },
+    {
+      "name": "perspective-topiaires",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-5a755e38-5155-45c8-8c1e-aee5472500ef.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-ab8613b5-cd8f-4894-9276-d27cddd90063.png",
+      "destination": "public/images/projects/jardins-ocre/perspective-topiaires.webp"
+    },
+    {
+      "name": "massif-argente",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-e6425344-75b9-446e-b17d-a8ea5be37b9f.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-a0a1ce92-1a83-4b7c-866d-969c3d2bd637.png",
+      "destination": "public/images/projects/jardins-ocre/massif-argente.webp"
+    },
+    {
+      "name": "bordure-facade",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-0bb9d470-a1e6-4497-86a8-908dff11be40.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-26e1e37a-809a-4957-9aee-c1bd6d55ee33.png",
+      "destination": "public/images/projects/jardins-ocre/bordure-facade.webp"
+    },
+    {
+      "name": "entretien-jardin",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-aca8922e-7ff2-4b7b-a3da-9d2d4e4db213.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-3713debf-6a3f-4381-9465-306302efcad3.png",
+      "destination": "public/images/projects/jardins-ocre/entretien-jardin.webp"
+    },
+    {
+      "name": "jardin-lateral",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-0c064e36-71bc-4eda-b909-d4f94cd93087.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-601b71cc-2776-45b6-a327-82891e713127.png",
+      "destination": "public/images/projects/jardins-ocre/jardin-lateral.webp"
+    },
+    {
+      "name": "cour-fleurie",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-ffd648ec-c061-4512-ada0-c243401cd336.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-50e2305f-0d8c-49be-bae5-8c728836cad2.png",
+      "destination": "public/images/projects/jardins-ocre/cour-fleurie.webp"
+    },
+    {
+      "name": "bordure-en-perspective",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-10c29aa3-0b67-410c-8376-3a851414254a.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-b1b23c30-01e1-4f16-acfe-de6e0170adfb.png",
+      "destination": "public/images/projects/jardins-ocre/bordure-en-perspective.webp"
+    },
+    {
+      "name": "palette-vegetale",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-1bd91b5d-6639-4f8b-87cd-58a371a2ac41.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-015a80e7-4663-4bd9-9ba8-44f7ae9b74a5.png",
+      "destination": "public/images/projects/jardins-ocre/palette-vegetale.webp"
+    },
+    {
+      "name": "massif-rose",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-3f3c97ba-b926-4c07-8ded-84e8e1fb8b8d.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-69a02a4f-6d39-4096-aacc-632f977b1c36.png",
+      "destination": "public/images/projects/jardins-ocre/massif-rose.webp"
+    },
+    {
+      "name": "preparation-plantations",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-1408ea63-7dff-4378-b77c-d3e5684f93f9.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-943de83a-3fc8-45e6-a3be-502110e7d181.png",
+      "destination": "public/images/projects/jardins-ocre/preparation-plantations.webp"
+    },
+    {
+      "name": "equipe-au-jardin",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-06bfe2a7-141d-4fbb-84f0-0d99c5d2ad5a.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-afce801b-0770-43a6-a9f1-d57a5bb46172.png",
+      "destination": "public/images/projects/jardins-ocre/equipe-au-jardin.webp"
+    },
+    {
+      "name": "gestes-de-plantation",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-d867ee2d-db53-490f-aeab-bd9d32604696.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-a43bed81-3239-4fd9-90b2-85dd9ec98639.png",
+      "destination": "public/images/projects/jardins-ocre/gestes-de-plantation.webp"
+    },
+    {
+      "name": "ouverture-jardin",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-f1449e42-703c-4191-a0a8-b7032a7ec84c.png",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-1e260514-7e0f-4586-aad1-cc8aeaa0c823.png",
+      "destination": "public/images/projects/jardins-ocre/ouverture-jardin.webp"
+    }
+  ],
+  "revision": {
+    "name": "massif-rose",
+    "prompt": "Edit this real photograph conservatively for a professional garden portfolio. Output a single landscape 3:2 photographic image. Preserve exactly the visible orange stucco facade, cream column at left, dark carved bracket at very top left, single narrow glazed opening at right, two tiered yellow topiaries, central conical evergreen, spiky leaves, small pink daisy flowers, red soil and curved lawn edge. Improve clarity, neutral natural color and gentle shadow detail; modestly straighten perspective and lower the camera angle only a little. CRITICAL: keep upper framing within the original orange wall surfaces; do NOT reveal or invent any roof, roof tiles, cornices, additional arch or building opening. Fill the extra vertical aspect space by showing slightly more foreground lawn, not invented building. No redesign, no extra plants or flowers, no CGI, no plastic perfect grass, no HDR saturation. Match original plant sizes and density. Do not beautify beyond realistic camera quality improvement.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-3f3c97ba-b926-4c07-8ded-84e8e1fb8b8d.png"
+  }
+}

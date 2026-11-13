@@ -1,0 +1,5 @@
+Tool: built-in image_gen
+Source: user-supplied CAD plan screenshot (758 x 578).
+Delivery: separate enhanced copy; original remains unchanged. Generative restoration is for presentation, not measurement verification.
+
+undefined

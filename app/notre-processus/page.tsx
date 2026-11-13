@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { siteUrl, pageMetadata, jsonLd as serializeJsonLd } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, Clock } from "lucide-react";
@@ -7,36 +7,11 @@ import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { processPhases, processGuarantees } from "@/lib/process-data";
 
-export const metadata: Metadata = {
-  title: "Notre Processus | Conception, Réalisation & Entretien de Jardins",
-  description:
-    "Découvrez la méthode Green Expert en 3 étapes : conception sur-mesure, réalisation experte et entretien durable. Un processus transparent du devis à l'entretien.",
-  alternates: { canonical: "https://greenexpert.ma/notre-processus" },
-  openGraph: {
-    title: "Notre Processus — Green Expert",
-    description:
-      "Méthode éprouvée en 3 étapes pour concevoir, réaliser et entretenir votre jardin au Maroc.",
-    url: "https://greenexpert.ma/notre-processus",
-    type: "article",
-    siteName: "Green Expert",
-    locale: "fr_FR",
-    images: [
-      {
-        url: "https://greenexpert.ma/cover.png",
-        width: 1200,
-        height: 630,
-        alt: "Processus Green Expert — 3 étapes pour votre jardin",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Notre Processus — Green Expert",
-    description:
-      "Concevoir, réaliser, entretenir : la méthode Green Expert pour votre jardin au Maroc.",
-    images: ["https://greenexpert.ma/cover.png"],
-  },
-};
+export const metadata = pageMetadata(
+  "Notre méthode : de la conception à l’entretien",
+  "Découvrez les étapes de votre projet paysager : étude du terrain, conception, travaux et entretien. Le contenu et le calendrier sont précisés au devis.",
+  "/notre-processus",
+);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -49,7 +24,7 @@ const jsonLd = {
     position: i + 1,
     name: phase.title,
     text: phase.longDescription,
-    url: `https://greenexpert.ma/notre-processus#${phase.slug}`,
+    url: siteUrl(`/notre-processus#${phase.slug}`),
   })),
 };
 
@@ -57,12 +32,12 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
+    { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl("/") },
     {
       "@type": "ListItem",
       position: 2,
       name: "Notre Processus",
-      item: "https://greenexpert.ma/notre-processus",
+      item: siteUrl("/notre-processus"),
     },
   ],
 };
@@ -72,11 +47,11 @@ export default function ProcessPage() {
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
       <NavigationMenu />
 
@@ -165,6 +140,7 @@ export default function ProcessPage() {
           <section
             key={phase.slug}
             id={phase.slug}
+            style={{ "--phase-accent": isLight ? "#4f6413" : "#c6df6b" } as React.CSSProperties}
             className={`scroll-mt-24 py-20 md:py-28 ${
               isLight ? "bg-[#fafaf5] text-[#1a2821]" : "bg-[#1a2821] text-white"
             }`}
@@ -179,12 +155,12 @@ export default function ProcessPage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl shadow-black/10">
                   <Image
                     src={phase.image}
-                    alt={phase.title}
+                    alt={phase.imageAlt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
-                  <div className="absolute left-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#9bbb2d] font-serif text-xl font-semibold text-white shadow-lg">
+                  <div className="absolute left-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#9bbb2d] font-serif text-xl font-semibold text-[#17251e] shadow-lg">
                     {phase.step}
                   </div>
                 </div>
@@ -197,7 +173,7 @@ export default function ProcessPage() {
                         isLight ? "bg-[#9bbb2d]" : "bg-[#9bbb2d]"
                       }`}
                     />
-                    <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
+                    <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--phase-accent)]">
                       Étape {phase.step}
                     </span>
                   </div>
@@ -219,7 +195,7 @@ export default function ProcessPage() {
                         : "border-white/10 bg-white/[0.03] text-white/70"
                     }`}
                   >
-                    <Clock className="h-3.5 w-3.5 text-[#9bbb2d]" />
+                    <Clock className="h-3.5 w-3.5 text-[var(--phase-accent)]" />
                     <span>Durée : {phase.duration}</span>
                   </div>
 
@@ -234,12 +210,12 @@ export default function ProcessPage() {
                               isLight
                                 ? "bg-[#9bbb2d]/15"
                                 : "bg-[#9bbb2d]/15"
-                            } text-[#9bbb2d]`}
+                            } text-[var(--phase-accent)]`}
                           >
                             <SubIcon className="h-5 w-5" strokeWidth={1.75} />
                           </div>
                           <div>
-                            <h4 className="font-semibold">{sub.title}</h4>
+                            <h3 className="font-semibold">{sub.title}</h3>
                             <p
                               className={`mt-1 text-sm ${
                                 isLight
@@ -263,14 +239,14 @@ export default function ProcessPage() {
                         : "border-white/[0.08] bg-white/[0.03]"
                     }`}
                   >
-                    <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d]">
+                    <div className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--phase-accent)]">
                       Ce que vous recevez
                     </div>
                     <ul className="mt-4 space-y-2.5">
                       {phase.deliverables.map((item) => (
                         <li key={item} className="flex items-start gap-2.5">
                           <Check
-                            className="mt-0.5 h-4 w-4 shrink-0 text-[#9bbb2d]"
+                            className="mt-0.5 h-4 w-4 shrink-0 text-[var(--phase-accent)]"
                             strokeWidth={3}
                           />
                           <span
@@ -338,13 +314,13 @@ export default function ProcessPage() {
               <span className="italic text-[#9bbb2d]">projet</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-white/70">
-              Prenez rendez-vous pour une première visite gratuite. Nous
-              étudions votre terrain et vous proposons une vision sur-mesure.
+              Présentez-nous votre terrain pour convenir des prochaines étapes
+              et préparer une proposition adaptée à vos besoins.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d]"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-semibold text-[#17251e] shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d]"
               >
                 <span>Prendre rendez-vous</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

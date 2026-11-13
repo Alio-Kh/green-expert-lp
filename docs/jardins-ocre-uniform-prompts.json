@@ -1,0 +1,28 @@
+{
+  "tool": "Built-in Imagegen",
+  "jobs": [
+    {
+      "name": "gestes-de-plantation-uniformes-v2",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-90706edb-1305-430e-b4f7-efac38796397.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-90706edb-1305-430e-b4f7-efac38796397.png",
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-8c83599e-6e4b-4a03-9e61-b668cc4a2370.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve. Localized photographic retouch, NOT a new rendering. Preserve the photograph's exact camera, framing, landscape 3:2 aspect ratio, worker identities, skin tones, faces, hands, anatomy and working poses, existing building/trees/plants, real light and shadows. Real cotton twill texture, seams and natural pose-dependent folds; no CGI, plastic fabric, oversharpened HDR, beauty smoothing or stylized saturated colors. Uniform: fresh professionally maintained medium navy/slate BLUE work jacket and matching blue work trousers, white-silver horizontal reflective stripe across back and around upper arms like the supplied single-worker reference; matching blue work caps where already wearing a cap. GREEN EXPERT company emblem and wordmark on upper back above stripe, using supplied logo faithfully, naturally embroidered and perspective-distorted with cloth. No giant logos. Every visible foot in appropriate closed dark work boots with believable soles, natural contact and light soil scuffing, never sandals. Keep all unrelated content as close to input as possible. Image 1 is EDIT TARGET: four workers planting in front of orange wall. Image 2 is uniform design reference only, image 3 is actual logo artwork. Dress all FOUR workers in the same described blue jacket and trousers, preserving all four original bent working poses. Place logos only on visible back surfaces (naturally partly occluded if angle hides them), not on fronts. Lightly tidy worksite: remove loose empty black nursery bags scattered on lawn and bed edge, gather remaining empty pots neatly into one small stack, arrange the hose more neatly along lawn edge and place spare long tools together off the working path. RETAIN live nursery plants in their pots and the current planting work; retain a believable active worksite with soil texture, footprints and tools in use. Remove distracting black backpack atop the right AC unit but keep AC units and architecture. Gentle noise cleanup and fine photographic clarity, no other garden redesign.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-fb331941-e64c-45ac-8dd7-565b8d1b51eb.png",
+      "destination": "public/images/projects/jardins-ocre/gestes-de-plantation-uniformes-v2.webp"
+    },
+    {
+      "name": "entretien-jardin-uniforme-v2",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-8c83599e-6e4b-4a03-9e61-b668cc4a2370.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-8c83599e-6e4b-4a03-9e61-b668cc4a2370.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve. Localized photographic retouch, NOT a new rendering. Preserve the photograph's exact camera, framing, landscape 3:2 aspect ratio, worker identities, skin tones, faces, hands, anatomy and working poses, existing building/trees/plants, real light and shadows. Real cotton twill texture, seams and natural pose-dependent folds; no CGI, plastic fabric, oversharpened HDR, beauty smoothing or stylized saturated colors. Uniform: fresh professionally maintained medium navy/slate BLUE work jacket and matching blue work trousers, white-silver horizontal reflective stripe across back and around upper arms like the supplied single-worker reference; matching blue work caps where already wearing a cap. GREEN EXPERT company emblem and wordmark on upper back above stripe, using supplied logo faithfully, naturally embroidered and perspective-distorted with cloth. No giant logos. Every visible foot in appropriate closed dark work boots with believable soles, natural contact and light soil scuffing, never sandals. Keep all unrelated content as close to input as possible. Image 1 is EDIT TARGET: single gardener seen from behind by green-white zigzag tiled path. Image 2 is exact company logo reference. Restore his existing uniform to the described fresh blue workwear with matching blue cap, removing faded worn patches but keeping the exact clothing silhouette, stripe placement and natural wrinkles. Refresh the upper-back GREEN EXPERT embroidery using reference logo. Improve his existing closed work shoes to clean, sturdy dark work boots without changing stance. Subtly improve overall photographic clarity and reduce noise, preserve all foliage, bark, grass irregularity, tiled path geometry, pots and lighting. Do not restyle or landscape the garden. Keep only the existing one person.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-2eff75b8-81bc-4f0e-93be-b3bcab6fb7f2.png",
+      "destination": "public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp"
+    }
+  ]
+}

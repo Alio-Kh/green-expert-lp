@@ -1,3 +1,4 @@
+import { siteUrl, pageMetadata, BUSINESS_ID, jsonLd as serializeJsonLd } from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { NavigationMenu } from "@/components/navigation-menu";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { serviceDetails } from "@/lib/service-details";
 import { services, getServiceBySlug } from "@/lib/services-data";
 
 interface PageProps {
@@ -21,36 +23,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) return {};
+  if (!service) notFound();
 
-  const canonical = `https://greenexpert.ma/services/${service.slug}`;
-  return {
-    title: service.metaTitle,
-    description: service.metaDescription,
-    alternates: { canonical },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      url: canonical,
-      type: "article",
-      siteName: "Green Expert",
-      locale: "fr_FR",
-      images: [
-        {
-          url: service.heroImage,
-          width: 1200,
-          height: 630,
-          alt: service.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: service.metaTitle,
-      description: service.metaDescription,
-      images: [service.heroImage],
-    },
-  };
+  return pageMetadata(service.metaTitle, service.metaDescription, `/services/${service.slug}`);
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -58,6 +33,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const detail = serviceDetails[service.slug];
   const Icon = service.icon;
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
@@ -66,26 +42,22 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     "@type": "Service",
     name: service.title,
     description: service.longDescription,
-    provider: {
-      "@type": "LandscapingBusiness",
-      name: "Green Expert",
-      url: "https://greenexpert.ma",
-    },
+    provider: { "@id": BUSINESS_ID },
     areaServed: { "@type": "Country", name: "Maroc" },
-    url: `https://greenexpert.ma/services/${service.slug}`,
+    url: siteUrl(`/services/${service.slug}`),
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://greenexpert.ma" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://greenexpert.ma/#services" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Services", item: siteUrl("/#services") },
       {
         "@type": "ListItem",
         position: 3,
         name: service.title,
-        item: `https://greenexpert.ma/services/${service.slug}`,
+        item: siteUrl(`/services/${service.slug}`),
       },
     ],
   };
@@ -94,11 +66,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <div className="relative min-h-screen bg-[#1a2821] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
       <NavigationMenu />
 
@@ -113,6 +85,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             fill
             priority
             sizes="100vw"
+            style={{ objectPosition: service.heroImagePosition ?? "center" }}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2821]/80 via-[#1a2821]/85 to-[#1a2821]" />
@@ -149,7 +122,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
 
             <h1 id="service-heading" className="font-serif text-4xl font-light leading-tight md:text-6xl lg:text-7xl">
-              {service.title}
+              {service.heading}
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
@@ -166,13 +139,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div>
               <div className="mb-6 inline-flex items-center gap-3">
                 <div className="h-px w-8 bg-[#9bbb2d]" />
-                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
+                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#4f6413]">
                   Nos Engagements
                 </span>
               </div>
               <h2 className="font-serif text-3xl font-light md:text-5xl">
-                Ce que nous vous{" "}
-                <span className="italic text-[#9bbb2d]">garantissons</span>
+                Les points clés de{" "}
+                <span className="italic text-[#4f6413]">notre prestation</span>
               </h2>
               <p className="mt-6 text-[#1a2821]/65">
                 Chaque prestation est réalisée dans le respect de nos standards
@@ -187,7 +160,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   key={benefit}
                   className="flex items-start gap-4 rounded-xl border border-[#1a2821]/5 bg-white p-5 shadow-sm shadow-black/[0.02]"
                 >
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#9bbb2d]/15 text-[#9bbb2d]">
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#9bbb2d]/15 text-[#4f6413]">
                     <Check className="h-4 w-4" strokeWidth={3} />
                   </span>
                   <span className="text-[#1a2821]/85">{benefit}</span>
@@ -236,6 +209,41 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section aria-labelledby="service-details" className="bg-[#f6f5ec] py-20 text-[#17251e]">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6413]">Préparer votre projet</p>
+          <h2 id="service-details" className="mt-4 font-serif text-3xl md:text-5xl">Le périmètre, le budget et les étapes.</h2>
+          <div className="mt-10 grid gap-8 lg:grid-cols-3">
+            {[
+              { title: "Définir la prestation", text: detail.scope },
+              { title: "Comprendre le devis", text: detail.quoteFactors },
+              { title: "Préparer notre échange", text: detail.preparation },
+            ].map((item) => (
+              <article key={item.title} className="border-t border-[#17251e]/20 pt-6">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 leading-7 text-[#17251e]/80">{item.text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 border-t border-[#17251e]/20">
+            {detail.questions.map((item) => (
+              <details key={item.question} className="border-b border-[#17251e]/20 py-5">
+                <summary className="cursor-pointer text-lg font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4f6413]">{item.question}</summary>
+                <p className="mt-4 max-w-3xl leading-7 text-[#17251e]/80">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl leading-7 text-[#17251e]/80">
+            Basés à Salé, nous étudions votre projet à Rabat et au Maroc selon ses besoins et son emplacement.
+            {" "}<Link className="font-semibold text-[#4f6413] underline underline-offset-4" href="/paysagiste-rabat">Découvrir notre accompagnement à Rabat et Salé</Link>.
+          </p>
+          <p className="mt-4 leading-7 text-[#17251e]/80">
+            Vous préparez plusieurs travaux ? {" "}
+            <Link className="font-semibold text-[#4f6413] underline underline-offset-4" href="/amenagement-espaces-verts">Voir notre approche de l’aménagement des espaces verts</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-[#1a2821] pb-20 md:pb-28">
         <div className="container mx-auto px-4">
@@ -245,13 +253,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <span className="italic text-[#9bbb2d]">projet</span> ?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-white/70">
-              Contactez-nous pour un devis gratuit et personnalisé. Nous vous
-              répondons sous 24 heures.
+              Décrivez votre terrain et vos besoins pour préparer un devis
+              personnalisé et convenir des prochaines étapes.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-8 py-4 text-sm font-semibold text-[#17251e] shadow-lg shadow-[#9bbb2d]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#8bab1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
               >
                 <span>Demander un devis</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -1,0 +1,44 @@
+{
+  "tool": "Built-in Imagegen",
+  "jobs": [
+    {
+      "name": "massif-argente-uniformes-v2",
+      "detail": "There are TWO small distant workers on the terrace at far left. Change their outfits only, retaining red gloves and tools in use; retain head coverage as blue cap/hood as appropriate. Keep both at their exact small scale and location, don't enlarge or foreground them. Do not change the large silver foliage mass, irrigation lines, curved walkway, hose, glass railing or orange architecture. Only tidy a few loose unused items around their feet, preserving the active work scene.",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-66d45fb8-a68e-4c8a-a141-82d9d4b94285.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-66d45fb8-a68e-4c8a-a141-82d9d4b94285.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve. Localized photographic editing of image 1 ONLY. Image 2 is the approved UNIFORM design reference, image 3 is company logo artwork. Give all existing workers fresh matching navy/slate blue work jackets and blue work trousers, silver-white reflective stripe across back and upper arms, natural cotton twill fabric seams and folds, closed dark sturdy work boots. Match image 2's clothing color and cut. Put GREEN EXPERT green emblem/wordmark on upper BACK above stripe where the back is visible, perspective-correct and small embroidery; do not turn people around to expose logo, do not put a back logo on their chest. Preserve exact identities, faces, skin tones, hand anatomy, head directions, body proportions, existing working poses and number of workers. Keep the same framing, 3:2 landscape composition, camera, architectural geometry, plants, ground textures, lighting, colors and photographic character. No CGI, no stylization, no overall scene regeneration or artificial smoothing. Keep garden detail as close to source as possible. There are TWO small distant workers on the terrace at far left. Change their outfits only, retaining red gloves and tools in use; retain head coverage as blue cap/hood as appropriate. Keep both at their exact small scale and location, don't enlarge or foreground them. Do not change the large silver foliage mass, irrigation lines, curved walkway, hose, glass railing or orange architecture. Only tidy a few loose unused items around their feet, preserving the active work scene.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-78d06d47-ac34-447e-bb3d-1f5b22976ab7.png",
+      "destination": "public/images/projects/jardins-ocre/massif-argente-uniformes-v2.webp"
+    },
+    {
+      "name": "equipe-au-jardin-uniformes-v2",
+      "detail": "There are THREE workers: left standing, center crouching, right bent over. All three must wear matching complete blue uniforms with jackets covering lower backs and proper boots. Preserve each pose/location. Lightly tidy loose empty nursery bags and scattered pots: consolidate them in one small tidy collection at right and put unused tools together. Retain hose along planting edge, plants awaiting planting, active work and natural soil texture. Keep all architecture and garden identical. Do not invent additional workers.",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-6cfc73a1-7ab2-4ba0-b1b7-46b81c0220b1.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-6cfc73a1-7ab2-4ba0-b1b7-46b81c0220b1.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve. Localized photographic editing of image 1 ONLY. Image 2 is the approved UNIFORM design reference, image 3 is company logo artwork. Give all existing workers fresh matching navy/slate blue work jackets and blue work trousers, silver-white reflective stripe across back and upper arms, natural cotton twill fabric seams and folds, closed dark sturdy work boots. Match image 2's clothing color and cut. Put GREEN EXPERT green emblem/wordmark on upper BACK above stripe where the back is visible, perspective-correct and small embroidery; do not turn people around to expose logo, do not put a back logo on their chest. Preserve exact identities, faces, skin tones, hand anatomy, head directions, body proportions, existing working poses and number of workers. Keep the same framing, 3:2 landscape composition, camera, architectural geometry, plants, ground textures, lighting, colors and photographic character. No CGI, no stylization, no overall scene regeneration or artificial smoothing. Keep garden detail as close to source as possible. There are THREE workers: left standing, center crouching, right bent over. All three must wear matching complete blue uniforms with jackets covering lower backs and proper boots. Preserve each pose/location. Lightly tidy loose empty nursery bags and scattered pots: consolidate them in one small tidy collection at right and put unused tools together. Retain hose along planting edge, plants awaiting planting, active work and natural soil texture. Keep all architecture and garden identical. Do not invent additional workers.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-d442b697-c94f-4c56-9d48-330d44874a24.png",
+      "destination": "public/images/projects/jardins-ocre/equipe-au-jardin-uniformes-v2.webp"
+    },
+    {
+      "name": "bordure-en-perspective-uniforme-v2",
+      "detail": "There is ONE distant standing worker near the banana plant at upper right, in a side/front view. Replace his vest and white sleeves with full matching blue jacket/trousers, blue cap and work boots. Do not change his pose or make his back face camera merely to display logo. At most a subtle small chest brand mark if visible, the upper-back logo is naturally hidden from this angle. Preserve every flower, cypress, lawn, orange wall, road and hose exactly in composition; no tidying needed.",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-ec4d7154-1a65-4b16-8707-aba435e5598f.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-ec4d7154-1a65-4b16-8707-aba435e5598f.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve. Localized photographic editing of image 1 ONLY. Image 2 is the approved UNIFORM design reference, image 3 is company logo artwork. Give all existing workers fresh matching navy/slate blue work jackets and blue work trousers, silver-white reflective stripe across back and upper arms, natural cotton twill fabric seams and folds, closed dark sturdy work boots. Match image 2's clothing color and cut. Put GREEN EXPERT green emblem/wordmark on upper BACK above stripe where the back is visible, perspective-correct and small embroidery; do not turn people around to expose logo, do not put a back logo on their chest. Preserve exact identities, faces, skin tones, hand anatomy, head directions, body proportions, existing working poses and number of workers. Keep the same framing, 3:2 landscape composition, camera, architectural geometry, plants, ground textures, lighting, colors and photographic character. No CGI, no stylization, no overall scene regeneration or artificial smoothing. Keep garden detail as close to source as possible. There is ONE distant standing worker near the banana plant at upper right, in a side/front view. Replace his vest and white sleeves with full matching blue jacket/trousers, blue cap and work boots. Do not change his pose or make his back face camera merely to display logo. At most a subtle small chest brand mark if visible, the upper-back logo is naturally hidden from this angle. Preserve every flower, cypress, lawn, orange wall, road and hose exactly in composition; no tidying needed.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-09b446d1-28e8-4d10-9523-25e384809802.png",
+      "destination": "public/images/projects/jardins-ocre/bordure-en-perspective-uniforme-v2.webp"
+    }
+  ]
+}

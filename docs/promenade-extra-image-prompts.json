@@ -1,0 +1,44 @@
+[
+  {
+    "sourceNumber": 2,
+    "name": "panorama-stationnement",
+    "detail": "Preserve the broadside elevated panorama, road and parking in foreground, all palm positions and flowerbed shapes. Keep the entire site visible, identical camera and neutral white model surroundings.",
+    "style": "vue-aerienne",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-3061bb35-13c7-4a8a-8048-d442a75ac360.png",
+    "prompt": "Use case: style-transfer. Conservatively enhance this supplied landscape architectural 3D visualization for an existing project gallery. Image 1 is the EDIT TARGET: preserve its exact scene and composition. Image 2 is ONLY a style reference for the existing gallery's restrained rendering quality, never copy its camera. Output one landscape 16:9 image. Improve anti-aliasing, edge definition, foliage texture clarity and balanced exposure. Retain architectural-render appearance, modest materials, original colors, people, benches, cars, lamps and planting layout. Do not turn into photography, redesign, oversaturate, add text or invent surrounding city, sea or other features. Preserve the broadside elevated panorama, road and parking in foreground, all palm positions and flowerbed shapes. Keep the entire site visible, identical camera and neutral white model surroundings.",
+    "references": [
+      "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-3061bb35-13c7-4a8a-8048-d442a75ac360.png",
+      "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/promenade-fleurie/vue-aerienne.webp"
+    ],
+    "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-693f5287-bff9-420a-a0b4-cfb2c7f08435.png",
+    "destination": "public/images/projects/promenade-fleurie/panorama-stationnement.webp"
+  },
+  {
+    "sourceNumber": 3,
+    "name": "perspective-diagonale",
+    "detail": "Preserve the diagonal elevated perspective looking along the entire narrow promenade, with the road to the right and red flowerbed nearest camera. Same site geometry, planting and camera; white neutral model surroundings.",
+    "style": "vue-aerienne",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-9118058d-4be8-47f6-9e98-cce862f5c262.png",
+    "prompt": "Use case: style-transfer. Conservatively enhance this supplied landscape architectural 3D visualization for an existing project gallery. Image 1 is the EDIT TARGET: preserve its exact scene and composition. Image 2 is ONLY a style reference for the existing gallery's restrained rendering quality, never copy its camera. Output one landscape 16:9 image. Improve anti-aliasing, edge definition, foliage texture clarity and balanced exposure. Retain architectural-render appearance, modest materials, original colors, people, benches, cars, lamps and planting layout. Do not turn into photography, redesign, oversaturate, add text or invent surrounding city, sea or other features. Preserve the diagonal elevated perspective looking along the entire narrow promenade, with the road to the right and red flowerbed nearest camera. Same site geometry, planting and camera; white neutral model surroundings.",
+    "references": [
+      "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-9118058d-4be8-47f6-9e98-cce862f5c262.png",
+      "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/promenade-fleurie/vue-aerienne.webp"
+    ],
+    "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-c8e8f734-927d-4dcc-8e7f-af163235fcf8.png",
+    "destination": "public/images/projects/promenade-fleurie/perspective-diagonale.webp"
+  },
+  {
+    "sourceNumber": 5,
+    "name": "vue-ensemble-nocturne",
+    "detail": "Preserve the elevated diagonal nighttime overview with palms in foreground, road to left, blue and red beds farther back, blue clouded sky and neutral gray model surroundings. Gently recover shadows enough to read plants, paving and benches while clearly retaining night. Keep existing lamp positions and light pools, no added illumination or dramatic glow.",
+    "style": "ambiance-nocturne",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-f83e114d-9538-4272-a41e-d9e2ccf3eae5.png",
+    "prompt": "Use case: style-transfer. Conservatively enhance this supplied landscape architectural 3D visualization for an existing project gallery. Image 1 is the EDIT TARGET: preserve its exact scene and composition. Image 2 is ONLY a style reference for the existing gallery's restrained rendering quality, never copy its camera. Output one landscape 16:9 image. Improve anti-aliasing, edge definition, foliage texture clarity and balanced exposure. Retain architectural-render appearance, modest materials, original colors, people, benches, cars, lamps and planting layout. Do not turn into photography, redesign, oversaturate, add text or invent surrounding city, sea or other features. Preserve the elevated diagonal nighttime overview with palms in foreground, road to left, blue and red beds farther back, blue clouded sky and neutral gray model surroundings. Gently recover shadows enough to read plants, paving and benches while clearly retaining night. Keep existing lamp positions and light pools, no added illumination or dramatic glow.",
+    "references": [
+      "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-f83e114d-9538-4272-a41e-d9e2ccf3eae5.png",
+      "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/promenade-fleurie/ambiance-nocturne.webp"
+    ],
+    "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d269-6492-7c92-b60f-8fc1717d9fad/exec-de28cd09-eadf-4a1f-8427-cd4f39d87525.png",
+    "destination": "public/images/projects/promenade-fleurie/vue-ensemble-nocturne.webp"
+  }
+]

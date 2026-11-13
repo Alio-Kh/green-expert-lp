@@ -1,0 +1,30 @@
+[
+  {
+    "name": "promenade-palmiers",
+    "id": "277ca51a-64c3-4468-81aa-3cc914934c06",
+    "detail": "Preserve the exact eye-level walkway view, foreground bench and lamp, palm rows, grasses, distant flowerbeds, parked cars and people.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-277ca51a-64c3-4468-81aa-3cc914934c06.png",
+    "prompt": "Conservatively enhance the quality of this supplied landscape architectural 3D visualization. Output a single landscape 16:9 image. Maintain the original modest architectural-render style and identical design, geometry, camera, planting species, colors, and object placement. Improve anti-aliasing, texture clarity and balanced exposure slightly. Do not redesign, beautify with invented features, turn into photography, oversaturate, add cinematic effects, add text, change people or replace blank surrounding context with buildings or sea. Preserve the exact eye-level walkway view, foreground bench and lamp, palm rows, grasses, distant flowerbeds, parked cars and people."
+  },
+  {
+    "name": "massifs-et-bancs",
+    "id": "28abef78-ec88-46ad-8980-282cb6e55c3a",
+    "detail": "Preserve this exact seating-area camera view, curved blue flower bed, red flowers behind, benches, people, foreground grasses and palm trunks.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-28abef78-ec88-46ad-8980-282cb6e55c3a.png",
+    "prompt": "Conservatively enhance the quality of this supplied landscape architectural 3D visualization. Output a single landscape 16:9 image. Maintain the original modest architectural-render style and identical design, geometry, camera, planting species, colors, and object placement. Improve anti-aliasing, texture clarity and balanced exposure slightly. Do not redesign, beautify with invented features, turn into photography, oversaturate, add cinematic effects, add text, change people or replace blank surrounding context with buildings or sea. Preserve this exact seating-area camera view, curved blue flower bed, red flowers behind, benches, people, foreground grasses and palm trunks."
+  },
+  {
+    "name": "vue-aerienne",
+    "id": "891eeb41-f837-49aa-8029-75a9cfd416c4",
+    "detail": "Preserve the exact overhead site plan composition and all planting-bed shapes and positions, palm rows, benches, lamps, parking spaces and cars. Keep neutral white model surroundings.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-891eeb41-f837-49aa-8029-75a9cfd416c4.png",
+    "prompt": "Conservatively enhance the quality of this supplied landscape architectural 3D visualization. Output a single landscape 16:9 image. Maintain the original modest architectural-render style and identical design, geometry, camera, planting species, colors, and object placement. Improve anti-aliasing, texture clarity and balanced exposure slightly. Do not redesign, beautify with invented features, turn into photography, oversaturate, add cinematic effects, add text, change people or replace blank surrounding context with buildings or sea. Preserve the exact overhead site plan composition and all planting-bed shapes and positions, palm rows, benches, lamps, parking spaces and cars. Keep neutral white model surroundings."
+  },
+  {
+    "name": "ambiance-nocturne",
+    "id": "13966b9e-3396-4525-87ba-4725bbb72b27",
+    "detail": "Preserve this exact nighttime eye-level view, blue flowers foreground, circular red flower bed, palms, benches, people, parked cars and lamp positions. Keep nighttime; gently recover shadow detail with restrained existing lighting, no dramatic glow.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-13966b9e-3396-4525-87ba-4725bbb72b27.png",
+    "prompt": "Conservatively enhance the quality of this supplied landscape architectural 3D visualization. Output a single landscape 16:9 image. Maintain the original modest architectural-render style and identical design, geometry, camera, planting species, colors, and object placement. Improve anti-aliasing, texture clarity and balanced exposure slightly. Do not redesign, beautify with invented features, turn into photography, oversaturate, add cinematic effects, add text, change people or replace blank surrounding context with buildings or sea. Preserve this exact nighttime eye-level view, blue flowers foreground, circular red flower bed, palms, benches, people, parked cars and lamp positions. Keep nighttime; gently recover shadow detail with restrained existing lighting, no dramatic glow."
+  }
+]

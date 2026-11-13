@@ -1,0 +1,30 @@
+[
+  {
+    "name": "jardin-fleuri",
+    "id": "9d76d9ad-b934-4f36-aa1a-86586d70648a",
+    "detail": "Preserve the ground-level view with the irregular white stepping stones curving through lawn, pink flowering trees, red flower borders on both sides, boundary planting, gray house and terrace. Retain the simple house model exactly.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-9d76d9ad-b934-4f36-aa1a-86586d70648a.png",
+    "prompt": "Enhance this supplied landscape architectural 3D rendering conservatively, output one 16:9 landscape image. Retain the original restrained 3D visualization style, exact camera angle, geometry, all features, planting positions and colors. Quality improvement only: cleaner anti-aliasing, sharper existing textures and slightly more balanced exposure. Keep it recognizably the same image. No photorealistic reinterpretation, added details, redesign, lush extra plants, invented architecture, cinematic effects, excessive saturation, labels, border or collage. Preserve the ground-level view with the irregular white stepping stones curving through lawn, pink flowering trees, red flower borders on both sides, boundary planting, gray house and terrace. Retain the simple house model exactly."
+  },
+  {
+    "name": "vue-ensemble",
+    "id": "ef07b180-0e55-4a48-b4f8-ff8c4b476d97",
+    "detail": "Preserve the exact high overhead diagonal viewpoint of the full enclosed plot, gray L-shaped house footprint, small swimming pool, raised circular tank and its support structure, palms and flowering trees, perimeter hedges, curved entry path and reddish bare surrounding ground.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-ef07b180-0e55-4a48-b4f8-ff8c4b476d97.png",
+    "prompt": "Enhance this supplied landscape architectural 3D rendering conservatively, output one 16:9 landscape image. Retain the original restrained 3D visualization style, exact camera angle, geometry, all features, planting positions and colors. Quality improvement only: cleaner anti-aliasing, sharper existing textures and slightly more balanced exposure. Keep it recognizably the same image. No photorealistic reinterpretation, added details, redesign, lush extra plants, invented architecture, cinematic effects, excessive saturation, labels, border or collage. Preserve the exact high overhead diagonal viewpoint of the full enclosed plot, gray L-shaped house footprint, small swimming pool, raised circular tank and its support structure, palms and flowering trees, perimeter hedges, curved entry path and reddish bare surrounding ground."
+  },
+  {
+    "name": "piscine-et-plantations",
+    "id": "a82d40d8-8260-46d4-96c4-5309961b282c",
+    "detail": "Preserve the exact oblique aerial viewpoint with the raised water tank in foreground, narrow rectangular swimming pool, umbrella, gray house block, pink and red flowering trees, palms, perimeter hedges and reddish bare ground outside.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-a82d40d8-8260-46d4-96c4-5309961b282c.png",
+    "prompt": "Enhance this supplied landscape architectural 3D rendering conservatively, output one 16:9 landscape image. Retain the original restrained 3D visualization style, exact camera angle, geometry, all features, planting positions and colors. Quality improvement only: cleaner anti-aliasing, sharper existing textures and slightly more balanced exposure. Keep it recognizably the same image. No photorealistic reinterpretation, added details, redesign, lush extra plants, invented architecture, cinematic effects, excessive saturation, labels, border or collage. Preserve the exact oblique aerial viewpoint with the raised water tank in foreground, narrow rectangular swimming pool, umbrella, gray house block, pink and red flowering trees, palms, perimeter hedges and reddish bare ground outside."
+  },
+  {
+    "name": "jardin-accueil",
+    "id": "52e05c4f-f7fb-4af8-b25f-0ccc9a3d70c9",
+    "detail": "Preserve the exact elevated entrance-side viewpoint, gray L-shaped house model, curved light path from entrance gate, palms on lawn, perimeter trees, pool on left and pink flowering trees at rear. Do not invent house facade features.",
+    "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-52e05c4f-f7fb-4af8-b25f-0ccc9a3d70c9.png",
+    "prompt": "Enhance this supplied landscape architectural 3D rendering conservatively, output one 16:9 landscape image. Retain the original restrained 3D visualization style, exact camera angle, geometry, all features, planting positions and colors. Quality improvement only: cleaner anti-aliasing, sharper existing textures and slightly more balanced exposure. Keep it recognizably the same image. No photorealistic reinterpretation, added details, redesign, lush extra plants, invented architecture, cinematic effects, excessive saturation, labels, border or collage. Preserve the exact elevated entrance-side viewpoint, gray L-shaped house model, curved light path from entrance gate, palms on lawn, perimeter trees, pool on left and pink flowering trees at rear. Do not invent house facade features."
+  }
+]
