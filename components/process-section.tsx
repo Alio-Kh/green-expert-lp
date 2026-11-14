@@ -7,25 +7,25 @@ const processSteps = [
     title: "Plantation soignée",
     description:
       "Préparation du sol, implantation précise et gestes adaptés à chaque végétal.",
-    alt: "Équipe Green Expert réalisant la plantation d’un massif fleuri",
-    image: "/images/field-work/planting-team-clean-uniform.webp",
-    objectPosition: "center 48%",
+    alt: "Équipe Green Expert plantant un massif aux Jardins d’Ocre",
+    image: "/images/process/plantation-jardins-ocre-v1.webp",
+    objectPosition: "center",
   },
   {
     title: "Entretien maîtrisé",
     description:
       "Une intervention régulière pour conserver des pelouses nettes et vigoureuses.",
-    alt: "Jardinier Green Expert assurant la tonte d’une pelouse",
-    image: "/images/field-work/lawn-care-clean-uniform.webp",
-    objectPosition: "center 48%",
+    alt: "Jardinier Green Expert assurant la tonte d’une pelouse au complexe sportif",
+    image: "/images/process/entretien-complexe-sportif-v1.webp",
+    objectPosition: "center",
   },
   {
     title: "Taille spécialisée",
     description:
-      "Des interventions expertes pour préserver la santé, la forme et la sécurité des arbres.",
-    alt: "Jardinier Green Expert réalisant la taille d’un palmier",
-    image: "/images/field-work/palm-pruning-clean-uniform.webp",
-    objectPosition: "center 46%",
+      "Des interventions expertes pour préserver la santé et la forme des arbres et arbustes.",
+    alt: "Jardinier Green Expert taillant un arbuste dans les jardins du ministère à Rabat",
+    image: "/images/process/taille-jardins-ministere-v1.webp",
+    objectPosition: "center",
   },
 ];
 
