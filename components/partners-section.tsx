@@ -3,102 +3,102 @@ import Image from "next/image";
 const partners = [
   {
     name: "INPT",
-    logo: "/partners/inpt.jpg",
+    logo: "/partners/transparent/inpt.webp",
     alt: "Logo de l'Institut National des Postes et Télécommunications",
   },
   {
     name: "Morocco Foodex",
-    logo: "/partners/LOGO-MFX.png",
+    logo: "/partners/transparent/morocco-foodex.webp",
     alt: "Logo de Morocco Foodex",
   },
   {
     name: "MedOMed",
-    logo: "/partners/medomed.jpg",
+    logo: "/partners/transparent/medomed.webp",
     alt: "Logo de MedOMed",
   },
   {
     name: "MENPS",
-    logo: "/partners/menps.png",
+    logo: "/partners/transparent/menps.webp",
     alt: "Logo du Ministère de l'Éducation Nationale, du Préscolaire et des Sports",
   },
   {
     name: "CCM",
-    logo: "/partners/Centre_Cinematographique_Marocain.png",
+    logo: "/partners/transparent/ccm.webp",
     alt: "Logo du Centre Cinématographique Marocain",
   },
   {
     name: "FM6 Education",
-    logo: "/partners/fm6education.png",
+    logo: "/partners/transparent/fm6-education.webp",
     alt: "Logo de la Fondation Mohammed VI de promotion des œuvres sociales de l'education-formation",
   },
   {
     name: "Al Masaood",
-    logo: "/partners/al_masaood.jpg",
+    logo: "/partners/transparent/al-masaood.webp",
     alt: "Logo de Al Masaood",
   },
   {
     name: "Fondation Mohammed V",
-    logo: "/partners/Fondation_mohammed_v_pour_la_solidarite_logo.png",
+    logo: "/partners/transparent/fondation-mohammed-v.webp",
     alt: "Logo de la Fondation Mohammed V pour la solidarité",
   },
   {
     name: "Arrondissement Bettana",
-    logo: "/partners/ARRONDISSEMENT_BETTANA.jpg",
+    logo: "/partners/transparent/bettana.webp",
     alt: "Logo de l'Arrondissement Bettana",
   },
   {
     name: "Protection Civile",
-    logo: "/partners/Logo_de_la_Protection_Civile_Marocaine.png",
+    logo: "/partners/transparent/protection-civile.webp",
     alt: "Logo de la Protection Civile Marocaine",
   },
   {
     name: "ENS Martil",
-    logo: "/partners/LOGO_ENS_MARTIL.png",
+    logo: "/partners/transparent/ens-martil.webp",
     alt: "Logo de l'École Normale Supérieure Martil",
   },
   {
     name: "Ville d'Agadir",
-    logo: "/partners/Logo_de_la_Ville_d'Agadir.png",
+    logo: "/partners/transparent/agadir.webp",
     alt: "Logo de la Ville d'Agadir",
   },
   {
     name: "ONDA",
-    logo: "/partners/logo-onda.jpg",
+    logo: "/partners/transparent/onda.webp",
     alt: "Logo de l'Office National des Aéroports",
   },
   {
     name: "SABIC",
-    logo: "/partners/Saudi-Basic-Industries-Logo.png",
+    logo: "/partners/transparent/sabic.webp",
     alt: "Logo de Saudi Basic Industries (SABIC)",
   },
   {
     name: "HCP",
-    logo: "/partners/HCP.png",
+    logo: "/partners/transparent/hcp.webp",
     alt: "Logo du Haut Commissariat au Plan",
   },
   {
     name: "Ministère de l'Education",
-    logo: "/partners/Men_2021.png",
+    logo: "/partners/transparent/ministere-education.webp",
     alt: "Logo du Ministère de l'Education Nationale du Préscolaire et du Sport",
   },
   {
     name: "Chef du Gouvernement",
-    logo: "/partners/Chef-du-Gouvernement.png",
+    logo: "/partners/transparent/chef-gouvernement.webp",
     alt: "Logo du Chef du Gouvernement du Royaume du Maroc",
   },
   {
     name: "ANEP",
-    logo: "/partners/ANEP.png",
+    logo: "/partners/transparent/anep.webp",
     alt: "Logo de l'Agence Nationale des Equipements Publics",
   },
   {
     name: "GIZ",
-    logo: "/partners/giz.png",
+    logo: "/partners/transparent/giz.webp",
     alt: "Logo de la Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
   },
   {
     name: "FNM",
-    logo: "/partners/FNM.png",
+    logo: "/partners/transparent/fnm.webp",
     alt: "Logo de La Fondation Nationale des Musées",
   },
 ];
@@ -118,7 +118,7 @@ function MarqueeRow({
   return (
     <div className="hover-pause flex overflow-hidden">
       <div
-        className={`flex shrink-0 items-center gap-12 ${
+        className={`flex shrink-0 items-center gap-8 pr-8 md:gap-12 md:pr-12 ${
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         }`}
       >
@@ -126,14 +126,16 @@ function MarqueeRow({
           <div
             key={`${partner.name}-${i}`}
             aria-hidden={i >= items.length ? "true" : undefined}
-            className="flex h-16 w-[120px] shrink-0 items-center justify-center grayscale transition-all duration-300 hover:grayscale-0"
+            className="flex h-28 w-40 shrink-0 items-center justify-center grayscale transition-all duration-300 hover:grayscale-0 md:w-[180px]"
           >
             <Image
               src={partner.logo}
               alt={i >= items.length ? "" : partner.alt}
-              width={120}
-              height={64}
-              className="h-12 w-auto max-w-[120px] object-contain"
+              width={720}
+              height={448}
+              quality={90}
+              sizes="(min-width: 768px) 180px, 160px"
+              className="h-auto w-full object-contain"
             />
           </div>
         ))}
