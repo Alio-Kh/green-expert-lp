@@ -8,7 +8,9 @@ export function siteUrl(path = "/") {
   return new URL(path, `${SITE_URL}/`).href;
 }
 
-export function pageMetadata(title: string, description: string, path: string): Metadata {
+const defaultShareImage = { src: "/cover.png", alt: "Green Expert — jardins et espaces verts au Maroc" };
+
+export function pageMetadata(title: string, description: string, path: string, image: { src: string; alt: string } = defaultShareImage): Metadata {
   return {
     title: { absolute: `${title} | ${SITE_NAME}` },
     description,
@@ -20,13 +22,15 @@ export function pageMetadata(title: string, description: string, path: string): 
       siteName: SITE_NAME,
       locale: "fr_MA",
       type: "website",
-      images: [{ url: siteUrl("/cover.png"), width: 1200, height: 630, alt: "Green Expert — jardins et espaces verts au Maroc" }],
+      images: image === defaultShareImage
+        ? [{ url: siteUrl(image.src), width: 1200, height: 630, alt: image.alt }]
+        : [{ url: siteUrl(image.src), alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | ${SITE_NAME}`,
       description,
-      images: [siteUrl("/cover.png")],
+      images: [{ url: siteUrl(image.src), alt: image.alt }],
     },
   };
 }

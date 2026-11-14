@@ -9,7 +9,8 @@ import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ProjectStudy } from "@/components/project-study";
 import { ProjectGallery } from "@/components/project-gallery";
-import { projects, getProjectBySlug, type Project } from "@/lib/projects-data";
+import { Reveal } from "@/components/reveal";
+import { projects, getProjectBySlug, galleryAlt, type Project } from "@/lib/projects-data";
 import { services } from "@/lib/services-data";
 
 interface PageProps {
@@ -33,7 +34,8 @@ export async function generateMetadata({
       robots: { index: false, follow: true },
     };
   }
-  return { ...pageMetadata(project.metaTitle, project.metaDescription, `/projets/${project.slug}`), ...(project.provisional ? { robots: { index: false, follow: true } } : {}) };
+  const shareImage = { src: project.heroImage, alt: galleryAlt(project, project.gallery[0]) };
+  return { ...pageMetadata(project.metaTitle, project.metaDescription, `/projets/${project.slug}`, shareImage), ...(project.provisional ? { robots: { index: false, follow: true } } : {}) };
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
@@ -59,14 +61,24 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   }
 
 
-  const otherProjects = projects.filter((p) => p.published && p.slug !== project.slug);
+  // The three projects that follow this one, so every page links onward to different work.
+  const published = projects.filter((p) => p.published);
+  const position = published.findIndex((p) => p.slug === project.slug);
+  const otherProjects = [...published.slice(position + 1), ...published.slice(0, position)].slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
     description: project.intro,
-    image: project.heroImage,
+    image: project.gallery.map((image) => ({
+      "@type": "ImageObject",
+      contentUrl: siteUrl(image.src),
+      caption: galleryAlt(project, image),
+      creditText: "Green Expert",
+      creator: { "@id": BUSINESS_ID },
+      copyrightNotice: "Green Expert",
+    })),
     locationCreated: { "@type": "Place", name: project.location },
     dateCreated: project.year,
     creator: { "@id": BUSINESS_ID },
@@ -698,30 +710,33 @@ function OtherProjects({ all }: { all: Project[] }) {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {all.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/projets/${p.slug}`}
-              className="group relative block aspect-[16/10] overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d] focus-visible:ring-offset-4 focus-visible:ring-offset-[#1a2821]"
-            >
-              <Image
-                src={p.thumbnail}
-                alt={p.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a2821] via-[#1a2821]/40 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#9bbb2d]">
-                  {p.category} • {p.location}
+        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {all.map((p, index) => (
+            <Reveal key={p.slug} delay={index * 90}>
+              <Link
+                href={`/projets/${p.slug}`}
+                className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d] focus-visible:ring-offset-4 focus-visible:ring-offset-[#1a2821]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white/5">
+                  <span className="reveal-media absolute inset-0 block">
+                    <Image
+                      src={p.thumbnail}
+                      alt={galleryAlt(p, p.gallery[0])}
+                      fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
+                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                    />
+                  </span>
                 </div>
-                <h3 className="mt-2 font-serif text-2xl font-light md:text-3xl">
-                  {p.title}
-                </h3>
-              </div>
-            </Link>
+                <div className="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#9bbb2d]">{p.category}</p>
+                    <h3 className="mt-2 font-serif text-2xl font-light leading-snug">{p.title}</h3>
+                  </div>
+                  <ArrowRight aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#9bbb2d]" />
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>

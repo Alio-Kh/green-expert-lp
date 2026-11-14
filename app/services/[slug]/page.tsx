@@ -11,6 +11,7 @@ import { serviceDetails } from "@/lib/service-details";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { serviceGalleries } from "@/lib/service-galleries";
 import { ServiceGallery } from "@/components/service-gallery";
+import { Reveal } from "@/components/reveal";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,8 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  return pageMetadata(service.metaTitle, service.metaDescription, `/services/${service.slug}`);
+  const cover = serviceGalleries[service.slug].images[0];
+  return pageMetadata(service.metaTitle, service.metaDescription, `/services/${service.slug}`, { src: service.heroImage, alt: cover.alt });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -37,6 +39,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   const detail = serviceDetails[service.slug];
   const gallery = serviceGalleries[service.slug];
+  const cover = gallery.images[0];
   const Icon = service.icon;
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
@@ -48,6 +51,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     provider: { "@id": BUSINESS_ID },
     areaServed: { "@type": "Country", name: "Maroc" },
     url: siteUrl(`/services/${service.slug}`),
+    image: gallery.images.map((image) => ({
+      "@type": "ImageObject",
+      contentUrl: siteUrl(image.src),
+      name: image.caption,
+      caption: image.alt,
+      description: `${image.alt}. ${image.imageNote}.`,
+      creditText: "Green Expert",
+      creator: { "@id": BUSINESS_ID },
+      copyrightNotice: "Green Expert",
+    })),
   };
 
   const breadcrumbJsonLd = {
@@ -79,26 +92,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <main id="main-content">
       {/* Hero */}
-      <section aria-labelledby="service-heading" className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0" aria-hidden="true">
-          <Image
-            src={service.heroImage}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectPosition: service.heroImagePosition ?? "center" }}
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a2821]/80 via-[#1a2821]/85 to-[#1a2821]" />
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4">
+      <section aria-labelledby="service-heading" className="pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6">
           {/* Breadcrumb */}
           <nav
             aria-label="Fil d'Ariane"
-            className="mb-8 flex items-center gap-2 text-sm text-white/60"
+            className="mb-10 flex flex-wrap items-center gap-2 text-sm text-white/60 md:mb-14"
           >
             <Link
               href="/"
@@ -118,31 +117,69 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <span aria-current="page" className="text-white/90">{service.title}</span>
           </nav>
 
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#9bbb2d]/30 bg-[#1a2821]/70 px-4 py-2 text-xs uppercase tracking-[0.2em] text-[#9bbb2d] backdrop-blur-sm">
-              <Icon className="h-4 w-4" />
-              <span>Nos Services</span>
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <div className="lg:col-span-6">
+              <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
+                <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                {service.title}
+              </p>
+
+              <h1 id="service-heading" className="mt-6 font-serif text-4xl font-light leading-[1.08] md:text-6xl xl:text-7xl">
+                {service.heading}
+              </h1>
+
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75">
+                {service.longDescription}
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+                <Link
+                  href="/#contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#9bbb2d] px-7 py-3.5 text-sm font-semibold text-[#17251e] transition-colors duration-300 hover:bg-[#b6d74a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2821]"
+                >
+                  Demander un devis
+                  <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href="#service-gallery"
+                  className="rounded text-sm font-medium text-white/80 underline decoration-white/30 underline-offset-8 transition-colors hover:text-white hover:decoration-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-[#1a2821]"
+                >
+                  Voir le service en images
+                </a>
+              </div>
             </div>
 
-            <h1 id="service-heading" className="font-serif text-4xl font-light leading-tight md:text-6xl lg:text-7xl">
-              {service.heading}
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
-              {service.longDescription}
-            </p>
-            <p className="mt-6 text-xs leading-5 text-white/60">{gallery.images[0].imageNote}</p>
+            <figure className="lg:col-span-6">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white/5 lg:aspect-[5/4]">
+                <Image
+                  src={service.heroImage}
+                  alt={cover.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1023px) 100vw, (max-width: 1280px) 50vw, 600px"
+                  style={{ objectPosition: service.heroImagePosition ?? "center" }}
+                  className="animate-settle object-cover"
+                />
+              </div>
+              <figcaption className="mt-4 flex gap-4">
+                <span aria-hidden="true" className="font-serif text-sm tabular-nums text-[#9bbb2d]">01</span>
+                <span className="text-sm leading-6 text-white/75">
+                  {cover.caption}
+                  <span className="block text-xs leading-5 text-white/60">{cover.imageNote}</span>
+                </span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <ServiceGallery gallery={gallery} />
+      <ServiceGallery gallery={gallery} heroImage={service.heroImage} />
 
       {/* Benefits section */}
       <section className="bg-[#fafaf5] py-20 text-[#1a2821] md:py-28">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
+            <Reveal>
               <div className="mb-6 inline-flex items-center gap-3">
                 <div className="h-px w-8 bg-[#9bbb2d]" />
                 <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#4f6413]">
@@ -158,19 +195,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 de qualité et de votre projet. Voici les bénéfices concrets que
                 vous en tirez.
               </p>
-            </div>
+            </Reveal>
 
-            <ul className="space-y-4">
-              {service.benefits.map((benefit) => (
-                <li
+            <ul className="border-t border-[#1a2821]/15">
+              {service.benefits.map((benefit, index) => (
+                <Reveal
+                  as="li"
                   key={benefit}
-                  className="flex items-start gap-4 rounded-xl border border-[#1a2821]/5 bg-white p-5 shadow-sm shadow-black/[0.02]"
+                  delay={index * 70}
+                  className="flex items-start gap-4 border-b border-[#1a2821]/15 py-5"
                 >
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#9bbb2d]/15 text-[#4f6413]">
-                    <Check className="h-4 w-4" strokeWidth={3} />
-                  </span>
-                  <span className="text-[#1a2821]/85">{benefit}</span>
-                </li>
+                  <Check aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-[#4f6413]" strokeWidth={2.5} />
+                  <span className="text-lg leading-7 text-[#1a2821]/85">{benefit}</span>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -180,7 +217,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* Approach / Process */}
       <section className="bg-[#1a2821] py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="text-center">
+          <Reveal className="text-center">
             <div className="mb-6 inline-flex items-center gap-3">
               <div className="h-px w-8 bg-[#9bbb2d]" />
               <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
@@ -192,13 +229,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               Une méthode{" "}
               <span className="italic text-[#9bbb2d]">rigoureuse</span>
             </h2>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {service.approach.map((step, index) => (
-              <div
+              <Reveal
                 key={step.title}
-                className="group relative rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 transition-colors hover:border-[#9bbb2d]/30"
+                delay={index * 90}
+                className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8"
               >
                 <div className="mb-4 font-serif text-5xl font-light text-[#9bbb2d]/40">
                   0{index + 1}
@@ -209,7 +247,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <p className="mt-3 text-sm leading-relaxed text-white/60">
                   {step.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -288,18 +326,18 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div>
               <div className="mb-6 inline-flex items-center gap-3">
                 <div className="h-px w-8 bg-[#9bbb2d]" />
-                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#9bbb2d]">
+                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#4f6413]">
                   Autres Services
                 </span>
               </div>
               <h2 className="font-serif text-3xl font-light md:text-4xl">
                 Explorez nos{" "}
-                <span className="italic text-[#9bbb2d]">expertises</span>
+                <span className="italic text-[#4f6413]">expertises</span>
               </h2>
             </div>
             <Link
               href="/#services"
-              className="inline-flex items-center gap-2 rounded text-sm font-medium text-[#1a2821]/70 transition-colors hover:text-[#9bbb2d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf5]"
+              className="inline-flex items-center gap-2 rounded text-sm font-medium text-[#1a2821]/70 transition-colors hover:text-[#4f6413] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf5]"
             >
               Voir tous les services
               <ArrowRight className="h-4 w-4" />
@@ -315,18 +353,18 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   href={`/services/${other.slug}`}
                   className="group flex items-start gap-4 rounded-2xl border border-[#1a2821]/5 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#9bbb2d]/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9bbb2d]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf5]"
                 >
-                  <div className="shrink-0 rounded-xl bg-[#9bbb2d]/15 p-3 text-[#9bbb2d]">
+                  <div className="shrink-0 rounded-xl bg-[#9bbb2d]/15 p-3 text-[#4f6413]">
                     <OtherIcon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#1a2821] group-hover:text-[#9bbb2d]">
+                    <h3 className="font-semibold text-[#1a2821] group-hover:text-[#4f6413]">
                       {other.title}
                     </h3>
                     <p className="mt-1 text-sm text-[#1a2821]/60">
                       {other.shortDescription}
                     </p>
                   </div>
-                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#1a2821]/30 transition-all group-hover:translate-x-1 group-hover:text-[#9bbb2d]" />
+                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#1a2821]/30 transition-all group-hover:translate-x-1 group-hover:text-[#4f6413]" />
                 </Link>
               );
             })}

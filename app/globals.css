@@ -36,6 +36,7 @@
     --brand-accent-hover: #b6d74a;
     --brand-accent-ink: #62791b;
     --brand-cream: #fafaf5;
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -118,6 +119,61 @@
 .hover-pause:hover .animate-marquee,
 .hover-pause:hover .animate-marquee-reverse {
   animation-play-state: paused;
+}
+
+/* Scroll reveal: applied by components/reveal.tsx after hydration only. */
+[data-reveal] {
+  transition:
+    opacity 0.9s var(--ease-soft) var(--reveal-delay, 0ms),
+    transform 0.9s var(--ease-soft) var(--reveal-delay, 0ms);
+}
+
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.reveal-media {
+  transition: transform 1.6s var(--ease-soft) var(--reveal-delay, 0ms);
+}
+
+[data-reveal="pending"] .reveal-media {
+  transform: scale(1.06);
+}
+
+/* Hero images settle into place; no opacity change, so the image paints at once. */
+@keyframes settle {
+  from {
+    transform: scale(1.05);
+  }
+}
+
+.animate-settle {
+  animation: settle 1.8s var(--ease-soft) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.lightbox[open] {
+  animation: fade-in 0.3s ease-out;
+}
+
+.lightbox-image {
+  animation: fade-in 0.4s ease-out;
+}
+
+@keyframes carousel-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.animate-carousel-progress {
+  animation: carousel-progress 6s linear both;
 }
 
 @media (prefers-reduced-motion: reduce) {

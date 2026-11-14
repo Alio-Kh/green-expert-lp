@@ -6,6 +6,8 @@ export type ServiceGalleryImage = {
   projectSlug?: string;
   imageNote: string;
   objectPosition?: string;
+  /** Portrait source image. */
+  shape?: "tall";
 };
 
 export type ServiceGalleryData = {
@@ -164,6 +166,7 @@ export const serviceGalleries: Record<string, ServiceGalleryData> = {
       },
       {
         src: "/images/field-work/planting-team-greenexpert-v2.webp",
+        shape: "tall",
         alt: "Deux jardiniers en uniforme bleu Greenexpert travaillent dans un massif de fleurs",
         caption: "Planter les bordures fleuries",
         sourceLabel: "Espaces verts d’un équipement collectif",
@@ -231,6 +234,7 @@ export const serviceGalleries: Record<string, ServiceGalleryData> = {
       },
       {
         src: "/images/field-work/planting-team-greenexpert-v2.webp",
+        shape: "tall",
         alt: "Jardiniers en tenue bleue Greenexpert travaillant la terre en bordure de pelouse",
         caption: "Travailler la terre à la main en bordure de massif",
         sourceLabel: "Espaces verts d’un équipement collectif",
@@ -253,6 +257,7 @@ export const serviceGalleries: Record<string, ServiceGalleryData> = {
       },
       {
         src: "/images/field-work/lawn-care-greenexpert-v2.webp",
+        shape: "tall",
         alt: "Jardinier en tenue bleue Greenexpert poussant une tondeuse sur une pelouse",
         caption: "La tonte des pelouses",
         sourceLabel: "Espaces verts d’un équipement collectif",
@@ -261,6 +266,7 @@ export const serviceGalleries: Record<string, ServiceGalleryData> = {
       },
       {
         src: "/images/field-work/palm-pruning-greenexpert-v2.webp",
+        shape: "tall",
         alt: "Jardinier en uniforme bleu Greenexpert sur une échelle au pied d’un palmier",
         caption: "Le soin des palmiers",
         sourceLabel: "Espaces verts d’un équipement collectif",

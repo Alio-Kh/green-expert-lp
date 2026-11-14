@@ -556,6 +556,11 @@ export const projects: Project[] = [
   },
 ];
 
+// Alt text that names the project, for images shown outside their own caption.
+export function galleryAlt(project: Project, image: GalleryImage) {
+  return `${project.title} : ${image.alt.charAt(0).toLowerCase()}${image.alt.slice(1)}`;
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
