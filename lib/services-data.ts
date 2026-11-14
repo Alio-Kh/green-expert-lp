@@ -33,7 +33,8 @@ export const services: Service[] = [
       "Création de plans personnalisés qui allient esthétique et fonctionnalité",
     longDescription:
       "Chaque jardin est unique. Nos paysagistes conçoivent des plans sur-mesure qui reflètent votre style de vie, s'adaptent à votre terrain et subliment votre architecture. De l'esquisse initiale au rendu 3D, nous donnons vie à votre vision.",
-    heroImage: "/images/projects/quatre-palmiers/vue-ensemble.webp",
+    heroImage: "/images/services/patio-vue-ensemble-uniformes-v2.webp",
+    heroImagePosition: "center 65%",
     benefits: [
       "Étude approfondie du terrain et de l'exposition",
       "Plans 2D et rendus 3D photoréalistes",
@@ -71,7 +72,8 @@ export const services: Service[] = [
       "Solutions d'arrosage intelligentes et économes en eau",
     longDescription:
       "L'eau est précieuse, surtout au Maroc. Nos systèmes d'irrigation automatisés et pilotés par capteurs garantissent un arrosage précis, adaptent l’apport d’eau aux besoins de chaque zone et préservent la santé de votre jardin, même en votre absence.",
-    heroImage: "/images/services/irrigation/arroseurs-pelouse.webp",
+    heroImage: "/images/services/irrigation/aspersion-jardin-documentaire-v1.webp",
+    heroImagePosition: "center 65%",
     benefits: [
       "Arrosage ciblé grâce à la micro-irrigation",
       "Programmation intelligente selon la météo",
@@ -108,7 +110,8 @@ export const services: Service[] = [
     shortDescription: "Mise en valeur nocturne de votre espace vert",
     longDescription:
       "Prolongez la vie de votre jardin après le coucher du soleil. Notre éclairage paysager met en scène vos végétaux, sécurise les circulations et crée des ambiances intimes, tout en respectant l'environnement grâce à la technologie LED basse consommation.",
-    heroImage: "/images/services/allees-nocturne-uniformes-v2.webp",
+    heroImage: "/images/services/eclairage/jardins-ocre-facade-nocturne-v1.webp",
+    heroImagePosition: "center 55%",
     benefits: [
       "Technologie LED basse consommation",
       "Mise en valeur des arbres, massifs et façades",
@@ -185,8 +188,8 @@ export const services: Service[] = [
       "Préparation et modelage du terrain pour vos aménagements",
     longDescription:
       "Avant tout jardin, il y a un terrain à préparer. Nos équipes maîtrisent le nivellement, le drainage, la création de talus et de terrasses pour transformer un sol ingrat en support idéal pour votre futur espace vert.",
-    heroImage: "/images/projects/jardins-ocre/preparation-plantations.webp",
-    heroImagePosition: "center 62%",
+    heroImage: "/images/services/terrassement/excavation-jardin-documentaire-v3.webp",
+    heroImagePosition: "right center",
     benefits: [
       "Nivellement et modelage précis",
       "Création de talus et restanques",

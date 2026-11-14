@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-13",
+  "tool": "Built-in image_gen",
+  "jobs": [
+    {
+      "name": "patio-vue-ensemble-uniformes-v2",
+      "source": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-e8ae5646-d4fd-44b7-b340-1cac01016cc7.png",
+      "references": [
+        "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-e8ae5646-d4fd-44b7-b340-1cac01016cc7.png",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/entretien-jardin-uniforme-v2.webp",
+        "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/logo-wide.png"
+      ],
+      "destination": "public/images/services/patio-vue-ensemble-uniformes-v2.webp",
+      "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET: an existing daytime architectural landscape visualization of a residential courtyard with pool, palm and flower beds. Image 2 is the approved blue Green Expert uniform reference ONLY. Image 3 is the exact company logo reference ONLY. Change ONLY the clothing on every existing human figure in image 1 to consistent navy/slate BLUE jacket and trousers matching image 2, with a thin silver-white reflective stripe across the back and upper arms. Apply the green emblem and exact GREEN EXPERT wordmark on visible upper back surfaces above the stripe, naturally scaled to each distant figure. Do not enlarge people or lettering to force legibility, and do not place back logos on fronts. Retain all people's identities, skin tones, exact positions, seated/standing/walking poses and count. Preserve all architecture, pool, planting, paving, colors, light, shadows, camera angle, image composition and landscape 16:9 framing exactly. Do not redesign, add/remove people or change the garden. Return a single edited landscape image, no collage, no graphic overlays.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-95695fd3-fa01-438a-bb9d-44064b72d9e8.png",
+      "review": "Visually reviewed: all four figures have matching blue uniforms, small green marks on visible backs, and the courtyard composition is retained. The figures are distant; lettering is not legible at thumbnail scale."
+    }
+  ],
+  "reused": {
+    "upload": "/var/folders/75/r_tpsl912js8tmgvb9x48mnm0000gn/T/codex-clipboard-de4b2123-5757-4476-90fb-86df3862cc5e.png",
+    "asset": "public/images/services/promenade-nocturne-uniformes-v2.webp",
+    "note": "Reused the existing uniform-retouched version of the same night visualization; no new generation."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-13",
+  "tool": "Built-in image_gen",
+  "request": "Remove the supplied daytime Patio des Galets image from Éclairage extérieur and add only two or three realistic images. Follow-up: generate night versions of existing project photographs, using different projects.",
+  "finalAssets": [
+    {
+      "name": "jardins-ocre-facade-nocturne-v1",
+      "source": "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/facade-jardin.webp",
+      "caption": "Révéler la façade et les plantations",
+      "destination": "public/images/services/eclairage/jardins-ocre-facade-nocturne-v1.webp",
+      "prompt": "Use case: lighting-weather. Edit the provided project photograph into a highly realistic NIGHT photograph of exactly the same existing garden. Input image 1 is the edit target and is authoritative for every building, tree, plant bed, ground surface, dimension, camera position and framing. Preserve the garden and architectural identity exactly: ochre stucco texture, dark carved Moroccan arches, green tile roofs, window divisions and curtains, imperfect lawn and existing planting. Change only time of day and introduce a restrained, physically plausible proposed exterior lighting installation. Use small discreet matte dark-bronze spike spotlights concealed at planting-bed edges with believable electrical installation hidden underground. Photographic realism with coherent falloff, genuine shadowed areas, fine natural surface detail and camera noise, no CGI, no glossy render, no HDR halos, no fake volumetric beams, no fog, no flares, no glitter, no stars or giant moon, no surreal purple sky, no oversaturated orange wall, no glowing grass. Night lights warm 2700–3000K, balanced against cooler dim sky. No people, no furniture, no extra architecture, no new paths, no rearranged trees, no text, watermarks or logos. Landscape 3:2 at least1536x1024, retain source angle and field of view. The result is an illustrative lighting proposal, visually like a careful professional on-location photograph.\nSpecific scene: preserve the entire façade with its three arches, low garden beds, large foreground lawn and the round-canopy trees at right. Photograph during the last part of blue hour, after sunset: sky deep muted slate blue, not daylight. About four modest low spotlights within the existing bed wash selected silver foliage, the conical shrub and the broad leaves near the porch. Gentle warm indirect light grazes just a few vertical portions of the ochre facade; do not floodlight the whole wall uniformly. A little interior warmth diffuses through the existing curtains, preserving their texture. The right-side trees have restrained upward highlights from small fixtures, with real unlit portions. Foreground lawn is visibly darker with natural texture and unevenness retained. An inviting believable garden night, not an illuminated hotel advertisement.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-088c6238-0f72-4f2b-8692-d4b8c40014be.png"
+    },
+    {
+      "name": "ministere-allee-yuccas-nocturne-v1",
+      "caption": "Baliser une allée entre les plantations",
+      "source": "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/ministere-education-rabat/allee-yuccas.webp",
+      "destination": "public/images/services/eclairage/ministere-allee-yuccas-nocturne-v1.webp",
+      "prompt": "Use case: lighting-weather. Edit input image 1, the authoritative source photograph of an EXISTING Moroccan garden, into a convincing night photograph of precisely that place. Preserve the original camera viewpoint, perspective, all building/window shapes, material textures, plant identities and locations, pots, borders and paths. Preserve real wear and imperfections. Only change time of day and add a few discreet plausible garden luminaires with restrained warm 2700–3000K light. Lighting must have realistic inverse falloff and dark unlit areas; fine natural photo texture, honest detail, subtle sensor grain, no CGI, HDR, glowing surfaces, glossy render or theatre lighting. No sunlight, no giant moon or stars, no volumetric beams, fog, lens flare, people, extra buildings, new planting or new furniture, no text or watermarks. Keep this a photographic lighting proposal based on the actual source, not a redesigned garden. Source framing and aspect ratio should be preserved. Leave enough scene visibility for a website gallery, don't make an unreadable black image.\nPreserve exactly the straight worn-stone walkway in the middle, palm trunk in the right foreground, spiky yuccas and terracotta planter at left, patchy lawn, small clipped trees at right, white facade with windows and green-tile ledges, tan stone base and the existing green-and-white zellige basin on the left. It is now early night after dusk. Place two modest dark 35cm bollard lamps tucked just beyond the low border along the walkway at different distances, with fully shielded downward light, producing small warm patches on worn stone and leaving the path between them dim but readable. A small unobtrusive ground spotlight picks up part of the right palm trunk, and a subtle light beneath one yucca illuminates its rough trunk and some leaves. The walls stay mostly dark neutral gray, windows largely unlit. Keep the basin as it is in the source, do not fill or redesign it. Realistic weathered garden materials, understated local shadows, no glowing path outlines or overdramatic contrast. Medium-wide eye-level documentary photograph, preserve original source framing.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-c5ea2922-e96d-4daa-998a-e757120c608c.png"
+    }
+  ],
+  "provenance": "Two proposed night-lighting simulations derived from existing project photographs, which were already AI-retouched. These do not document installed lighting or actual night photography.",
+  "sourceProjects": [
+    {
+      "title": "Les Jardins d’Ocre",
+      "slug": "jardins-ocre",
+      "source": "public/images/projects/jardins-ocre/facade-jardin.webp"
+    },
+    {
+      "title": "Les Jardins du Ministère",
+      "slug": "entretien-ministere-education-rabat",
+      "source": "public/images/projects/ministere-education-rabat/allee-yuccas.webp"
+    }
+  ],
+  "earlierUnselectedAssets": [
+    {
+      "name": "jardins-ocre-topiaires-nocturne-v1",
+      "source": "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/perspective-topiaires.webp",
+      "caption": "Mettre en lumière les arbres taillés",
+      "destination": "public/images/services/eclairage/jardins-ocre-topiaires-nocturne-v1.webp",
+      "prompt": "Use case: lighting-weather. Edit the provided project photograph into a highly realistic NIGHT photograph of exactly the same existing garden. Input image 1 is the edit target and is authoritative for every building, tree, plant bed, ground surface, dimension, camera position and framing. Preserve the garden and architectural identity exactly: ochre stucco texture, dark carved Moroccan arches, green tile roofs, window divisions and curtains, imperfect lawn and existing planting. Change only time of day and introduce a restrained, physically plausible proposed exterior lighting installation. Use small discreet matte dark-bronze spike spotlights concealed at planting-bed edges with believable electrical installation hidden underground. Photographic realism with coherent falloff, genuine shadowed areas, fine natural surface detail and camera noise, no CGI, no glossy render, no HDR halos, no fake volumetric beams, no fog, no flares, no glitter, no stars or giant moon, no surreal purple sky, no oversaturated orange wall, no glowing grass. Night lights warm 2700–3000K, balanced against cooler dim sky. No people, no furniture, no extra architecture, no new paths, no rearranged trees, no text, watermarks or logos. Landscape 3:2 at least1536x1024, retain source angle and field of view. The result is an illustrative lighting proposal, visually like a careful professional on-location photograph.\nSpecific scene: keep the existing round-canopy topiary on its circular shrub island near centre-right, the other topiary trees at distance, glass fence at right and ochre building at left exactly as in the input. Make it a real early-night garden portrait, sky deep desaturated navy with a trace of twilight near horizon. One small low spotlight in the island illuminates the near side of the main tree's pale branching trunks and the underside of some canopy, while the upper/far leaves remain softly dark. A second discreet low fixture picks up one background tree. Subtle reflected warm light on the shrub edges, authentic diminishing intensity, glass fence has only faint local reflections. Building lighting to the left faintly follows the same warm scheme, without decorative strips. Keep large lawn quiet and dark yet discernible; no regular row of lamps or artificial pools across it. Preserve the original wide view, neither zoom nor change trees.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-f1fa2ad0-e40c-4c27-9b68-ca5fd9c79ffd.png",
+      "status": "Not integrated after the user requested images from different projects. Generated original preserved."
+    },
+    {
+      "name": "jardins-ocre-cour-nocturne-v1",
+      "source": "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/jardins-ocre/cour-fleurie.webp",
+      "caption": "Créer une ambiance douce autour des massifs",
+      "destination": "public/images/services/eclairage/jardins-ocre-cour-nocturne-v1.webp",
+      "prompt": "Use case: lighting-weather. Edit the provided project photograph into a highly realistic NIGHT photograph of exactly the same existing garden. Input image 1 is the edit target and is authoritative for every building, tree, plant bed, ground surface, dimension, camera position and framing. Preserve the garden and architectural identity exactly: ochre stucco texture, dark carved Moroccan arches, green tile roofs, window divisions and curtains, imperfect lawn and existing planting. Change only time of day and introduce a restrained, physically plausible proposed exterior lighting installation. Use small discreet matte dark-bronze spike spotlights concealed at planting-bed edges with believable electrical installation hidden underground. Photographic realism with coherent falloff, genuine shadowed areas, fine natural surface detail and camera noise, no CGI, no glossy render, no HDR halos, no fake volumetric beams, no fog, no flares, no glitter, no stars or giant moon, no surreal purple sky, no oversaturated orange wall, no glowing grass. Night lights warm 2700–3000K, balanced against cooler dim sky. No people, no furniture, no extra architecture, no new paths, no rearranged trees, no text, watermarks or logos. Landscape 3:2 at least1536x1024, retain source angle and field of view. The result is an illustrative lighting proposal, visually like a careful professional on-location photograph.\nSpecific scene: preserve the enclosed flowered courtyard, tall ochre walls, curved bed sweeping from left foreground into the corner, round tree, silver foliage, small flowers, lawn and the three-arched glazing at right. View at late blue hour, darker than daylight: muted deep blue-gray strip of sky. Three small carefully shielded garden spotlights nestled in the existing bed illuminate separate groups of foliage at different distances: the near silver leaves, the round tree trunk and a few broad leaves near the rear wall. Lights must not look like floating glowing bulbs; show only discreet housings where visible and realistic warm light on actual plants. Soft localized leaf shadows fall on the stucco wall, some diffuse reflected light gives depth; upper walls remain naturally dim. Faint interior light behind only part of the existing curtains on the right. Leave the lawn dark and calm with visible real texture. Avoid evenly lit glowing wall, continuous LED edging, neon green leaves or theatrical beams.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-2964700d-b783-4406-906c-564833b2baa5.png",
+      "status": "Not integrated after the user requested images from different projects. Generated original preserved."
+    },
+    {
+      "name": "patio-galets-allee-nocturne-v1",
+      "caption": "Guider le regard dans un patio végétal",
+      "source": "/Users/ali-khyatti/Documents/Green Expert/green-expert-lp/public/images/projects/patio-des-galets/allee-minerale.webp",
+      "destination": "public/images/services/eclairage/patio-galets-allee-nocturne-v1.webp",
+      "prompt": "Use case: lighting-weather. Edit input image 1, the authoritative source photograph of an EXISTING Moroccan garden, into a convincing night photograph of precisely that place. Preserve the original camera viewpoint, perspective, all building/window shapes, material textures, plant identities and locations, pots, borders and paths. Preserve real wear and imperfections. Only change time of day and add a few discreet plausible garden luminaires with restrained warm 2700–3000K light. Lighting must have realistic inverse falloff and dark unlit areas; fine natural photo texture, honest detail, subtle sensor grain, no CGI, HDR, glowing surfaces, glossy render or theatre lighting. No sunlight, no giant moon or stars, no volumetric beams, fog, lens flare, people, extra buildings, new planting or new furniture, no text or watermarks. Keep this a photographic lighting proposal based on the actual source, not a redesigned garden. Source framing and aspect ratio should be preserved. Leave enough scene visibility for a website gallery, don't make an unreadable black image.\nPreserve the exact circular stepping stones curving from the foreground into the narrow white-walled patio, cream gravel, blue ceramic pots, palms, tall paired trunks at right and wood-framed glazing at left. Create a quiet late-evening atmosphere with cool dim ambient light from the open sky above. Three small shielded dark bronze pathway lamps, only about 20cm tall and partly concealed at planting edges, cast modest warm pools onto selected stepping stones; do not illuminate every stone identically. One discreet ground spotlight gently lights the central palm trunk and a small portion of fronds. A little warm indoor light visible through the existing glazing on the right; existing table and chairs unchanged. White walls remain muted cool gray with soft leaf shadows near the plants, not flooded amber. Real pebbles and leaf veins stay crisp, no glowing plants or continuous LED strip. A calm photographic night scene with depth and subtle contrast.",
+      "generated": "/Users/ali-khyatti/.codex/generated_images/01a1d60a-f5d2-7a02-9f62-f0653d3766c3/exec-36fd107d-87d8-4246-814c-a4f575a2b092.png",
+      "status": "Removed from the service gallery at the user’s request because the Patio des Galets project will be removed. Asset retained, not used."
+    }
+  ],
+  "removedFromServiceGallery": [
+    "/images/projects/patio-des-galets/massif-angle.webp",
+    "/images/services/eclairage/patio-galets-allee-nocturne-v1.webp"
+  ],
+  "retainedExistingGalleryImages": [
+    "/images/services/allees-nocturne-uniformes-v2.webp",
+    "/images/services/promenade-nocturne-uniformes-v2.webp"
+  ],
+  "processing": "WebP encoding at quality 88 and orientation only; no content edits outside image_gen. Generated originals and all project assets retained.",
+  "reviewNotes": [
+    "Compared outputs against their reference photographs: architecture, paths, plant placements, pots and material details remain recognizable.",
+    "Selected two different project settings: ochre villa facade and stone garden walkway.",
+    "Warm localized lighting and dark unlit areas retained, without visible beams or glowing lawn.",
+    "No people appear in the two selected source/output images; no uniform edits needed.",
+    "The Jardins d’Ocre facade leads the gallery and is the new service hero.",
+    "The Ministère project and its source assets already existed in the current working tree; this task does not edit that project data."
+  ],
+  "excludedProjects": [
+    {
+      "slug": "patio-des-galets",
+      "reason": "User stated this project will be removed and asked not to use its night image. All service-gallery references to the project were removed, including the Plantation border photograph."
+    }
+  ]
+}
